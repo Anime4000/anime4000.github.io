@@ -1,0 +1,64 @@
+/* latin */
+@font-face {
+	font-family: 'Droid Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Droid Sans'), local('DroidSans'), url(fonts/droid_sans400.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+	font-family: 'Droid Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(fonts/droid_sans700.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	font-family: 'Droid Sans';
+	color: #FFF;
+	text-shadow: 0 0 5px #000;
+}
+
+a, a:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 4vw;
+}
+
+h2 {
+	font-size: 2vw;
+}
+
+span {
+	font-family: 'Droid Sans';
+}
+
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(sky.jpg) no-repeat;
+    background-size: cover; 
+}
+
+.portleft {
+	padding: 0 2% 0 2%;
+	margin: 0 2% 0 2%;
+}
