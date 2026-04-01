@@ -1,0 +1,12 @@
+!
+! Custom filter targeting suspicious domains that repeatedly send excessive or non-stop requests, improving privacy and reducing unwanted traffic.
+!
+||fusu.cc^
+||hmdns.top^
+||cfpro.ru^
+||z6r8.com^
+||vtb.com^
+||heimaoip.com^
+||sikelocci.com^
+||v2z.ru^
+||vpnv.shop^
