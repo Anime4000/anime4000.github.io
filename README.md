@@ -14,12 +14,14 @@ Almost everything on the site is data. Change a YAML file, push, done.
 | Programming language ranking            | `_data/languages.yml`    |
 | Favourite anime, characters, voices     | `_data/anime.yml`        |
 | xPON numbers, firmware, timeline        | `_data/pon.yml`          |
+| Network skills, machines, partners      | `_data/network.yml`, `_data/partners.yml` |
 | Communities and social links            | `_data/communities.yml`, `_data/links.yml` |
 | Blog posts shown on the home page       | `_data/writing.yml`      |
 | Top navigation                          | `_data/nav.yml`          |
 | Site title, description, "as of" date   | `_config.yml`            |
 
-Pages are `index.html`, `pon.html`, `projects.html`, `anime.html` and `404.html`.
+Pages are `index.html`, `pon.html`, `projects.html`, `network.html`, `anime.html`
+and `404.html`. The back story on the network page is written in `network.html`.
 Layouts are in `_layouts/`, shared fragments in `_includes/`, and the whole look
 is one stylesheet: `assets/css/main.css`.
 

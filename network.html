@@ -1,0 +1,97 @@
+---
+layout: page
+title: Network
+permalink: /network/
+tone: teal
+eyebrow: Network
+jp: ネットワーク
+heading: From homelab to real infrastructure
+lede: >-
+  I am most at home on MikroTik. What began as a NAS built from a friend's
+  spare parts is now a server in a data centre answering DNS for South East
+  Asia — with one very expensive lesson along the way.
+---
+<section class="section section-tight tone-teal" aria-labelledby="skills-title">
+  <div class="wrap">
+    <div class="split split-even">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-mark"></span>What I work with <span class="jp" lang="ja">／ 得意分野</span></p>
+        <h2 id="skills-title">Network knowledge</h2>
+        <ul class="likes">
+          {% for skill in site.data.network.skills %}
+          <li><strong>{{ skill.name }}</strong> — {{ skill.desc }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow"><span class="eyebrow-mark"></span>The machines <span class="jp" lang="ja">／ 機材</span></p>
+        <h2>Where it runs</h2>
+        <ul class="rack">
+          {% for box in site.data.network.rack %}
+          <li>
+            <p class="rack-where">{{ box.where }}</p>
+            <div>
+              <h3>{{ box.name }}</h3>
+              <p class="rack-spec">{{ box.spec }}</p>
+              <p class="rack-desc">{{ box.desc }}</p>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include fibre.html %}
+
+<section class="section tone-russet" id="lesson" aria-labelledby="lesson-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Back story <span class="jp" lang="ja">／ 高い授業料</span></p>
+    <h2 id="lesson-title">An expensive lesson</h2>
+    <div class="story">
+      <p>
+        My friend Kevin wanted to peer under Perfect. He has his own /48 of IPv6 and a /24
+        of IPv4, so I went to update the BGP router at CJ1.
+      </p>
+      <p>
+        MikroTik has a quirk: the filter has to be set first. I did not know that.
+        The network went dark.
+      </p>
+      <p>
+        Emergency. Panic. Then I remembered a customer — one I resell Perfect Network's
+        dedicated L2 internet access to — who also has ten Unifi lines installed. I asked to
+        borrow a remote PC on their side, logged in to Perfect's BGP router from there, and
+        fixed the mistake in under thirty minutes.
+      </p>
+      <p>
+        What came to the rescue was not a command. It was thinking clearly enough to
+        remember who had plenty of other internet lines.
+      </p>
+      <blockquote class="pullquote">
+        <p>
+          No school or university teaches this. Understanding BGP, and the experience that
+          comes with it, is the most expensive lesson there is.
+        </p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-teal" id="partners" aria-labelledby="partners-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Partners <span class="jp" lang="ja">／ 仲間</span></p>
+    <h2 id="partners-title">Partners and friends</h2>
+    <p class="lede narrow">None of this runs on one person. These are the people who lend the hardware, the rack space and the knowledge.</p>
+    <div class="grid grid-3 partners">
+      {% for partner in site.data.partners %}
+      <article class="card place tone-{{ partner.tone }}">
+        <p class="project-role">{{ partner.place }}</p>
+        <h3><a class="card-link" href="{{ partner.url }}" rel="noopener">{{ partner.name }}</a></h3>
+        <p class="project-desc">{{ partner.desc }}</p>
+        <span class="go" aria-hidden="true">↗</span>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

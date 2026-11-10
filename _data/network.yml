@@ -1,0 +1,31 @@
+# What I work with.
+skills:
+  - name: MikroTik RouterOS
+    desc: The platform I am most proficient on, quirks included.
+  - name: BGP
+    desc: Peering and filters on a real ASN. Learned the expensive way.
+  - name: PON
+    desc: GPON and XGS-PON, down to the firmware on the stick.
+  - name: DNS
+    desc: Encrypted DNS, DNSSEC and a recursive resolver that asks the root itself.
+  - name: IPv6
+    desc: IPv6-only networks with DNS64, NAT64 and 464XLAT.
+  - name: Monitoring
+    desc: Prometheus and Grafana, laid out like an ISP's NOC.
+
+# From homelab to real infrastructure.
+rack:
+  - where: Home
+    name: The NAS
+    spec: Ryzen 3200G · 64GB RAM · SFP28 NIC · 9 × 8TB
+    desc: Where the homelab began, built from parts a friend in Osaka gave me.
+  - where: Cyberjaya
+    name: The server
+    spec: Ryzen 5900X · 128GB ECC RAM
+    desc: >-
+      Hosted at Perfect's data centre. Runs ΕΛΠΙΣ DNS and its resolver, game
+      servers, websites, VPN and VPS.
+  - where: Singapore
+    name: The Proxmox host
+    spec: Lent by a friend
+    desc: Home of the modded Left 4 Dead 2 server since 2020.
