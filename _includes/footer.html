@@ -1,0 +1,19 @@
+<footer class="site-footer">
+  <div class="wrap site-footer-inner">
+    <div class="footer-brand">
+      <a class="footer-moe" href="https://www.hitoha.moe/" rel="noopener" aria-label="hitoha.moe — the blog">
+        <span class="footer-moe-text">hitoha</span><img src="{{ '/moetld.png' | relative_url }}" width="106" height="34" alt=".moe" loading="lazy">
+      </a>
+      <p>Another Anime4000 project, with love, Hitoha 「ひとは」</p>
+    </div>
+    <ul class="footer-links">
+      {% for link in site.data.links %}
+      <li><a href="{{ link.url }}" rel="me noopener">{{ link.name }}</a></li>
+      {% endfor %}
+    </ul>
+    <p class="footer-note">
+      Built with Jekyll, hosted on GitHub Pages. No trackers, no cookies, no web fonts.
+      The mascot is Hitoha Marui from <span lang="ja">みつどもえ</span>.
+    </p>
+  </div>
+</footer>

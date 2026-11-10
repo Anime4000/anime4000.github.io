@@ -1,0 +1,51 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+tone: blue
+eyebrow: Projects
+jp: プロジェクト
+heading: Everything I build and look after
+lede: >-
+  Firmware for fibre sticks, a video encoder, a public DNS service, a forum, a
+  few game mods and the odd guide. Most of it is open source.
+---
+{% for category in site.data.categories %}
+{% assign items = site.data.projects | where: "category", category.id %}
+{% if items.size > 0 %}
+<section class="section section-tight tone-{{ category.tone }}" id="{{ category.id }}" aria-labelledby="{{ category.id }}-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>{{ items.size }} {% if items.size == 1 %}project{% else %}projects{% endif %} <span class="jp" lang="ja">／ {{ category.jp }}</span></p>
+    <h2 id="{{ category.id }}-title">{{ category.title }}</h2>
+    <div class="grid grid-3">
+      {% for project in items %}
+      {% include project-card.html %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endfor %}
+
+<section class="section section-tight tone-russet" id="archive" aria-labelledby="archive-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Archive <span class="jp" lang="ja">／ 昔のもの</span></p>
+    <h2 id="archive-title">Older utilities</h2>
+    <p class="lede narrow">Small tools from earlier years. Still on GitHub, no longer maintained.</p>
+    <ul class="posts">
+      {% assign old = site.data.archive | sort: "year" | reverse %}
+      {% for item in old %}
+      <li>
+        <a href="{{ item.url }}" rel="noopener">
+          <span class="post-date">{{ item.year }}</span>
+          <span class="post-title">{{ item.name }} <span class="post-desc">{{ item.desc }}</span></span>
+          <span class="post-topic">{{ item.lang }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="actions">
+      <a class="button" href="https://github.com/Anime4000?tab=repositories" rel="noopener">Every repository on GitHub <span aria-hidden="true">↗</span></a>
+    </p>
+  </div>
+</section>

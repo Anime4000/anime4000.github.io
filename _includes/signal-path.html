@@ -1,0 +1,12 @@
+{% comment %}
+  The last mile, drawn as the four hops a subscriber's traffic takes.
+{% endcomment %}
+<ol class="signal-path">
+  {% for hop in site.data.pon.path %}
+  <li class="hop{% if hop.open %} hop-open{% endif %}">
+    <span class="hop-owner">{{ hop.owner }}</span>
+    <strong class="hop-name">{{ hop.name }}</strong>
+    <span class="hop-desc">{{ hop.desc }}</span>
+  </li>
+  {% endfor %}
+</ol>

@@ -1,0 +1,32 @@
+# Site settings -------------------------------------------------------------
+title: Anime4000
+title_jp: ひとは☆もえ
+tagline: Anime Programming
+description: >-
+  Anime4000 (Hitoha) — otaku, programmer and network tinkerer. Leading RTL960x
+  xPON hacking, founder of Open PON Foundation and Pururin Collective, author of
+  IFME.
+author: Anime4000
+lang: en
+url: https://anime4000.github.io
+baseurl: ""
+
+# Facts that go stale. Update the numbers and the date together.
+stats_as_of: November 2026
+
+# Build ---------------------------------------------------------------------
+permalink: pretty
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .claude
+
+# Legacy pages below are plain static files (no front matter), so Jekyll copies
+# them through untouched and their old URLs keep working:
+#   adguard.txt, curecomp/, hitoha/, lewd4dead/, images/, google*.html

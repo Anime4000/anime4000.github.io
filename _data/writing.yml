@@ -1,0 +1,29 @@
+# A hand-picked slice of the blog at hitoha.moe. Newest first.
+- title: Open PON Foundation — An Open Last Mile
+  date: 8 Sep 2026
+  topic: Networking
+  url: https://www.hitoha.moe/open-pon-foundation-an-open-last-mile/
+- title: Pururin DNS Recursive (IPv6 Only)
+  date: 1 Aug 2026
+  topic: DNS
+  url: https://www.hitoha.moe/pururin-collective-dns-recursive/
+- title: Pururin Collective — A New Community Hub is Now Open
+  date: 25 May 2026
+  topic: Community
+  url: https://www.hitoha.moe/pururin-collective-a-new-community-hub-is-now-open/
+- title: Let's build DNS64 + NAT64 (464XLAT Host Side)
+  date: 17 Apr 2026
+  topic: IPv6
+  url: https://www.hitoha.moe/lets-build-dns64-nat64/
+- title: Build a Home / Business NOC Monitoring Dashboard
+  date: 14 Mar 2026
+  topic: Monitoring
+  url: https://www.hitoha.moe/nijika-gpon-grafana-prometheus/
+- title: If You Wanna Have Fun (Malay Eurodance)
+  date: 10 Jan 2026
+  topic: Music
+  url: https://www.hitoha.moe/if-you-wanna-have-fun-malay-eurodance/
+- title: Proper NAT Loopback on Mikrotik
+  date: 25 Aug 2025
+  topic: MikroTik
+  url: https://www.hitoha.moe/proper-nat-loopback-on-mikrotik/

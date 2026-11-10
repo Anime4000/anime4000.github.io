@@ -1,0 +1,25 @@
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — home">
+      <span class="brand-jp" lang="ja">{{ site.title_jp }}</span>
+      <span class="brand-en">{{ site.title }}</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        {% for item in site.data.nav %}
+        <li>
+          {% if item.external %}
+          <a href="{{ item.url }}" rel="noopener">{{ item.title }}<span class="ext" aria-hidden="true">↗</span></a>
+          {% else %}
+          <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch between light and dark theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/></g></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a.6.6 0 0 0-.8-.7 9.8 9.8 0 1 0 12.3 12.3.6.6 0 0 0-.7-.8z"/></svg>
+    </button>
+  </div>
+</header>

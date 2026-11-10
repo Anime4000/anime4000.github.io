@@ -1,0 +1,38 @@
+- name: Open PON Foundation
+  role: Founder · lead for RTL960x GPON
+  desc: >-
+    Developers, testers and reverse engineers across four continents, working
+    in the open on firmware for GPON and XGS-PON.
+  url: https://www.openpon.org/
+  tone: yellow
+- name: Pururin Collective
+  role: Founder
+  desc: >-
+    プルプル・プルリン Collective! — a forum for anime, technology, gaming,
+    homelab and internet culture. Also home to ΕΛΠΙΣ DNS.
+  url: https://pururin.moe/index.php
+  tone: pink
+- name: Lowyat.NET
+  role: Active in Networks and Broadband
+  desc: >-
+    Malaysia's biggest tech forum. Fibre, routers, IPv6 and how to get more
+    out of the line you already pay for.
+  url: https://forum.lowyat.net/NetworksandBroadband
+  tone: blue
+- name: Discord
+  role: Pururin Collective server
+  desc: Join the server — chat, share, get crazy together.
+  url: https://discord.gg/aw8pt2SWnv
+  tone: teal
+- name: Steam
+  role: Member since 2008
+  desc: >-
+    Left 4 Dead 2 with friends, the Lewd 4 Dead group, and a soft spot for
+    Company of Heroes and Red Alert.
+  url: https://steamcommunity.com/id/Anime4000
+  tone: blue
+- name: GitHub
+  role: "@Anime4000"
+  desc: Where the code and the issue threads live.
+  url: https://github.com/Anime4000
+  tone: yellow

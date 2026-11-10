@@ -1,0 +1,25 @@
+# Order here is the order of the groups on /projects/.
+- id: pon
+  title: xPON and fibre
+  jp: 光回線
+  tone: yellow
+- id: media
+  title: Media and encoding
+  jp: エンコード
+  tone: blue
+- id: network
+  title: Network services
+  jp: ネットワーク
+  tone: teal
+- id: community
+  title: Community
+  jp: コミュニティ
+  tone: teal
+- id: ai
+  title: A.I.
+  jp: 人工知能
+  tone: pink
+- id: games
+  title: Games and mods
+  jp: ゲーム
+  tone: pink

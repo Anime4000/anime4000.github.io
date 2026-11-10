@@ -1,0 +1,111 @@
+# Mirrors the favourites on https://myanimelist.net/profile/Anime4000
+# Order is the order on the profile.
+
+stats:
+  completed: 31
+  episodes: 673
+  entries: 124
+  mean_score: "9.98"
+
+series:
+  - title: Bocchi the Rock!
+    jp: ぼっち・ざ・ろっく！
+    year: 2022
+    url: https://myanimelist.net/anime/47917/Bocchi_the_Rock
+  - title: Yuru Yuri
+    jp: ゆるゆり
+    year: 2011
+    url: https://myanimelist.net/anime/10495/Yuru_Yuri
+  - title: Mitsudomoe
+    jp: みつどもえ
+    year: 2010
+    url: https://myanimelist.net/anime/7627/Mitsudomoe
+    note: Where the name Hitoha comes from.
+  - title: Mahou Shoujo ni Akogarete
+    jp: 魔法少女にあこがれて
+    year: 2024
+    url: https://myanimelist.net/anime/54722/Mahou_Shoujo_ni_Akogarete
+  - title: Watashi ni Tenshi ga Maiorita!
+    jp: 私に天使が舞い降りた！
+    year: 2019
+    url: https://myanimelist.net/anime/37993/Watashi_ni_Tenshi_ga_Maiorita
+  - title: Girls & Panzer
+    jp: ガールズ&パンツァー
+    year: 2012
+    url: https://myanimelist.net/anime/14131/Girls___Panzer
+  - title: High School Fleet
+    jp: ハイスクール・フリート
+    year: 2016
+    url: https://myanimelist.net/anime/31500/High_School_Fleet
+  - title: Aho Girl
+    jp: アホガール
+    year: 2017
+    url: https://myanimelist.net/anime/34881/Aho_Girl
+  - title: Sora no Otoshimono
+    jp: そらのおとしもの
+    year: 2009
+    url: https://myanimelist.net/anime/5958/Sora_no_Otoshimono
+  - title: Cardcaptor Sakura
+    jp: カードキャプターさくら
+    year: 1998
+    url: https://myanimelist.net/anime/232/Cardcaptor_Sakura
+
+characters:
+  - name: Nijika Ijichi
+    jp: 伊地知虹夏
+    from: Bocchi the Rock!
+    url: https://myanimelist.net/character/206277/Nijika_Ijichi
+    note: The NIJIKA firmware is named after her.
+  - name: Sakurako Oomuro
+    jp: 大室櫻子
+    from: Yuru Yuri
+    url: https://myanimelist.net/character/35878/Sakurako_Oomuro
+  - name: Himawari Furutani
+    jp: 古谷向日葵
+    from: Yuru Yuri
+    url: https://myanimelist.net/character/35879/Himawari_Furutani
+  - name: Rise Matsumoto
+    jp: 松本りせ
+    from: Yuru Yuri
+    url: https://myanimelist.net/character/45531/Rise_Matsumoto
+  - name: Hitoha Marui
+    jp: 丸井ひとは
+    from: Mitsudomoe
+    url: https://myanimelist.net/character/31765/Hitoha_Marui
+    note: The face of this site.
+  - name: Shiina Murakami
+    jp: 村上椎奈
+    from: Stella no Mahou
+    url: https://myanimelist.net/character/137472/Shiina_Murakami
+  - name: Yun Iijima
+    jp: 飯島ゆん
+    from: New Game!
+    url: https://myanimelist.net/character/129073/Yun_Iijima
+  - name: Sayo Minakami
+    jp: 水神小夜
+    from: Mahou Shoujo ni Akogarete
+    url: https://myanimelist.net/character/236481/Sayo_Minakami
+  - name: Sakura Kinomoto
+    jp: 木之本桜
+    from: Cardcaptor Sakura
+    url: https://myanimelist.net/character/2671/Sakura_Kinomoto
+
+voices:
+  - name: Emiri Katou
+    jp: 加藤英美里
+    url: https://myanimelist.net/people/52/Emiri_Katou
+  - name: Sayumi Suzushiro
+    jp: 鈴代紗弓
+    url: https://myanimelist.net/people/48122/Sayumi_Suzushiro
+  - name: Manaka Iwami
+    jp: 石見舞菜香
+    url: https://myanimelist.net/people/44317/Manaka_Iwami
+  - name: Saori Hayami
+    jp: 早見沙織
+    url: https://myanimelist.net/people/869/Saori_Hayami
+
+manga:
+  - title: Koi wa Ii kara Nemuritai!
+    jp: 恋はいいから眠りたい！
+    year: 2019
+    url: https://myanimelist.net/manga/130951/Koi_wa_Ii_kara_Nemuritai

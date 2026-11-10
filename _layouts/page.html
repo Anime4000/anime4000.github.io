@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<header class="page-head tone-{{ page.tone | default: 'pink' }}">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>{{ page.eyebrow | default: page.title }}{% if page.jp %} <span class="jp" lang="ja">／ {{ page.jp }}</span>{% endif %}</p>
+    <h1>{{ page.heading | default: page.title }}</h1>
+    {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+  </div>
+</header>
+{{ content }}
