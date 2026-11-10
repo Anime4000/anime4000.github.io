@@ -1,0 +1,79 @@
+---
+layout: page
+title: Anime
+permalink: /anime/
+tone: pink
+eyebrow: Anime
+jp: お気に入り
+heading: I love anime, cute anime girls. I do write computer code.
+lede: >-
+  My favourites, kept in step with my MyAnimeList profile. Mostly comedy, mostly
+  cute girls doing cute things, with the occasional tank and warship.
+---
+{% assign anime = site.data.anime %}
+<section class="section section-tight tone-pink" aria-labelledby="series-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Top {{ anime.series | size }} <span class="jp" lang="ja">／ アニメ</span></p>
+    <h2 id="series-title">Favourite anime</h2>
+    <ol class="anime-list">
+      {% for show in anime.series %}
+      <li>
+        <a href="{{ show.url }}" rel="noopener">
+          <span class="anime-jp" lang="ja">{{ show.jp | escape }}</span>
+          <span class="anime-en">{{ show.title | escape }} <span class="anime-year">{{ show.year }}</span></span>
+          {% if show.note %}<span class="anime-note">{{ show.note }}</span>{% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+    <dl class="stats">
+      <div class="stat"><dt>completed</dt><dd>{{ anime.stats.completed }}</dd></div>
+      <div class="stat"><dt>episodes watched</dt><dd>{{ anime.stats.episodes }}</dd></div>
+      <div class="stat"><dt>on the list</dt><dd>{{ anime.stats.entries }}</dd></div>
+      <div class="stat"><dt>mean score</dt><dd>{{ anime.stats.mean_score }}</dd></div>
+    </dl>
+    <p class="fineprint">From <a href="https://myanimelist.net/profile/Anime4000" rel="noopener">myanimelist.net/profile/Anime4000</a>, as of {{ site.stats_as_of }}.</p>
+  </div>
+</section>
+
+<section class="section tone-pink" aria-labelledby="characters-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>{{ anime.characters | size }} characters <span class="jp" lang="ja">／ キャラクター</span></p>
+    <h2 id="characters-title">Favourite characters</h2>
+    <ul class="grid grid-3 people">
+      {% for who in anime.characters %}
+      <li class="card person">
+        <p class="person-jp" lang="ja">{{ who.jp }}</p>
+        <h3><a class="card-link" href="{{ who.url }}" rel="noopener">{{ who.name }}</a></h3>
+        <p class="person-from">{{ who.from }}</p>
+        {% if who.note %}<p class="person-note">{{ who.note }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section tone-pink" aria-labelledby="voices-title">
+  <div class="wrap">
+    <div class="split split-even">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-mark"></span>Voices <span class="jp" lang="ja">／ 声優</span></p>
+        <h2 id="voices-title">Favourite voice actresses</h2>
+        <ul class="plain-list">
+          {% for who in anime.voices %}
+          <li><a href="{{ who.url }}" rel="noopener"><span lang="ja">{{ who.jp }}</span> <span class="quiet">{{ who.name }}</span></a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow"><span class="eyebrow-mark"></span>Manga <span class="jp" lang="ja">／ 漫画</span></p>
+        <h2>Favourite manga</h2>
+        <ul class="plain-list">
+          {% for book in anime.manga %}
+          <li><a href="{{ book.url }}" rel="noopener"><span lang="ja">{{ book.jp }}</span> <span class="quiet">{{ book.title }} · {{ book.year }}</span></a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

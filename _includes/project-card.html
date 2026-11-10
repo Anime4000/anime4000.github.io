@@ -1,0 +1,20 @@
+{% comment %}
+  Expects `project` (an entry of _data/projects.yml) to be assigned by the caller.
+{% endcomment %}
+<article class="card project tone-{% case project.category %}{% when 'pon' %}yellow{% when 'media' %}blue{% when 'network' %}teal{% when 'community' %}teal{% else %}pink{% endcase %}">
+  <header class="project-head">
+    <p class="project-role">{{ project.role }}</p>
+    <h3>
+      <a class="card-link" href="{{ project.url }}" rel="noopener">{{ project.name }}</a>
+    </h3>
+    {% if project.full_name %}<p class="project-full">{{ project.full_name }}</p>{% endif %}
+  </header>
+  <p class="project-desc">{{ project.desc }}</p>
+  <footer class="project-meta">
+    <span>{{ project.lang }}</span>
+    {% if project.stars %}
+    <span class="stars" title="GitHub stars"><span aria-hidden="true">★</span> <span{% if project.repo %} data-gh-stars="{{ project.repo }}"{% endif %}>{{ project.stars }}</span><span class="visually-hidden"> GitHub stars</span></span>
+    {% endif %}
+    <span class="go" aria-hidden="true">↗</span>
+  </footer>
+</article>

@@ -1,0 +1,32 @@
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if page.title %}{% assign page_title = page.title | append: ' · ' | append: site.title %}{% else %}{% assign page_title = site.title | append: ' · ' | append: site.title_jp | append: ' — ' | append: site.tagline %}{% endif %}
+  {% assign page_desc = page.description | default: page.lede | default: site.description | strip_html | strip_newlines %}
+  <title>{{ page_title | escape }}</title>
+  <meta name="description" content="{{ page_desc | escape }}">
+  <meta name="author" content="{{ site.author | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_desc | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/hitoha.png' | absolute_url }}">
+  <meta name="twitter:card" content="summary">
+
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7f0e6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16131a" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="{{ '/hitoha.ico' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/hitoha.png' | relative_url }}">
+  <link rel="me" href="https://github.com/Anime4000">
+
+  <script>
+    /* Apply a saved theme before first paint so the page never flashes. */
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">

@@ -1,0 +1,117 @@
+# Numbers from github.com/Anime4000/RTL960x and openpon.org.
+# Update together with `stats_as_of` in _config.yml.
+stats:
+  - value: "1,068"
+    label: GitHub stars on RTL960x
+    repo: Anime4000/RTL960x
+  - value: "19"
+    label: countries with working deployments
+  - value: "14"
+    label: contributors credited by name
+  - value: "4"
+    label: open firmware projects
+
+path:
+  - name: OLT
+    owner: Operator
+    desc: The ISP's end of the fibre, in the exchange.
+  - name: Splitter
+    owner: Shared
+    desc: One fibre, split passively between you and your neighbours.
+  - name: ONT
+    owner: Yours
+    desc: The box on your wall. Closed, locked, rented — this is the part we open.
+    open: true
+  - name: Router
+    owner: Yours
+    desc: Everything from here to your LAN, on hardware you chose.
+
+principles:
+  - title: Openness
+    desc: >-
+      Firmware and protocol knowledge developed in the open, so behaviour can
+      be audited rather than taken on trust.
+  - title: Cross-vendor compatibility
+    desc: >-
+      One stick that speaks to many OLTs. Interoperability is what makes
+      choice real.
+  - title: Ease of access
+    desc: >-
+      Clear guides and tooling that does not demand a lab bench. Knowledge
+      locked inside private forums helps no one.
+  - title: User-owned equipment
+    desc: >-
+      Your ONT is part of your network, not an unremovable extension of the
+      operator's.
+  - title: Privacy
+    desc: >-
+      No vendor cloud and no silent telemetry. Where an operator mandates
+      TR-069, the firmware emulates it and nothing personal leaves.
+
+firmware:
+  - name: NIJIKA
+    tech: GPON
+    chip: RTL960x
+    mine: true
+    desc: Broad OLT compatibility, VEIP, 1GbE to 2.5GbE, Prometheus and Grafana metrics.
+  - name: ZRV OS
+    tech: GPON
+    chip: RTL9602
+    desc: An independent operating system born out of clean-room reverse engineering.
+  - name: "8311"
+    tech: XGS-PON
+    chip: PRX126
+    desc: The reference open firmware for 10G subscriber deployments.
+  - name: CA8271x
+    tech: XGS-PON
+    chip: CA8271x
+    desc: XGS-PON firmware with a focus on Japanese operator interoperability.
+
+timeline:
+  - date: February 2021
+    title: RTL960x goes public
+    desc: >-
+      The repository opens on GitHub to document Realtek GPON SFP sticks such
+      as the V2801F, TWCGPON657 and DFP-34X-2C2.
+  - date: "2022"
+    title: 2.5GbE over a stick
+    desc: >-
+      Contributors report stock ONTs replaced and 2.5GbE links running on
+      real operators, from Italy to TM Unifi in Malaysia.
+  - date: March 2025
+    title: Programmers for everyone
+    desc: >-
+      SFP-Master and IMSProg are ported to Windows, so a cheap CH341a is
+      enough to read and write a stick's EEPROM and flash.
+  - date: March 2026
+    title: A NOC on your desk
+    desc: >-
+      A guide to building an ISP-style NOC dashboard at home with Grafana and
+      Prometheus, fed by metrics from NIJIKA.
+  - date: May 2026
+    title: Pururin Collective opens
+    desc: >-
+      A forum for the informal side — ISP-specific tweaks, experiments and
+      troubleshooting — so GitHub can stay vendor-neutral.
+  - date: September 2026
+    title: Open PON Foundation
+    desc: >-
+      The scattered work gets a shared front door at openpon.org, and a name
+      that can put the subscriber's case to a regulator.
+
+join:
+  - name: RTL960x on GitHub
+    desc: Vendor-neutral documentation, issues and structured discussion.
+    url: https://github.com/Anime4000/RTL960x
+  - name: Open PON Foundation
+    desc: Firmware, supported devices, coverage map and regional suppliers.
+    url: https://www.openpon.org/
+  - name: Pururin Collective forum
+    desc: Community experiments, ISP-specific tweaks and informal help.
+    url: https://www.pururin.moe/viewtopic.php?t=7
+  - name: Lowyat.NET — Networks and Broadband
+    desc: Where the Malaysian side of the conversation happens.
+    url: https://forum.lowyat.net/NetworksandBroadband
+  - name: hack-gpon.org
+    desc: The deepest technical reference on GPON ONT internals.
+    url: https://hack-gpon.org/

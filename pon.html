@@ -1,0 +1,165 @@
+---
+layout: page
+title: xPON Freedom
+permalink: /pon/
+tone: yellow
+eyebrow: xPON Freedom
+jp: 光回線に自由を
+heading: An open last mile
+lede: >-
+  Passive optical networks are the last mile for hundreds of millions of
+  subscribers, yet the equipment at the end of that fibre is closed, locked and
+  disposable. This is the work I lead to change that.
+---
+<section class="section section-tight tone-yellow">
+  <div class="wrap">
+    <div class="split">
+      <div class="prose">
+        <h2>Why it matters</h2>
+        <p>
+          An operator can mandate its own ONT, lock the firmware, keep a management channel
+          open into your house and refuse equipment you supply yourself. In most of the world
+          there is no rule that says it cannot. The EU gives end users the right to use
+          terminal equipment of their choice; Germany has had it in law since 2016 and Italy
+          has its <i lang="it">modem libero</i> rules.
+          Malaysia has no equivalent, and neither do most of the countries where this
+          community lives.
+        </p>
+        <p>
+          Where the rules already protect the subscriber, open firmware is a convenience.
+          Where they do not, it is the only leverage a subscriber has.
+        </p>
+        <p>
+          The ask is modest: that the demarcation be honest. The operator's responsibility
+          ends at the fibre, what runs on the subscriber's side is the subscriber's choice,
+          and equipment somebody paid for belongs to them.
+        </p>
+      </div>
+      <div class="panel">
+        <h3 class="panel-title">The last mile, hop by hop</h3>
+        {% include signal-path.html %}
+      </div>
+    </div>
+    <dl class="stats">
+      {% for stat in site.data.pon.stats %}
+      <div class="stat">
+        <dt>{{ stat.label }}</dt>
+        <dd{% if stat.repo %} data-gh-stars="{{ stat.repo }}"{% endif %}>{{ stat.value }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+    <p class="fineprint">Figures as of {{ site.stats_as_of }}, from GitHub and openpon.org.</p>
+  </div>
+</section>
+
+{% include fibre.html %}
+
+<section class="section tone-yellow" aria-labelledby="rtl-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>RTL960x <span class="jp" lang="ja">／ ハッキング</span></p>
+    <div class="split split-even">
+      <div class="prose">
+        <h2 id="rtl-title">Where it started: hacking RTL960x</h2>
+        <p>
+          <a href="https://github.com/Anime4000/RTL960x">RTL960x</a> documents and demystifies
+          Realtek's GPON platform for the global xPON community: how to set up a stick, clone
+          the identity of a stock ONU, pick the right LAN mode for 2.5GbE, read OMCI, recover
+          from a bad flash, and which ISPs need which tweak.
+        </p>
+        <p>
+          It is the work of many hands. People in Malaysia, Italy, Ukraine, Taiwan, Vietnam,
+          Indonesia and a dozen other places test against their own operators and send back
+          what they find. I keep it together.
+        </p>
+        <p class="actions">
+          <a class="button button-primary" href="https://github.com/Anime4000/RTL960x" rel="noopener">Open the repository <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+      <div>
+        <h3 class="h-sub">Open firmware on openpon.org</h3>
+        <ul class="firmware">
+          {% for fw in site.data.pon.firmware %}
+          <li{% if fw.mine %} class="firmware-mine"{% endif %}>
+            <p class="firmware-name"><strong>{{ fw.name }}</strong> <span class="tag">{{ fw.tech }}</span> <span class="tag tag-quiet">{{ fw.chip }}</span>{% if fw.mine %} <span class="tag tag-mine">my project</span>{% endif %}</p>
+            <p class="firmware-desc">{{ fw.desc }}</p>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-teal" aria-labelledby="opf-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Open PON Foundation <span class="jp" lang="ja">／ 財団</span></p>
+    <h2 id="opf-title">Five principles</h2>
+    <p class="lede narrow">
+      The foundation is vendor-neutral and run by volunteers. Its vision lines up with the
+      Electronic Frontier Foundation on user rights, the Open Networking Foundation on open
+      access networks, and the Linux Foundation on neutral governance.
+    </p>
+    <ol class="principles">
+      {% for item in site.data.pon.principles %}
+      <li>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.desc }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section tone-yellow" aria-labelledby="timeline-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Timeline <span class="jp" lang="ja">／ これまで</span></p>
+    <h2 id="timeline-title">From one repository to a foundation</h2>
+    <ol class="timeline">
+      {% for event in site.data.pon.timeline %}
+      <li>
+        <p class="timeline-date">{{ event.date }}</p>
+        <div>
+          <h3>{{ event.title }}</h3>
+          <p>{{ event.desc }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section tone-russet" aria-labelledby="safety-title">
+  <div class="wrap">
+    <div class="notice">
+      <p class="eyebrow"><span class="eyebrow-mark"></span>Safety notice <span class="jp" lang="ja">／ 注意</span></p>
+      <h2 id="safety-title">Open networking requires responsibility</h2>
+      <p>
+        PON is a shared medium. One misbehaving ONU can disrupt upstream synchronisation for
+        every subscriber on the same fibre split, and operators watch for exactly that —
+        disconnection, blacklisting and penalties are real outcomes.
+      </p>
+      <p>
+        This work promotes open knowledge and interoperability, not reckless deployment.
+        A live network is not a place to experiment. Do not endanger shared infrastructure,
+        do not disrupt others, and proceed with discipline.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-teal" aria-labelledby="join-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Get involved <span class="jp" lang="ja">／ 参加する</span></p>
+    <h2 id="join-title">Where the work happens</h2>
+    <ul class="posts posts-nodate">
+      {% for place in site.data.pon.join %}
+      <li>
+        <a href="{{ place.url }}" rel="noopener">
+          <span class="post-title">{{ place.name }} <span class="post-desc">{{ place.desc }}</span></span>
+          <span class="post-topic" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

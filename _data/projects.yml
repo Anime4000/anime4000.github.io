@@ -1,0 +1,176 @@
+# Categories: pon | media | network | community | ai | games
+# `repo` (owner/name) lets the page refresh the star count from the GitHub API;
+# `stars` is the fallback shown when that request is unavailable.
+
+- name: RTL960x
+  category: pon
+  featured: true
+  role: Lead
+  desc: >-
+    Hacking and reverse engineering RTL960x-based xPON ONTs so the stick suits
+    your OLT. Guides, firmware, tools and ISP-specific notes for Realtek GPON
+    SFP sticks, written with contributors from around the world.
+  lang: Firmware · Shell
+  repo: Anime4000/RTL960x
+  stars: 1068
+  url: https://github.com/Anime4000/RTL960x
+
+- name: NIJIKA Firmware
+  category: pon
+  featured: true
+  role: Lead
+  desc: >-
+    Open firmware for Realtek GPON sticks. Broad OLT compatibility, VEIP
+    support, link speed unbound from 1GbE to 2.5GbE, and metrics exported
+    straight to Prometheus and Grafana.
+  lang: GPON · RTL960x
+  url: https://www.openpon.org/#firmware
+
+- name: Open PON Foundation
+  category: pon
+  featured: true
+  role: Founder
+  desc: >-
+    A vendor-neutral, volunteer effort for open, interoperable and
+    privacy-respecting passive optical networking. One front door for the
+    firmware, the hardware, the countries it works in and the people behind it.
+  lang: GPON · XGS-PON
+  url: https://www.openpon.org/
+
+- name: IFME
+  full_name: Internet Friendly Media Encoder
+  category: media
+  featured: true
+  role: Author
+  desc: >-
+    x264, x265, x266 and AV1 GUI encoder where every codec is a drop-in plugin
+    you can update yourself. Remuxes, merges streams, keeps subtitles and
+    fonts, and supports NVENC, Quick Sync and AMF. Windows and Linux.
+  lang: "C#"
+  repo: Anime4000/IFME
+  stars: 293
+  url: https://x265.github.io/
+
+- name: ΕΛΠΙΣ DNS
+  category: network
+  featured: true
+  role: Pururin Collective
+  desc: >-
+    Free encrypted DNS for South East Asia. DoH and DoT, ad and tracker
+    blocking, DNS64 and NAT64 for IPv6-only networks, answered by our own
+    recursive resolver with DNSSEC.
+  lang: DNS · IPv6
+  url: https://elpis.pururin.moe/
+
+- name: Pururin Collective
+  category: community
+  featured: true
+  role: Founder
+  desc: >-
+    A forum for people who enjoy anime culture, networking, homelab,
+    programming and reverse engineering. Relaxed on purpose.
+  lang: Forum · Discord
+  url: https://pururin.moe/index.php
+
+- name: SFP-Master for Windows
+  category: pon
+  role: Windows port
+  desc: >-
+    Program SFP EEPROMs over I²C with a commodity CH341a instead of an
+    expensive commercial programmer. Windows port of bigbigmdm's SFP-Master.
+  lang: C++ · Qt
+  repo: Anime4000/SFP-Master
+  url: https://www.hitoha.moe/sfp-master-for-windows/
+
+- name: IMSProg for Windows
+  category: pon
+  role: Windows port
+  desc: >-
+    I²C, MicroWire and SPI EEPROM/Flash programmer for the CH341a, ported to
+    Windows with libusbK support.
+  lang: C++ · Qt
+  repo: Anime4000/IMSProg
+  url: https://www.hitoha.moe/imsprog-for-windows/
+
+- name: libusb341
+  category: pon
+  role: Author
+  desc: libusbK shim for the CH341a native driver on Windows.
+  lang: C
+  repo: Anime4000/libusb341
+  url: https://github.com/Anime4000/libusb341
+
+- name: DFP-34G-2C2
+  category: pon
+  role: Research
+  desc: Hacking and research notes for the DFP-34G-2C2 ONU SFP stick.
+  lang: Research
+  repo: Anime4000/DFP-34G-2C2
+  stars: 28
+  url: https://github.com/Anime4000/DFP-34G-2C2
+
+- name: FFmpegDotNet
+  category: media
+  role: Author
+  desc: >-
+    .NET library around FFmpeg for reading media properties, encoding,
+    decoding and extracting streams.
+  lang: "C#"
+  repo: Anime4000/FFmpegDotNet
+  stars: 17
+  url: https://github.com/Anime4000/FFmpegDotNet
+
+- name: KageMusic
+  category: media
+  role: Author
+  desc: Front end for the Spleeter source separation library.
+  lang: "C#"
+  repo: Anime4000/KageMusic
+  url: https://github.com/Anime4000/KageMusic
+
+- name: Free RustDesk Relay
+  category: network
+  role: Host
+  desc: >-
+    A free RustDesk relay server in Singapore for users around South East
+    Asia, reachable by IP address so it still works when DNS is broken.
+  lang: Self-hosted
+  url: https://www.hitoha.moe/free-rustdesk-relay-server/
+
+- name: Lewd 4 Dead 2
+  category: games
+  role: Host
+  desc: Left 4 Dead 2 community servers, mods and the Steam group around them.
+  lang: Source engine
+  url: https://steamcommunity.com/groups/lewd4dead
+
+- name: SMF Converter
+  category: games
+  role: Author
+  desc: Converts Company of Heroes sound files to WAV or MP3.
+  lang: "C#"
+  repo: Anime4000/SMFConverter
+  url: https://github.com/Anime4000/SMFConverter
+
+- name: Stable Diffusion and Dreambooth guide
+  category: ai
+  role: Guide
+  desc: >-
+    Step-by-step guide to installing Stable Diffusion and training anime
+    characters and art styles with Dreambooth.
+  lang: Python
+  url: https://www.hitoha.moe/a-step-by-step-guide-to-installing-stable-diffusion-and-dreambooth/
+
+- name: RISE Inverse Stable Evolution
+  category: ai
+  role: Author
+  desc: A training algorithm for Dreambooth.
+  lang: Python
+  url: https://www.hitoha.moe/rise-algorithm-for-dreambooth/
+
+- name: Anime voice training in RVC
+  category: ai
+  role: Guide
+  desc: How to train an anime voice model in RVC.
+  lang: Python
+  url: https://www.hitoha.moe/how-to-train-anime-voice-in-rvc/

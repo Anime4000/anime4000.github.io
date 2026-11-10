@@ -1,0 +1,11 @@
+- title: Home
+  url: /
+- title: xPON Freedom
+  url: /pon/
+- title: Projects
+  url: /projects/
+- title: Anime
+  url: /anime/
+- title: Blog
+  url: https://www.hitoha.moe/
+  external: true

@@ -1,53 +1,192 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Hitoha <3</title>
+---
+layout: default
+---
+<section class="hero" data-spotlight>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="status-pill" title="O5 is the state a GPON ONU reaches once it is ranged, authenticated and passing traffic">
+        <span class="led" aria-hidden="true"></span>ONU state <strong>O5</strong> · Operation
+      </p>
+      <h1 class="hero-title">Anime4000</h1>
+      <p class="hero-tagline"><span lang="ja">{{ site.title_jp }}</span> <span class="hero-tagline-sep" aria-hidden="true">—</span> {{ site.tagline }}</p>
+      <p class="hero-lede">
+        I'm an otaku from Malaysia who writes code, mods games and takes apart the fibre box
+        your ISP would rather you left alone. I lead the RTL960x xPON hacking effort,
+        started the Open PON Foundation, and build IFME — a video encoder for people who
+        keep their subtitles.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ '/pon/' | relative_url }}">xPON Freedom <span aria-hidden="true">→</span></a>
+        <a class="button" href="{{ '/projects/' | relative_url }}">See the projects</a>
+      </div>
+      <ul class="hero-links" aria-label="Elsewhere">
+        {% assign primary_links = site.data.links | where: "primary", true %}
+        {% for link in primary_links %}
+        <li><a href="{{ link.url }}" rel="me noopener">{{ link.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <figure class="hero-portrait">
+      <div class="portrait-disc">
+        <img src="{{ '/hitoha.png' | relative_url }}" width="512" height="512" alt="Hitoha Marui, drawn chibi style, looking unimpressed">
+      </div>
+      <span class="spark spark-a" aria-hidden="true">✦</span>
+      <span class="spark spark-b" aria-hidden="true">✦</span>
+      <span class="spark spark-c" aria-hidden="true">☆</span>
+    </figure>
+  </div>
+  {% include fibre.html %}
+</section>
 
-	<link rel="SHORTCUT ICON" href="hitoha.ico">
-	<link rel="image_src" href="hitoha.png">
-	<link rel="stylesheet" href="style.css" type="text/css">
+<section class="section tone-yellow" id="pon" aria-labelledby="pon-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>01 · xPON Freedom <span class="jp" lang="ja">／ 光回線に自由を</span></p>
+    <div class="split">
+      <div>
+        <h2 id="pon-title">The box at the end of your fibre should be yours.</h2>
+        <p class="lede">
+          For most subscribers, fibre ends in a small white box the ISP hands over. You did not
+          choose it, you cannot audit what runs on it, and when it fails you wait for a replacement.
+        </p>
+        <p>
+          Since 2021 I have been documenting and reverse engineering Realtek RTL960x GPON
+          sticks in the open, so an SFP module in your own router can stand in for that box.
+          What started as one repository is now a worldwide effort with its own firmware,
+          its own tooling and a foundation behind it.
+        </p>
+        <p class="actions">
+          <a class="button button-primary" href="{{ '/pon/' | relative_url }}">Read the story <span aria-hidden="true">→</span></a>
+          <a class="button" href="https://www.openpon.org/" rel="noopener">openpon.org <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+      <div class="panel">
+        {% include signal-path.html %}
+      </div>
+    </div>
+    <dl class="stats">
+      {% for stat in site.data.pon.stats %}
+      <div class="stat">
+        <dt>{{ stat.label }}</dt>
+        <dd{% if stat.repo %} data-gh-stars="{{ stat.repo }}"{% endif %}>{{ stat.value }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+    <p class="fineprint">Figures as of {{ site.stats_as_of }}, from GitHub and openpon.org.</p>
+  </div>
+</section>
 
-	<!--[if IE]>
-		<style type="text/css">
-		/* Sadly no IE9 support for pointer-events: none; nor CSS2 text-shadow */
-		#tsb-spot {
-			display: none;
-		}
-		#tsb-ie {
-			position: absolute;
-			top: -90%;
-			left: -50%;
-			width: 200%;
-			height: 334%;
-			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPHN0b3Agb2Zmc2V0PSI3NCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-		}
-		</style>
-	<![endif]-->
-	
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="expires" content="-1">
-</head>
-<body>
-	<div id="text-shadow-box">
-		<div id="tsb-box"></div>
-		<div id="tsb-text">ひとは☆もえ</div>
-		<div id="tsb-link">hitoha<img src="moetld.png" width="208" height="67" ></div>
-		<div id="tsb-wall">
-			<div id="tsb-ie"></div>
-			<p>Another domain, with love, Hitoha 「ひとは」</p>
-			<p>Another <a href="https://github.com/Anime4000">Anime4000</a> Project.</p>
-			<p>Project: <a href="https://x265.github.io/">x265 GUI Encoder</a> | <a href="http://anime4000.github.io/SMFConverter/">SMF Converter</a> | <a href="http://hitoha.ga/">Hitoha.が: Anime Programming!</a></p>
-			<p>Page still under construction （╯°□°）╯︵ ┻━┻</p>
-			<p id="maxchu"></p>
-		</div>
-		<div id="hitoha"></div>
-		<div id="tsb-spot"></div>
-	</div>
-	
-	<!-- Javascript was here -->
-	<script src="countdown.js"></script>
-	<script src="lighteffect.js"></script>
-</body>
-</html>
+<section class="section tone-blue" id="projects" aria-labelledby="projects-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>02 · Projects <span class="jp" lang="ja">／ プロジェクト</span></p>
+    <div class="section-head">
+      <h2 id="projects-title">Things I build and look after</h2>
+      <a class="more" href="{{ '/projects/' | relative_url }}">All projects <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="grid grid-3">
+      {% assign featured = site.data.projects | where: "featured", true %}
+      {% for project in featured %}
+      {% include project-card.html %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section tone-blue" id="code" aria-labelledby="code-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>03 · Programming <span class="jp" lang="ja">／ プログラミング言語</span></p>
+    <div class="split split-even">
+      <div>
+        <h2 id="code-title">Languages, ranked</h2>
+        <p class="lede">Strongest first.</p>
+        <ol class="ranks">
+          {% for lang in site.data.languages %}
+          <li class="rank">
+            <span class="rank-no">{{ lang.rank | prepend: '0' }}</span>
+            <div class="rank-body">
+              <p class="rank-name">
+                <strong>{{ lang.name }}</strong>
+                <span class="pips" role="img" aria-label="Rank {{ lang.rank }} of {{ site.data.languages | size }}">
+                  {% for i in (1..4) %}<span class="pip{% if i <= lang.pips %} pip-on{% endif %}"></span>{% endfor %}
+                </span>
+              </p>
+              <p class="rank-note">{{ lang.note }}</p>
+              {% if lang.used_in != "" %}<p class="rank-used">{{ lang.used_in }}</p>{% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+      <div>
+        <h3 class="h-sub">What I like <span class="jp" lang="ja">／ 好きなもの</span></h3>
+        <ul class="likes">
+          <li><strong>Anime</strong> and cute anime girls, obviously</li>
+          <li><strong>Reverse engineering</strong> firmware until it gives up its secrets</li>
+          <li><strong>Networking</strong> — MikroTik, IPv6, DNS, fibre and the homelab</li>
+          <li><strong>Game mods</strong> and running Left 4 Dead 2 servers</li>
+          <li><strong>Video encoding</strong> — the reason IFME exists</li>
+          <li><strong>A.I.</strong> — Stable Diffusion, Dreambooth and voice models</li>
+          <li><strong>Eurobeat</strong> and Eurodance, sometimes with Malay and Japanese lyrics</li>
+        </ul>
+        <p class="speaks">I speak <strong>Malay</strong>, <strong>English</strong> and <strong lang="ja">日本語</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-pink" id="anime" aria-labelledby="anime-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>04 · Anime <span class="jp" lang="ja">／ お気に入り</span></p>
+    <div class="section-head">
+      <h2 id="anime-title">Ten favourites, straight from my MyAnimeList</h2>
+      <a class="more" href="{{ '/anime/' | relative_url }}">Characters and more <span aria-hidden="true">→</span></a>
+    </div>
+    <ol class="anime-list">
+      {% for show in site.data.anime.series %}
+      <li>
+        <a href="{{ show.url }}" rel="noopener">
+          <span class="anime-jp" lang="ja">{{ show.jp | escape }}</span>
+          <span class="anime-en">{{ show.title | escape }} <span class="anime-year">{{ show.year }}</span></span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section tone-teal" id="community" aria-labelledby="community-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>05 · Community <span class="jp" lang="ja">／ コミュニティ</span></p>
+    <h2 id="community-title">Where to find me</h2>
+    <div class="grid grid-3">
+      {% for place in site.data.communities %}
+      <article class="card place tone-{{ place.tone }}">
+        <p class="project-role">{{ place.role }}</p>
+        <h3><a class="card-link" href="{{ place.url }}" rel="noopener">{{ place.name }}</a></h3>
+        <p class="project-desc">{{ place.desc }}</p>
+        <span class="go" aria-hidden="true">↗</span>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section tone-russet" id="writing" aria-labelledby="writing-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>06 · Writing <span class="jp" lang="ja">／ ブログ</span></p>
+    <div class="section-head">
+      <h2 id="writing-title">Lately on HITOHA.もえ</h2>
+      <a class="more" href="https://www.hitoha.moe/" rel="noopener">The whole blog <span aria-hidden="true">↗</span></a>
+    </div>
+    <ul class="posts">
+      {% for post in site.data.writing %}
+      <li>
+        <a href="{{ post.url }}" rel="noopener">
+          <span class="post-date">{{ post.date }}</span>
+          <span class="post-title">{{ post.title }}</span>
+          <span class="post-topic">{{ post.topic }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

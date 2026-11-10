@@ -1,0 +1,22 @@
+# Ranked by proficiency, strongest first. `pips` is the number of filled
+# marks out of four shown next to the name.
+- rank: 1
+  name: "C#"
+  pips: 4
+  note: Where most of my desktop software lives.
+  used_in: IFME, FFmpegDotNet, SMF Converter, KageMusic
+- rank: 2
+  name: Python
+  pips: 3
+  note: Tooling, automation and the machine learning side.
+  used_in: Stable Diffusion and Dreambooth training, RVC voice models
+- rank: 3
+  name: C
+  pips: 2
+  note: Close to the hardware — drivers and USB programmers.
+  used_in: libusb341, the SFP-Master and IMSProg Windows ports
+- rank: 4
+  name: Java
+  pips: 1
+  note: Fourth on the list, but on the list.
+  used_in: ""

@@ -1,0 +1,31 @@
+# Older, small utilities. Still on GitHub, no longer maintained.
+- name: HDMemory
+  year: 2014
+  lang: Visual Basic
+  desc: RAM and virtual memory viewer and monitor.
+  url: https://github.com/Anime4000/HDMemory
+- name: KwikCEDICT
+  year: 2015
+  lang: "C#"
+  desc: Chinese–English dictionary using the CEDICT database.
+  url: https://github.com/Anime4000/KwikCEDICT
+- name: FreeLAN Simple GUI
+  year: 2015
+  lang: "C#"
+  desc: A simple GUI for FreeLAN.
+  url: https://github.com/Anime4000/FreeLANSimpleGUI
+- name: c-sorting
+  year: 2016
+  lang: C
+  desc: Bubble, selection and insertion sort in C.
+  url: https://github.com/Anime4000/c-sorting
+- name: py2km
+  year: 2017
+  lang: "C#"
+  desc: Mandarin–English translator.
+  url: https://github.com/Anime4000/py2km
+- name: unsleepdev
+  year: 2018
+  lang: "C#"
+  desc: Stops a local disk from going to sleep.
+  url: https://github.com/Anime4000/unsleepdev
