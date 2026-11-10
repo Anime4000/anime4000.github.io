@@ -49,8 +49,9 @@ layout: default
           choose it, you cannot audit what runs on it, and when it fails you wait for a replacement.
         </p>
         <p>
-          Since 2021 I have been documenting and reverse engineering Realtek RTL960x GPON
-          sticks in the open, so an SFP module in your own router can stand in for that box.
+          The research began in 2020, the year the pandemic kept developers and hackers at
+          home, and went public in 2021: documenting and reverse engineering Realtek RTL960x
+          GPON sticks, so an SFP module in your own router can stand in for that box.
           What started as one repository is now a worldwide effort with its own firmware,
           its own tooling and a foundation behind it.
         </p>
@@ -133,9 +134,42 @@ layout: default
   </div>
 </section>
 
+<section class="section tone-teal" id="network" aria-labelledby="network-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>04 · Network <span class="jp" lang="ja">／ ネットワーク</span></p>
+    <div class="split split-even">
+      <div>
+        <h2 id="network-title">From homelab to real infrastructure</h2>
+        <p class="lede">
+          I am most at home on MikroTik. A NAS built from a friend's spare parts grew into a
+          server in a Cyberjaya data centre that runs ΕΛΠΙΣ DNS, game servers and more.
+        </p>
+        <blockquote class="pullquote">
+          <p>
+            No school or university teaches this. Understanding BGP, and the experience that
+            comes with it, is the most expensive lesson there is.
+          </p>
+        </blockquote>
+        <p class="actions">
+          <a class="button button-primary" href="{{ '/network/#lesson' | relative_url }}">Read the back story <span aria-hidden="true">→</span></a>
+        </p>
+      </div>
+      <div>
+        <h3 class="h-sub">Partners and friends <span class="jp" lang="ja">／ 仲間</span></h3>
+        <ul class="plain-list partner-list">
+          {% for partner in site.data.partners %}
+          <li><a href="{{ partner.url }}" rel="noopener">{{ partner.name }} <span class="quiet">{{ partner.place }}</span></a></li>
+          {% endfor %}
+        </ul>
+        <p class="fineprint"><a href="{{ '/network/#partners' | relative_url }}">Who they are and how we met</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section tone-pink" id="anime" aria-labelledby="anime-title">
   <div class="wrap">
-    <p class="eyebrow"><span class="eyebrow-mark"></span>04 · Anime <span class="jp" lang="ja">／ お気に入り</span></p>
+    <p class="eyebrow"><span class="eyebrow-mark"></span>05 · Anime <span class="jp" lang="ja">／ お気に入り</span></p>
     <div class="section-head">
       <h2 id="anime-title">Ten favourites, straight from my MyAnimeList</h2>
       <a class="more" href="{{ '/anime/' | relative_url }}">Characters and more <span aria-hidden="true">→</span></a>
@@ -155,7 +189,7 @@ layout: default
 
 <section class="section tone-teal" id="community" aria-labelledby="community-title">
   <div class="wrap">
-    <p class="eyebrow"><span class="eyebrow-mark"></span>05 · Community <span class="jp" lang="ja">／ コミュニティ</span></p>
+    <p class="eyebrow"><span class="eyebrow-mark"></span>06 · Community <span class="jp" lang="ja">／ コミュニティ</span></p>
     <h2 id="community-title">Where to find me</h2>
     <div class="grid grid-3">
       {% for place in site.data.communities %}
@@ -172,7 +206,7 @@ layout: default
 
 <section class="section tone-russet" id="writing" aria-labelledby="writing-title">
   <div class="wrap">
-    <p class="eyebrow"><span class="eyebrow-mark"></span>06 · Writing <span class="jp" lang="ja">／ ブログ</span></p>
+    <p class="eyebrow"><span class="eyebrow-mark"></span>07 · Writing <span class="jp" lang="ja">／ ブログ</span></p>
     <div class="section-head">
       <h2 id="writing-title">Lately on HITOHA.もえ</h2>
       <a class="more" href="https://www.hitoha.moe/" rel="noopener">The whole blog <span aria-hidden="true">↗</span></a>

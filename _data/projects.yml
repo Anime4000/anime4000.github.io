@@ -26,6 +26,27 @@
   lang: GPON · RTL960x
   url: https://www.openpon.org/#firmware
 
+- name: NijikaWrt
+  category: pon
+  role: Lead
+  desc: >-
+    OpenWrt userland for the D-Link DPN-FX3060V (A1), a Realtek RTL9607DQ
+    GPON gateway, with the vendor cloud agent removed and DNS over HTTPS on by
+    default. Experimental.
+  lang: OpenWrt · RTL9607DQ
+  repo: PururinCollective/dpn-fx3060v-a1-openwrt
+  url: https://github.com/PururinCollective/dpn-fx3060v-a1-openwrt
+
+- name: RemixWrt IIDX
+  category: pon
+  role: Pururin Collective
+  desc: >-
+    OpenWrt and LuCI for the Skyworth SK-G7220 GPON gateway on an EcoNet PON
+    SoC, with WireGuard and encrypted DNS built in. Beta.
+  lang: OpenWrt · EcoNet
+  repo: PururinCollective/sk-g7220-openwrt
+  url: https://github.com/PururinCollective/sk-g7220-openwrt
+
 - name: Open PON Foundation
   category: pon
   featured: true

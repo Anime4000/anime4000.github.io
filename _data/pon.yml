@@ -1,4 +1,4 @@
-# Numbers from github.com/Anime4000/RTL960x and openpon.org.
+# Numbers from github.com/Anime4000/RTL960x, openpon.org and the firmware list below.
 # Update together with `stats_as_of` in _config.yml.
 stats:
   - value: "1,068"
@@ -8,7 +8,7 @@ stats:
     label: countries with working deployments
   - value: "14"
     label: contributors credited by name
-  - value: "4"
+  - value: "7"
     label: open firmware projects
 
 path:
@@ -49,11 +49,32 @@ principles:
       TR-069, the firmware emulates it and nothing personal leaves.
 
 firmware:
-  - name: NIJIKA
+  - name: NIJIKA Firmware / NijikaWrt
     tech: GPON
     chip: RTL960x
-    mine: true
-    desc: Broad OLT compatibility, VEIP, 1GbE to 2.5GbE, Prometheus and Grafana metrics.
+    badge: my project
+    url: https://github.com/PururinCollective/dpn-fx3060v-a1-openwrt
+    desc: >-
+      NIJIKA for Realtek sticks: broad OLT compatibility, VEIP, 1GbE to 2.5GbE,
+      Prometheus and Grafana metrics. NijikaWrt takes it further with an
+      OpenWrt userland for RTL9607DQ gateways, starting with the D-Link
+      DPN-FX3060V (A1). Experimental.
+  - name: RemixWrt IIDX
+    tech: GPON
+    chip: EcoNet
+    badge: Pururin Collective
+    url: https://github.com/PururinCollective/sk-g7220-openwrt
+    desc: >-
+      OpenWrt and LuCI for EcoNet PON SoCs, starting with the Skyworth
+      SK-G7220 gateway. Beta.
+  - name: CatOS
+    tech: GPON
+    chip: RTL9601CI · RTL9601D
+    desc: An alternative to NIJIKA for RTL9601CI and RTL9601D sticks.
+  - name: Peter-Pon
+    tech: GPON
+    chip: Lantiq
+    desc: Firmware for sticks built on Lantiq SoCs.
   - name: ZRV OS
     tech: GPON
     chip: RTL9602
@@ -68,6 +89,11 @@ firmware:
     desc: XGS-PON firmware with a focus on Japanese operator interoperability.
 
 timeline:
+  - date: "2020"
+    title: Research begins
+    desc: >-
+      The year of the pandemic. With developers and hackers staying at home,
+      the research into GPON sticks starts.
   - date: February 2021
     title: RTL960x goes public
     desc: >-
@@ -98,6 +124,12 @@ timeline:
     desc: >-
       The scattered work gets a shared front door at openpon.org, and a name
       that can put the subscriber's case to a regulator.
+  - date: Late 2026
+    title: Beyond the stick
+    desc: >-
+      NijikaWrt and RemixWrt IIDX bring an OpenWrt userland to whole
+      gateways, on Realtek RTL9607DQ and EcoNet SoCs. CatOS and Peter-Pon
+      widen the choice of firmware for sticks.
 
 join:
   - name: RTL960x on GitHub

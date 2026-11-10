@@ -1,0 +1,50 @@
+# Partners and friends. Shown on /network/ and, as a short list, on the home page.
+- name: Ryukura
+  place: Indonesia
+  url: https://www.ryukura.biz.id/
+  tone: teal
+  desc: >-
+    A friend in Indonesia. We share what we know about networking, computers,
+    anime and research.
+
+- name: Violet Networks
+  place: Malaysia
+  url: https://violetnetworks.xyz/
+  tone: pink
+  desc: >-
+    A supporter of ΕΛΠΙΣ DNS, lending a subdomain to host it on — a violet
+    one, to match the ΕΛΠΙΣ purple.
+
+- name: Sora-Iro Server
+  place: Osaka, Japan
+  url: https://sora-iro.nippombashi.net
+  tone: blue
+  desc: >-
+    A close friend from Osaka who kick-started my homelab with computer parts:
+    a Ryzen 3200G, 64GB of RAM, an SFP28 NIC and nine 8TB drives that became
+    my NAS.
+
+- name: Neo Soon Keat
+  place: Singapore
+  url: https://neo.soonke.at/
+  tone: teal
+  desc: >-
+    A friend in Singapore who lends me access to a Proxmox server there. It
+    has run my modded Left 4 Dead 2 server since 2020.
+
+- name: Perfect Network
+  place: Malaysia
+  url: https://perfect.my/
+  tone: yellow
+  desc: >-
+    A friend who owns an ASN and a micro data centre. I help as network
+    advisor and support, especially on the PON side.
+
+- name: Kevin
+  place: Malaysia
+  url: https://kevin.moe
+  tone: pink
+  desc: >-
+    A local friend who found me on bgp.tools — hitoha.moe turned up on one of
+    the IP addresses under Perfect's ASN. Now a close friend for computers,
+    networks, anime and A.I.
