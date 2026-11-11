@@ -3,16 +3,55 @@ title: Anime4000
 title_jp: ひとは☆もえ
 tagline: Anime Programming
 description: >-
-  Anime4000 (Hitoha) — otaku, programmer and network tinkerer. Leading RTL960x
-  xPON hacking, founder of Open PON Foundation and Pururin Collective, author of
-  IFME.
+  Anime4000 (Hitoha) — otaku, programmer and network tinkerer from Malaysia.
+  Leading RTL960x xPON hacking, founder of Open PON Foundation and Pururin
+  Collective, author of IFME.
 author: Anime4000
 lang: en
-url: https://anime4000.github.io
+url: https://me.hitoha.moe
 baseurl: ""
 
 # Facts that go stale. Update the numbers and the date together.
 stats_as_of: November 2026
+
+# Search and social previews ---------------------------------------------
+# `seo_title` is the home page's <title>. Other pages set their own
+# `seo_title` and `description` in front matter.
+seo_title: Anime4000 (Hitoha) — Anime Programming, xPON Freedom, IFME
+locale: en_GB
+twitter_username: anime4000
+# 1200 x 630 card shown when a link is shared on Discord, Telegram, X, etc.
+social_image: /assets/img/social-card.png
+social_image_alt: >-
+  Anime4000 — ひとは☆もえ, Anime Programming. Leading RTL960x xPON hacking,
+  Open PON Foundation, IFME, ΕΛΠΙΣ DNS and Pururin Collective.
+# Structured data (schema.org Person).
+person:
+  alternate_names:
+    - Hitoha
+    - Hitoha Marui
+    - ひとは
+  knows_about:
+    - GPON
+    - XGS-PON
+    - Passive optical network
+    - Reverse engineering
+    - Firmware
+    - MikroTik RouterOS
+    - BGP
+    - IPv6
+    - DNS
+    - Video encoding
+    - "C#"
+    - Python
+    - C
+    - Java
+    - Anime
+  member_of:
+    - name: Open PON Foundation
+      url: https://www.openpon.org/
+    - name: Pururin Collective
+      url: https://pururin.moe/
 
 # Build ---------------------------------------------------------------------
 permalink: pretty
@@ -30,3 +69,17 @@ exclude:
 # Legacy pages below are plain static files (no front matter), so Jekyll copies
 # them through untouched and their old URLs keep working:
 #   adguard.txt, curecomp/, hitoha/, lewd4dead/, images/, google*.html
+# These ones are kept out of sitemap.xml so search engines skip them.
+defaults:
+  - scope:
+      path: lewd4dead
+    values:
+      sitemap: false
+  - scope:
+      path: hitoha
+    values:
+      sitemap: false
+  - scope:
+      path: google3826fff9a5c8bcdc.html
+    values:
+      sitemap: false

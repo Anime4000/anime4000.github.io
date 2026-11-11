@@ -4,6 +4,8 @@ stats:
   - value: "1,068"
     label: GitHub stars on RTL960x
     repo: Anime4000/RTL960x
+  - value: "1,000+"
+    label: NIJIKA PON sticks in the field
   - value: "19"
     label: countries with working deployments
   - value: "14"
@@ -99,11 +101,12 @@ timeline:
     desc: >-
       The repository opens on GitHub to document Realtek GPON SFP sticks such
       as the V2801F, TWCGPON657 and DFP-34X-2C2.
-  - date: "2022"
-    title: 2.5GbE over a stick
+  - date: August 2022
+    title: 2 Gbps on Unifi, before Unifi sold it
     desc: >-
-      Contributors report stock ONTs replaced and 2.5GbE links running on
-      real operators, from Italy to TM Unifi in Malaysia.
+      Nearly 2 Gbps through one GPON stick on TM Unifi, using four 800 Mbps
+      PPPoE accounts, well ahead of any official 2 Gbps plan. Contributors
+      elsewhere report 2.5GbE links on their own operators.
   - date: March 2025
     title: Programmers for everyone
     desc: >-
@@ -141,9 +144,25 @@ join:
   - name: Pururin Collective forum
     desc: Community experiments, ISP-specific tweaks and informal help.
     url: https://www.pururin.moe/viewtopic.php?t=7
-  - name: Lowyat.NET — Networks and Broadband
-    desc: Where the Malaysian side of the conversation happens.
-    url: https://forum.lowyat.net/NetworksandBroadband
+  - name: Lowyat.NET — Ditch ONU, use GPON SFP on Business Grade Router
+    desc: My thread in Networks and Broadband, where the Malaysian side of the conversation happens.
+    url: https://forum.lowyat.net/index.php?showtopic=4925452
   - name: hack-gpon.org
     desc: The deepest technical reference on GPON ONT internals.
     url: https://hack-gpon.org/
+
+# TM Unifi at 2 Gbps. Shown on /pon/ next to the screenshot.
+unifi:
+  - when: August 2022
+    title: 2 Gbps before the plan existed
+    desc: >-
+      Nearly 2 Gbps through a single GPON stick, using four 800 Mbps PPPoE
+      accounts — before Unifi had released a 2 Gbps plan at all.
+    url: https://forum.lowyat.net/index.php?showtopic=4925452&st=500&p=105123186&#entry105123186
+    link: The post on Lowyat.NET
+  - when: Launch day
+    title: The 1+1 plan, solved
+    desc: >-
+      When Unifi released its 2 Gbps plan it was advertised as 1+1. I solved
+      it on the first day, so a subscriber gets true 2 Gbps instead.
+resellers: CureComp, SUBTel and Perfect

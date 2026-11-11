@@ -13,11 +13,11 @@
   url: https://pururin.moe/index.php
   tone: pink
 - name: Lowyat.NET
-  role: Active in Networks and Broadband
+  role: Senior Member · since 2009
   desc: >-
-    Malaysia's biggest tech forum. Fibre, routers, IPv6 and how to get more
-    out of the line you already pay for.
-  url: https://forum.lowyat.net/NetworksandBroadband
+    Malaysia's biggest tech forum. Home of my Networks and Broadband thread,
+    "Ditch ONU, use GPON SFP on Business Grade Router".
+  url: https://forum.lowyat.net/index.php?showtopic=4925452
   tone: blue
 - name: Discord
   role: Pururin Collective server

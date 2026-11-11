@@ -2,7 +2,7 @@
 
 Personal site of Anime4000 — ひとは☆もえ, *Anime Programming*. Built with
 [Jekyll](https://jekyllrb.com/) and served by GitHub Pages at
-<https://anime4000.github.io/>.
+<https://me.hitoha.moe/>.
 
 ## Editing content
 
@@ -19,6 +19,8 @@ Almost everything on the site is data. Change a YAML file, push, done.
 | Blog posts shown on the home page       | `_data/writing.yml`      |
 | Top navigation                          | `_data/nav.yml`          |
 | Site title, description, "as of" date   | `_config.yml`            |
+| Search and social preview settings      | `_config.yml` (`seo_title`, `social_image`, `person`) |
+| A page's search title and description   | `seo_title` and `description` in that page's front matter |
 
 Pages are `index.html`, `pon.html`, `projects.html`, `network.html`, `anime.html`
 and `404.html`. The back story on the network page is written in `network.html`.

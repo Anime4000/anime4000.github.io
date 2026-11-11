@@ -1,6 +1,11 @@
 ---
 layout: page
 title: xPON Freedom
+seo_title: xPON Freedom — RTL960x, NIJIKA and Open PON Foundation
+description: >-
+  How Anime4000 leads the RTL960x xPON hacking effort: open GPON and XGS-PON
+  firmware, true 2 Gbps on TM Unifi, NIJIKA PON sticks and the Open PON
+  Foundation.
 permalink: /pon/
 tone: yellow
 eyebrow: xPON Freedom
@@ -88,6 +93,42 @@ lede: >-
         </ul>
         <p class="fineprint">This list is ahead of openpon.org, which still shows the first four.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-yellow" id="unifi" aria-labelledby="unifi-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Malaysia · TM Unifi <span class="jp" lang="ja">／ 実績</span></p>
+    <div class="split split-even">
+      <div>
+        <h2 id="unifi-title">True 2 Gbps on Unifi</h2>
+        <p class="lede">
+          Most of this was worked out in public on Lowyat.NET, in a thread I started called
+          <a href="https://forum.lowyat.net/index.php?showtopic=4925452" rel="noopener">Ditch ONU, use GPON SFP on Business Grade Router</a>.
+        </p>
+        <ol class="milestones">
+          {% for item in site.data.pon.unifi %}
+          <li>
+            <p class="timeline-date">{{ item.when }}</p>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc }}{% if item.url %} <a href="{{ item.url }}" rel="noopener">{{ item.link }}</a>{% endif %}</p>
+          </li>
+          {% endfor %}
+        </ol>
+        <p class="sticks">
+          <strong>1,000+</strong>
+          <span>NIJIKA PON sticks are out there today, supplied by reputable resellers such as
+          {{ site.data.pon.resellers }}. <a href="https://www.openpon.org/#suppliers" rel="noopener">Regional suppliers on openpon.org</a></span>
+        </p>
+      </div>
+      <figure class="shot">
+        <a href="{{ '/assets/img/unifi-2gbps.png' | relative_url }}" aria-label="Open the screenshot at full size">
+          <img src="{{ '/assets/img/unifi-2gbps.png' | relative_url }}" width="1077" height="527" loading="lazy"
+               alt="A MikroTik interface window showing 2.1 Gbps received on bridge1-vlan500, beside an Ookla Speedtest run against a Telekom Malaysia server reading 1945 Mbps download">
+        </a>
+        <figcaption>A MikroTik bridge receiving 2.1 Gbps on TM Unifi, with Speedtest reading 1,945 Mbps down.</figcaption>
+      </figure>
     </div>
   </div>
 </section>

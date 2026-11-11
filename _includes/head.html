@@ -1,26 +1,107 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% if page.title %}{% assign page_title = page.title | append: ' · ' | append: site.title %}{% else %}{% assign page_title = site.title | append: ' · ' | append: site.title_jp | append: ' — ' | append: site.tagline %}{% endif %}
+  {% comment %} ---- Title, description, address, image -------------------- {% endcomment %}
+  {% if page.url == '/' %}{% assign page_title = site.seo_title %}{% else %}{% assign page_title = page.seo_title | default: page.title | append: ' · ' | append: site.title %}{% endif %}
   {% assign page_desc = page.description | default: page.lede | default: site.description | strip_html | strip_newlines %}
+  {% assign page_address = page.url | absolute_url %}
+  {% assign home_address = '/' | absolute_url %}
+  {% assign page_image = page.image | default: site.social_image | absolute_url %}
+  {% assign page_image_alt = page.image_alt | default: site.social_image_alt | strip_newlines %}
   <title>{{ page_title | escape }}</title>
   <meta name="description" content="{{ page_desc | escape }}">
   <meta name="author" content="{{ site.author | escape }}">
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="canonical" href="{{ page_address }}">
+  {% if page.noindex %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
 
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="{{ site.title | escape }}">
+  {% comment %} ---- Open Graph: Discord, Telegram, Facebook, LinkedIn ---- {% endcomment %}
+  <meta property="og:type" content="{% if page.url == '/' %}profile{% else %}website{% endif %}">
+  <meta property="og:site_name" content="{{ site.title | escape }} · {{ site.title_jp | escape }}">
+  <meta property="og:locale" content="{{ site.locale }}">
   <meta property="og:title" content="{{ page_title | escape }}">
   <meta property="og:description" content="{{ page_desc | escape }}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:image" content="{{ '/hitoha.png' | absolute_url }}">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:url" content="{{ page_address }}">
+  <meta property="og:image" content="{{ page_image }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ page_image_alt | escape }}">
+  {% if page.url == '/' %}<meta property="profile:username" content="{{ site.author | escape }}">{% endif %}
+
+  {% comment %} ---- X / Twitter card -------------------------------------- {% endcomment %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@{{ site.twitter_username }}">
+  <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+  <meta name="twitter:title" content="{{ page_title | escape }}">
+  <meta name="twitter:description" content="{{ page_desc | escape }}">
+  <meta name="twitter:image" content="{{ page_image }}">
+  <meta name="twitter:image:alt" content="{{ page_image_alt | escape }}">
 
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f7f0e6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#16131a" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="{{ '/hitoha.ico' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/hitoha.png' | relative_url }}">
-  <link rel="me" href="https://github.com/Anime4000">
+  <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | relative_url }}">
+  {% for link in site.data.links %}
+  <link rel="me" href="{{ link.url }}">
+  {% endfor %}
+
+  {% comment %} ---- Structured data for search engines -------------------- {% endcomment %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "{{ home_address }}#website",
+        "url": "{{ home_address }}",
+        "name": {{ site.title | jsonify }},
+        "alternateName": {{ site.title_jp | jsonify }},
+        "description": {{ site.description | strip_newlines | jsonify }},
+        "inLanguage": {{ site.lang | jsonify }},
+        "publisher": { "@id": "{{ home_address }}#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "{{ home_address }}#person",
+        "name": {{ site.author | jsonify }},
+        "alternateName": {{ site.person.alternate_names | jsonify }},
+        "url": "{{ home_address }}",
+        "image": "{{ '/hitoha.png' | absolute_url }}",
+        "description": {{ site.description | strip_newlines | jsonify }},
+        "knowsAbout": {{ site.person.knows_about | jsonify }},
+        "knowsLanguage": ["ms", "en", "ja"],
+        "memberOf": [
+          {% for org in site.person.member_of %}{ "@type": "Organization", "name": {{ org.name | jsonify }}, "url": {{ org.url | jsonify }} }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ],
+        "sameAs": [
+          {% for link in site.data.links %}{{ link.url | jsonify }}{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      },
+      {
+        "@type": "{% if page.url == '/' %}ProfilePage{% else %}WebPage{% endif %}",
+        "@id": "{{ page_address }}#webpage",
+        "url": "{{ page_address }}",
+        "name": {{ page_title | jsonify }},
+        "description": {{ page_desc | jsonify }},
+        "inLanguage": {{ site.lang | jsonify }},
+        "isPartOf": { "@id": "{{ home_address }}#website" },
+        "about": { "@id": "{{ home_address }}#person" },
+        {% if page.url == '/' %}"mainEntity": { "@id": "{{ home_address }}#person" },{% endif %}
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "{{ page_image }}", "width": 1200, "height": 630 }
+      }{% if page.url != '/' and page.title %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ home_address }}" },
+          { "@type": "ListItem", "position": 2, "name": {{ page.title | jsonify }}, "item": "{{ page_address }}" }
+        ]
+      }{% endif %}
+    ]
+  }
+  </script>
 
   <script>
     /* Apply a saved theme before first paint so the page never flashes. */
