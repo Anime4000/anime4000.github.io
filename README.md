@@ -13,7 +13,8 @@ Almost everything on the site is data. Change a YAML file, push, done.
 | Projects (cards, categories, featured)  | `_data/projects.yml`, `_data/categories.yml`, `_data/archive.yml` |
 | Programming language ranking            | `_data/languages.yml`    |
 | Favourite anime, characters, voices     | `_data/anime.yml`        |
-| xPON numbers, firmware, timeline        | `_data/pon.yml`          |
+| xPON numbers, firmware, NIJIKA family tree, timeline | `_data/pon.yml` |
+| Regional PON suppliers (from openpon.org) | `_data/suppliers.yml`  |
 | Network skills, machines, partners      | `_data/network.yml`, `_data/partners.yml` |
 | Communities and social links            | `_data/communities.yml`, `_data/links.yml` |
 | Blog posts shown on the home page       | `_data/writing.yml`      |

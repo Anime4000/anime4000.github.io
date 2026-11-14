@@ -1,0 +1,88 @@
+# Regional suppliers, mirrored from openpon.org (data/suppliers.json).
+# Shown on /pon/#suppliers. Update `as_of` when you sync it.
+as_of: November 2026
+source: https://www.openpon.org/#suppliers
+
+tiers:
+  msp:
+    label: Managed IT · MSP
+    desc: >-
+      Takes the deployment end to end — fibre, ONT, routing and access
+      points — with every piece procured in your own name.
+  trade:
+    label: Trade supply
+    desc: >-
+      A business you buy hardware from, deployment left to you or your own
+      integrator.
+  community:
+    label: Community supply
+    desc: >-
+      An individual who supplies sticks and helps with firmware. Their time
+      is given voluntarily, so treat it as a favour rather than a support
+      contract.
+
+# Each vendor has a `website` or a Telegram `telegram` handle (without @).
+countries:
+  - name: Malaysia
+    code: MY
+    vendors:
+      - name: CureComp Technology
+        tier: msp
+        role: NIJIKA firmware backer, reseller and network integrator
+        website: https://curecomp.my
+      - name: Perfect Network
+        tier: msp
+        role: ISP, data centre and network integrator
+        website: https://perfect.my
+      - name: EG Sphere Enterprise
+        tier: msp
+        role: ISP, data centre and network integrator
+        website: https://egsphere.my
+      - name: Solid Wave WiFi
+        tier: msp
+        role: Network integrator, stick supply and firmware support
+        website: https://solidwavewifi.com
+      - name: SUBTel (MY)
+        tier: msp
+        role: Fibre and optical equipment supply
+        website: https://www.sublimetele.com/
+
+  - name: Belarus
+    code: BY
+    vendors:
+      - name: CATCrypt
+        tier: community
+        role: Stick supply and firmware support
+        telegram: CATCrypt
+
+  - name: Dominican Republic
+    code: DO
+    vendors:
+      - name: Ánzelox Zeravlá
+        tier: community
+        role: ONT supply and firmware support
+        telegram: Zeravla
+
+  - name: Turkey
+    code: TR
+    vendors:
+      - name: Murat
+        tier: trade
+        role: Stick supply and firmware support
+        telegram: mrt4161171
+      - name: KYTECHNGAMING
+        tier: trade
+        role: Stick supply and firmware support
+        telegram: KYTECHNGAMING
+      - name: Tersine Bilgisayarcı
+        tier: trade
+        role: Stick supply, firmware support and network integration
+        telegram: Marinkitawagaa
+
+  - name: Vietnam
+    code: VN
+    vendors:
+      - name: Vuducdong
+        tier: msp
+        role: Network integrator, stick supply and firmware support
+        telegram: vuducdong

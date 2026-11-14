@@ -1,0 +1,16 @@
+{% comment %}
+  One firmware in the NIJIKA family tree. Expects `node` (an entry of
+  `lineage[].branches` or its `next` in _data/pon.yml) to be assigned by the caller.
+{% endcomment %}
+<article class="lineage-node{% if node.latest %} lineage-node-latest{% endif %}">
+  <p class="project-role">{{ node.kind }}</p>
+  <h3>{{ node.name }} <span class="tag{% if node.latest %} tag-mine{% else %} tag-quiet{% endif %}">{{ node.status }}</span></h3>
+  <p class="lineage-device">{{ node.device }}</p>
+  <p class="lineage-base">{{ node.base }}</p>
+  <p class="lineage-desc">{{ node.desc }}</p>
+  {% if node.links %}
+  <p class="lineage-links">
+    {% for link in node.links %}<a href="{{ link.url }}" rel="noopener">{{ link.name }} <span aria-hidden="true">↗</span></a>{% endfor %}
+  </p>
+  {% endif %}
+</article>
