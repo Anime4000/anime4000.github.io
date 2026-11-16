@@ -14,6 +14,7 @@ Almost everything on the site is data. Change a YAML file, push, done.
 | Programming language ranking            | `_data/languages.yml`    |
 | Favourite anime, characters, voices     | `_data/anime.yml`        |
 | xPON numbers, firmware, NIJIKA family tree, timeline | `_data/pon.yml` |
+| NIJIKA history (eras, screenshots, credits) | `_data/nijika.yml`, `assets/img/nijika/` |
 | Regional PON suppliers (from openpon.org) | `_data/suppliers.yml`  |
 | Network skills, machines, partners      | `_data/network.yml`, `_data/partners.yml` |
 | Communities and social links            | `_data/communities.yml`, `_data/links.yml` |
@@ -23,8 +24,8 @@ Almost everything on the site is data. Change a YAML file, push, done.
 | Search and social preview settings      | `_config.yml` (`seo_title`, `social_image`, `person`) |
 | A page's search title and description   | `seo_title` and `description` in that page's front matter |
 
-Pages are `index.html`, `pon.html`, `projects.html`, `network.html`, `anime.html`
-and `404.html`. The back story on the network page is written in `network.html`.
+Pages are `index.html`, `pon.html`, `nijika.html`, `projects.html`, `network.html`,
+`anime.html` and `404.html`. The back story on the network page is written in `network.html`.
 Layouts are in `_layouts/`, shared fragments in `_includes/`, and the whole look
 is one stylesheet: `assets/css/main.css`.
 

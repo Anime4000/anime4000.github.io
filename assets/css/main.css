@@ -273,7 +273,7 @@ a:hover { color: var(--tone-ink); }
 .more { font-weight: 650; font-size: .95rem; white-space: nowrap; text-decoration: none; color: var(--tone-ink); }
 .more:hover { text-decoration: underline; }
 
-.split { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
 @media (min-width: 900px) {
   .split { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
   .split-even { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -746,6 +746,36 @@ a:hover { color: var(--tone-ink); }
 .footer-links a { text-decoration: none; color: var(--muted); }
 .footer-links a:hover { color: var(--ink); text-decoration: underline; }
 .footer-note { grid-column: 1 / -1; margin: 0; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
+
+/* ---- NIJIKA page -------------------------------------------------------- */
+.prose code, .milestones code {
+  font-family: var(--font-mono); font-size: .86em; padding: .08em .35em;
+  border-radius: 6px; background: var(--sunken); border: 1px solid var(--line);
+}
+.nijika-intro { align-items: center; }
+.nijika-art { margin: 0; display: flex; justify-content: center; }
+.nijika-art img { width: auto; max-height: 520px; filter: drop-shadow(0 18px 30px rgba(39, 34, 45, .18)); }
+@media (max-width: 899px) { .nijika-art img { max-height: 340px; } }
+
+.eras { margin-top: 2.5rem; border-top: 1px solid var(--line-strong); }
+.era { display: grid; gap: 1.25rem 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--line); }
+.era-year { margin: 0; font-family: var(--font-display); font-weight: 850; letter-spacing: -.04em; line-height: 1; font-size: clamp(2.4rem, 1.8rem + 2vw, 3.4rem); color: var(--tone-ink); }
+.era h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: .5rem 0 .4rem; font-size: 1.35rem; }
+.era-device { margin: 0; font-size: .9rem; font-weight: 600; }
+.era-desc { margin: .8rem 0 0; color: var(--muted); font-size: .96rem; max-width: 46ch; }
+.era-by { margin: .6rem 0 0; font-size: .88rem; font-weight: 650; }
+.era-shots { display: grid; gap: 14px; }
+.era-shots .shot figcaption { margin-top: .45rem; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+.era-shots .shot a { display: block; transition: transform .15s ease; }
+.era-shots .shot a:hover { transform: translateY(-2px); }
+.era-latest .era-shots .shot img { border-color: var(--tone); }
+@media (min-width: 640px) { .era-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 980px) { .era { grid-template-columns: 17rem minmax(0, 1fr); } }
+
+.table-scroll { overflow-x: auto; margin-top: .25rem; }
+.spec-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.spec-table th, .spec-table td { padding: .55rem .75rem .55rem 0; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.spec-table th { font-family: var(--font-mono); font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border-bottom-color: var(--line-strong); }
 
 /* ---- Motion preferences ------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,153 @@
+# NIJIKA firmware, era by era. Shown on /nijika/.
+# Screenshots live in assets/img/nijika/ as <year>-login.webp and
+# <year>-status.webp (1280px wide WebP, browser chrome cropped off).
+# `latest: true` marks current work. `by` credits a contributor for that era.
+eras:
+  - year: "2021"
+    name: Classic
+    chip: RTL9601CI
+    device: VSOL V2801F · TWC TWCGPON657
+    img: "2021"
+    w: 1280
+    h: 637
+    desc: >-
+      Where it began: a modded root filesystem for the RTL9601CI sticks. A
+      plain login box, then a Bootstrap status page with Status, Advanced,
+      System and Admin menus, showing the system and LAN at a glance.
+    login_alt: >-
+      A small white login box with username and password fields on a dark
+      purple background, signed "RTL960x // Mod by Anime4000".
+    status_alt: >-
+      A Device Status page for a TWCGPON657 stick listing device name,
+      uptime, firmware version, CPU and memory usage, and the LAN address,
+      over a purple background with pink bubbles.
+
+  - year: "2022"
+    name: RTL9601D
+    chip: RTL9601D
+    device: ODI DFP-34X-2C2
+    img: "2022"
+    w: 1280
+    h: 637
+    desc: >-
+      The move to the RTL9601D sticks. A proper "Authentication Required"
+      card, and a status page that now reports the release, the system on
+      chip and the host interface speed: 2500 Mbps over HiSGMII.
+    login_alt: >-
+      An "Authentication Required" login card on a navy background of
+      hexagons, crediting stich86, inyourgroove and rajkosto for integrated
+      scripts.
+    status_alt: >-
+      A Device Status page listing device name, uptime, firmware version,
+      release, system on chip, CPU and memory usage, LAN address and an
+      interface speed of 2500 Mbps HiSGMII.
+
+  - year: "2023"
+    name: Dark
+    chip: RTL9601D
+    device: ODI DFP-34X-2C2
+    img: "2023"
+    w: 1280
+    h: 800
+    by: imoize
+    by_url: https://github.com/imoize
+    desc: >-
+      A dark theme by imoize, and the first time Nijika herself shows up:
+      waving beside the login, with the firmware's shell banner glowing in
+      the background. The status page adds the vendor ID and the active
+      firmware partition.
+    login_alt: >-
+      A dark login page with an anime girl with yellow hair waving beside the
+      login card, and a green terminal banner reading "Nijika Firmware"
+      behind it.
+    status_alt: >-
+      A dark Device Status page in tables, with vendor ID, package release,
+      active partition, system on chip, uptime, CPU and memory usage, and the
+      LAN configuration.
+
+  - year: "2024"
+    name: Current
+    chip: RTL9601D
+    device: ODI DFP-34X-2C2
+    img: "2024"
+    w: 1280
+    h: 800
+    desc: >-
+      The classic firmware as most sticks in the field run it. A NIJIKA menu
+      bar with Status, Network, GPON, System and Admin, CPU and memory as
+      bars, the Tx L1 rate profile, and a WAN table showing which VLANs the
+      OLT is carrying.
+    login_alt: >-
+      A light login page with the same waving girl and a shell banner reading
+      "Ready for PON Interoperability", signed as part of the Open xPON
+      Initiative.
+    status_alt: >-
+      A light status page with a NIJIKA menu bar, CPU and memory usage bars,
+      a 2500 Mbps HiSGMII interface, and a WAN table with VLANs 400 and 500
+      bridged.
+
+  - year: "2026"
+    name: NIJIKA-Luna
+    chip: RTL9601D
+    device: ODI DFP-34X-2C2 · HSGQ
+    img: "2026"
+    w: 1280
+    h: 720
+    latest: true
+    desc: >-
+      A new base. Luna runs on Andre Ziviani's ODI OSS and Linux 6.18, with
+      open switch, GPON and OMCI drivers in place of the vendor's. Nijika UI
+      draws the line itself: PON state, light in and out against the limits,
+      temperature, traffic and the VLANs, with the OLT's VEIP and PPTP ports
+      marked on each.
+    login_alt: >-
+      A dark, minimal NIJIKA-Luna login card asking for a username and
+      password, crediting the Open PON Foundation and Peter-Pon.
+    status_alt: >-
+      The NIJIKA-Luna Device page: SFP and ONT panels, then a PON panel
+      showing state O5 in service, light in at minus 10.7 dBm on a scale,
+      laser out at 2.7 dBm, temperature and live traffic.
+
+# What changed in the WebGUI while the classic firmware was current.
+improvements:
+  - title: OLT info against Fake O5
+    desc: >-
+      A stick can report O5 to the OLT and still carry no traffic. The OLT
+      Info page shows OMCI managed entities 84 and 171, the VLAN filtering
+      and the extended VLAN tagging the OLT pushed, so you can see where it
+      stops.
+  - title: Forward Operation hacks
+    desc: >-
+      Some OLTs ask for a VLAN forward operation the vendor firmware will not
+      bridge. The mod rewrites it so the traffic reaches your router.
+  - title: Fixes in the boot scripts
+    desc: >-
+      Scripts under /etc/scripts that run at boot to correct the reported
+      software version, the link speed and VLAN tagging.
+
+# The sticks the classic firmware mod covers. From Firmware_Mod/README.md.
+sticks:
+  - vendor: ODI
+    model: DFP-34X-2C2
+    soc: RTL9601D
+    swap: "—"
+  - vendor: TWC
+    model: TWCGPON657
+    soc: RTL9601CI
+    swap: V2801F
+  - vendor: VSOL
+    model: V2801F
+    soc: RTL9601CI
+    swap: TWCGPON657
+
+credits:
+  - name: imoize
+    what: the dark theme
+    url: https://github.com/imoize
+  - name: stich86, inyourgroove, rajkosto and O3
+    what: scripts integrated into the classic firmware
+  - name: Andre Ziviani
+    what: ODI OSS and odi-ui, the base of NIJIKA-Luna
+    url: https://github.com/AndreZiviani/odi-oss
+  - name: Pedro Teixeira (metal-stress)
+    what: Peter-Pon, the UX inspiration for Nijika UI

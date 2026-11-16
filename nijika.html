@@ -1,0 +1,189 @@
+---
+layout: page
+title: NIJIKA
+seo_title: NIJIKA Firmware — from the classic RTL960x mod to NIJIKA-Luna
+description: >-
+  How NIJIKA, the open firmware for Realtek RTL9601CI and RTL9601D GPON SFP
+  sticks, grew from a modded root filesystem in 2021 to NIJIKA-Luna on ODI OSS
+  and Linux 6.18 in 2026, told through its login and status screens.
+permalink: /nijika/
+tone: yellow
+eyebrow: NIJIKA Firmware
+jp: 虹夏
+heading: Five years of NIJIKA
+lede: >-
+  NIJIKA started as a few edited files in the root filesystem of a GPON stick.
+  It is now the firmware on more than a thousand of them. This is how it got
+  there, one login screen at a time.
+---
+<section class="section section-tight tone-yellow" aria-labelledby="what-title">
+  <div class="wrap">
+    <div class="split nijika-intro">
+      <div class="prose">
+        <h2 id="what-title">What NIJIKA is</h2>
+        <p>
+          A GPON SFP stick is a whole ONT folded into a module: a Realtek SoC, a laser and a
+          small Linux. The vendor firmware works, but it hides what the OLT is doing, speaks
+          to few OLTs, and leaves you guessing when the line is up and the traffic is not.
+        </p>
+        <p>
+          NIJIKA is that firmware opened up. The classic line lives in the
+          <a href="https://github.com/Anime4000/RTL960x/tree/main/Firmware_Mod" rel="noopener">Firmware_Mod</a>
+          folder of RTL960x: an overlay of the stick's root filesystem, one folder per model,
+          with the web pages, boot scripts and OMCI settings I changed. You unpack the stock
+          image, lay the overlay on top and rebuild it.
+        </p>
+        <p>
+          NIJIKA-Luna, in 2026, goes further: the vendor's userland is gone, and the stick
+          runs an open base from the bootloader up.
+        </p>
+        <p class="actions">
+          <a class="button button-primary" href="https://github.com/Anime4000/RTL960x/tree/main/Firmware_Mod" rel="noopener">Firmware_Mod on GitHub <span aria-hidden="true">↗</span></a>
+          <a class="button" href="{{ '/pon/#nijika' | relative_url }}">The NIJIKA family <span aria-hidden="true">→</span></a>
+        </p>
+      </div>
+      <figure class="nijika-art">
+        <img src="{{ '/assets/img/108259505_p0.svg' | relative_url }}" width="599" height="948"
+             alt="Nijika, an anime girl with long yellow hair in a side ponytail and a school uniform">
+      </figure>
+    </div>
+  </div>
+</section>
+
+{% include fibre.html %}
+
+<section class="section tone-yellow" id="history" aria-labelledby="history-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>History <span class="jp" lang="ja">／ 歩み</span></p>
+    <h2 id="history-title">From classic firmware to NIJIKA-Luna</h2>
+    <p class="lede narrow">
+      The first thing anyone sees is the login screen, and the second is the status page.
+      Here are both, from every era. Select a screenshot to open it at full size.
+    </p>
+    <ol class="eras">
+      {% for era in site.data.nijika.eras %}
+      <li class="era{% if era.latest %} era-latest{% endif %}" id="era-{{ era.year }}">
+        <div class="era-text">
+          <p class="era-year">{{ era.year }}</p>
+          <h3>{{ era.name }} {% if era.latest %}<span class="tag tag-mine">In development</span>{% endif %}</h3>
+          <p class="era-device"><span class="tag tag-quiet">{{ era.chip }}</span> {{ era.device }}</p>
+          <p class="era-desc">{{ era.desc }}</p>
+          {% if era.by %}<p class="era-by">Theme by <a href="{{ era.by_url }}" rel="noopener">{{ era.by }}</a></p>{% endif %}
+        </div>
+        <div class="era-shots">
+          {% assign login = '/assets/img/nijika/' | append: era.img | append: '-login.webp' | relative_url %}
+          {% assign status = '/assets/img/nijika/' | append: era.img | append: '-status.webp' | relative_url %}
+          <figure class="shot">
+            <a href="{{ login }}" aria-label="Open the {{ era.year }} login screen at full size">
+              <img src="{{ login }}" width="{{ era.w }}" height="{{ era.h }}" loading="lazy" alt="{{ era.login_alt | strip }}">
+            </a>
+            <figcaption>Login</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="{{ status }}" aria-label="Open the {{ era.year }} status page at full size">
+              <img src="{{ status }}" width="{{ era.w }}" height="{{ era.h }}" loading="lazy" alt="{{ era.status_alt | strip }}">
+            </a>
+            <figcaption>Status</figcaption>
+          </figure>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section tone-teal" id="classic" aria-labelledby="classic-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Under the hood <span class="jp" lang="ja">／ 改造</span></p>
+    <div class="split split-even">
+      <div class="prose">
+        <h2 id="classic-title">How the classic firmware is made</h2>
+        <p>
+          Each folder in Firmware_Mod mirrors the root filesystem of one stick:
+          <code>etc/</code> for the boot and OMCI settings, <code>home/httpd/</code> for the
+          web server and its pages. To mod an image, run <code>qemu-test.sh</code>, copy in
+          what you need, and exit; the firmware images are rebuilt on the way out.
+        </p>
+        <p>
+          To change one file on a live stick there is no need to reflash. Listen with
+          <code>nc -l -p 12345 &gt; file</code> on the stick, send it with
+          <code>nc 192.168.1.1 12345 &lt; file</code> from a PC, then press Ctrl+C in the
+          stick's telnet session, since its <code>nc</code> does not exit by itself.
+        </p>
+        <h3 class="h-sub">Sticks it covers <span class="jp" lang="ja">／ 対応機種</span></h3>
+        <div class="table-scroll">
+          <table class="spec-table">
+            <thead><tr><th scope="col">Vendor</th><th scope="col">Model</th><th scope="col">SoC</th><th scope="col">Interchangeable with</th></tr></thead>
+            <tbody>
+              {% for s in site.data.nijika.sticks %}
+              <tr><td>{{ s.vendor }}</td><td>{{ s.model }}</td><td>{{ s.soc }}</td><td>{{ s.swap }}</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3 class="h-sub">What the mod changes <span class="jp" lang="ja">／ 改良点</span></h3>
+        <ol class="milestones">
+          {% for item in site.data.nijika.improvements %}
+          <li>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc }}</p>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-yellow" id="luna" aria-labelledby="luna-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>NIJIKA-Luna <span class="jp" lang="ja">／ ルナ</span></p>
+    <div class="split split-even">
+      <div class="prose">
+        <h2 id="luna-title">A new base, the same Nijika</h2>
+        <p>
+          The classic firmware could only ever be as open as the vendor userland under it.
+          Luna replaces that userland with
+          <a href="https://github.com/AndreZiviani/odi-oss" rel="noopener">ODI OSS</a>:
+          Linux 6.18 and open switch, GPON and OMCI drivers. Then it puts the Nijika parts
+          back on top.
+        </p>
+        <ul class="likes">
+          <li><strong>nijika CLI</strong> — the quick CLI, rewritten in C: ONT identity presets, the boot slot, the host SerDes and the OMCI presentation.</li>
+          <li><strong>ONT presets</strong> — the classic numbering is kept, and the Huawei HG8240H is the new default.</li>
+          <li><strong>Nijika UI</strong> — a LuCI-style web UI that draws the line, the services and the OMCI topology, and says what each change costs before you save it.</li>
+          <li><strong>Safe upgrades</strong> — new firmware boots on trial first and falls back by itself if it does not come up.</li>
+        </ul>
+        <p class="actions">
+          <a class="button button-primary" href="https://github.com/PururinCollective/rtl9601-nijika-ui" rel="noopener">Nijika UI on GitHub <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+      <figure class="shot">
+        <a href="{{ '/assets/img/nijika/2026-omci-topology.webp' | relative_url }}" aria-label="Open the OMCI topology screenshot at full size">
+          <img src="{{ '/assets/img/nijika/2026-omci-topology.webp' | relative_url }}" width="1280" height="720" loading="lazy"
+               alt="The NIJIKA-Luna OMCI topology page, drawing the managed entities the OLT created as a connected diagram">
+        </a>
+        <figcaption>Nijika UI drawing the OMCI topology the OLT built on the stick.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-teal" aria-labelledby="credits-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Credits <span class="jp" lang="ja">／ 感謝</span></p>
+    <h2 id="credits-title">Many hands</h2>
+    <ul class="likes">
+      {% for c in site.data.nijika.credits %}
+      <li><strong>{% if c.url %}<a href="{{ c.url }}" rel="noopener">{{ c.name }}</a>{% else %}{{ c.name }}{% endif %}</strong> — {{ c.what }}</li>
+      {% endfor %}
+    </ul>
+    <p class="fineprint">
+      Illustration of Nijika: <a href="https://www.pixiv.net/artworks/108259505" rel="noopener">pixiv 108259505</a>.
+      Screenshots from RTL960x and rtl9601-nijika-ui. Read the
+      <a href="{{ '/pon/#safety-title' | relative_url }}">safety notice</a> before you put any stick on a live PON.
+    </p>
+  </div>
+</section>
