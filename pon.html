@@ -91,9 +91,50 @@ lede: >-
           </li>
           {% endfor %}
         </ul>
-        <p class="fineprint">This list is ahead of openpon.org, which still shows the first four.</p>
+        <p class="fineprint">This list is ahead of openpon.org, which so far lists four of them.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section tone-yellow" id="nijika" aria-labelledby="family-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Latest work <span class="jp" lang="ja">／ 系譜</span></p>
+    <h2 id="family-title">The NIJIKA family</h2>
+    <p class="lede narrow">
+      Once NIJIKA settled, the work split two ways: a new base for NIJIKA itself,
+      and OpenWrt on whole PON gateways, first on Realtek and now on MediaTek. The vendor's
+      own stack keeps the fibre up; everything you touch is open.
+    </p>
+    <div class="lineage">
+      {% for vendor in site.data.pon.lineage %}
+      <div class="lineage-vendor">
+        <p class="lineage-root"><strong>{{ vendor.vendor }}</strong> <span>{{ vendor.silicon }}</span></p>
+        <ul class="lineage-tree">
+          {% for branch in vendor.branches %}
+          <li>
+            {% assign node = branch %}{% include lineage-node.html %}
+            {% if branch.next %}
+            <ul class="lineage-tree">
+              {% for child in branch.next %}
+              <li>{% assign node = child %}{% include lineage-node.html %}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="fineprint">
+      NIJIKA Luna builds on <a href="https://github.com/AndreZiviani/odi-oss" rel="noopener">ODI OSS</a>
+      and <a href="https://github.com/AndreZiviani/odi-ui" rel="noopener">odi-ui</a> by Andre Ziviani.
+      NijikaWrt and RemixWrt IIDX are Pururin Collective projects.
+    </p>
+    <p class="actions">
+      <a class="button" href="{{ '/nijika/' | relative_url }}">NIJIKA, from classic to Luna <span aria-hidden="true">→</span></a>
+    </p>
   </div>
 </section>
 
@@ -119,7 +160,7 @@ lede: >-
         <p class="sticks">
           <strong>1,000+</strong>
           <span>NIJIKA PON sticks are out there today, supplied by reputable resellers such as
-          {{ site.data.pon.resellers }}. <a href="https://www.openpon.org/#suppliers" rel="noopener">Regional suppliers on openpon.org</a></span>
+          {{ site.data.pon.resellers }}. <a href="#suppliers">Regional suppliers</a></span>
         </p>
       </div>
       <figure class="shot">
@@ -130,6 +171,49 @@ lede: >-
         <figcaption>A MikroTik bridge receiving 2.1 Gbps on TM Unifi, with Speedtest reading 1,945 Mbps down.</figcaption>
       </figure>
     </div>
+  </div>
+</section>
+
+<section class="section tone-teal" id="suppliers" aria-labelledby="suppliers-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Regional suppliers <span class="jp" lang="ja">／ 販売店</span></p>
+    <h2 id="suppliers-title">Where to get a stick, and who can deploy it</h2>
+    <p class="lede narrow">
+      Resellers and integrators who know their local operators, as listed by the Open PON
+      Foundation. Where one is available, hire the integrator rather than deploying it yourself.
+    </p>
+    <dl class="tiers">
+      {% for tier in site.data.suppliers.tiers %}
+      <div class="tier">
+        <dt><span class="tag{% if tier[0] == 'msp' %} tag-mine{% elsif tier[0] == 'community' %} tag-quiet{% endif %}">{{ tier[1].label }}</span></dt>
+        <dd>{{ tier[1].desc }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+    <ul class="suppliers">
+      {% for country in site.data.suppliers.countries %}
+      <li class="supplier-country">
+        <p class="supplier-where"><span class="supplier-code">{{ country.code }}</span> {{ country.name }}</p>
+        <ul class="supplier-list">
+          {% for vendor in country.vendors %}
+          {% assign tier = site.data.suppliers.tiers[vendor.tier] %}
+          <li class="supplier">
+            <p class="supplier-name"><strong>{{ vendor.name }}</strong> <span class="tag{% if vendor.tier == 'msp' %} tag-mine{% elsif vendor.tier == 'community' %} tag-quiet{% endif %}">{{ tier.label }}</span></p>
+            <p class="supplier-role">{{ vendor.role }}</p>
+            <p class="supplier-contact">
+              {% if vendor.website %}<a href="{{ vendor.website }}" rel="noopener">{{ vendor.website | remove_first: 'https://' | remove_first: 'www.' | remove: '/' }}</a>{% elsif vendor.telegram %}<a href="https://t.me/{{ vendor.telegram }}" rel="noopener"><span class="quiet">Telegram</span> @{{ vendor.telegram }}</a>{% endif %}
+            </p>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="fineprint">
+      From <a href="{{ site.data.suppliers.source }}" rel="noopener">openpon.org</a>, as of {{ site.data.suppliers.as_of }};
+      the foundation keeps the current list. PON is a shared medium, so read the
+      <a href="#safety-title">safety notice</a> before you plug anything in.
+    </p>
   </div>
 </section>
 

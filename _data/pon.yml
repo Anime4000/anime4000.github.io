@@ -63,12 +63,12 @@ firmware:
       DPN-FX3060V (A1). Experimental.
   - name: RemixWrt IIDX
     tech: GPON
-    chip: EcoNet
+    chip: Airoha EN7581
     badge: Pururin Collective
     url: https://github.com/PururinCollective/sk-g7220-openwrt
     desc: >-
-      OpenWrt and LuCI for EcoNet PON SoCs, starting with the Skyworth
-      SK-G7220 gateway. Beta.
+      OpenWrt and LuCI for MediaTek's Airoha PON SoCs, starting with the
+      Skyworth SK-G7220 gateway. Beta.
   - name: CatOS
     tech: GPON
     chip: RTL9601CI · RTL9601D
@@ -89,6 +89,77 @@ firmware:
     tech: XGS-PON
     chip: CA8271x
     desc: XGS-PON firmware with a focus on Japanese operator interoperability.
+
+# The NIJIKA family tree, by silicon vendor. Shown on /pon/.
+# `next` is a firmware that grew out of its parent. `latest: true` marks
+# current work. `links` sit under the description.
+lineage:
+  - vendor: Realtek
+    silicon: RTL9601CI · RTL9601D · RTL9607DQ
+    branches:
+      - name: NIJIKA Firmware
+        kind: ONT firmware
+        device: RTL9601CI · RTL9601D
+        base: Stock Realtek firmware (230303)
+        status: In the field
+        desc: >-
+          Where the family starts, and what runs on the 1,000+ sticks in the
+          field: broad OLT compatibility, VEIP, 1GbE to 2.5GbE, and metrics
+          for Prometheus and Grafana, layered on the vendor firmware.
+        links:
+          - name: RTL960x
+            url: https://github.com/Anime4000/RTL960x#nijika-firmware
+        next:
+          - name: NIJIKA Luna
+            kind: ONT firmware, next generation
+            device: RTL9601D
+            base: ODI OSS · Linux 6.18
+            status: In development
+            latest: true
+            desc: >-
+              NIJIKA rebuilt on Andre Ziviani's ODI OSS, with open switch,
+              GPON and OMCI drivers in place of the vendor's. A nijika CLI
+              rewritten in C, ONT identity presets with the Huawei HG8240H as
+              the default, and Nijika UI: a LuCI-style page that draws the
+              line, the services and the OMCI topology, says what each change
+              costs before you save it, and updates firmware with a trial boot
+              that falls back by itself.
+            links:
+              - name: Nijika UI
+                url: https://github.com/PururinCollective/rtl9601-nijika-ui
+      - name: NijikaWrt
+        kind: Gateway firmware
+        device: D-Link DPN-FX3060V (A1)
+        base: OpenWrt 25.12 · stock Realtek 5.10 kernel
+        status: Experimental
+        latest: true
+        desc: >-
+          OpenWrt and LuCI on a whole RTL9607DQ GPON gateway. The stock
+          userland keeps driving PON, OMCI, WAN, Wi-Fi and voice from a
+          chroot, while OpenWrt adds WireGuard, DNS over HTTPS and DDNS, and
+          D-Link's cloud agent is removed. A1 hardware only.
+        links:
+          - name: Source
+            url: https://github.com/PururinCollective/dpn-fx3060v-a1-openwrt
+  - vendor: MediaTek
+    silicon: Airoha EN7581 · EcoNet SDK
+    branches:
+      - name: RemixWrt IIDX
+        kind: Gateway firmware
+        device: Skyworth SK-G7220 (Wi-Fi 7)
+        base: OpenWrt 25.12.6 · stock EcoNet 5.4 kernel
+        status: Beta · r20
+        latest: true
+        desc: >-
+          The same idea on MediaTek silicon: the stock pages rebuilt in LuCI,
+          a RemixWrt menu for ONT authentication, identity and OMCI topology,
+          WireGuard, encrypted DNS and a Quick Setup page. One firmware bank
+          always keeps the stock image, so there is a way back.
+        links:
+          - name: Source
+            url: https://github.com/PururinCollective/sk-g7220-openwrt
+          - name: r20 release
+            url: https://github.com/PururinCollective/sk-g7220-openwrt/releases/tag/r20
 
 timeline:
   - date: "2020"
@@ -130,9 +201,10 @@ timeline:
   - date: Late 2026
     title: Beyond the stick
     desc: >-
+      NIJIKA Luna moves NIJIKA onto ODI OSS and Linux 6.18.
       NijikaWrt and RemixWrt IIDX bring an OpenWrt userland to whole
-      gateways, on Realtek RTL9607DQ and EcoNet SoCs. CatOS and Peter-Pon
-      widen the choice of firmware for sticks.
+      gateways, on Realtek RTL9607DQ and MediaTek (Airoha) SoCs. CatOS and
+      Peter-Pon widen the choice of firmware for sticks.
 
 join:
   - name: RTL960x on GitHub
