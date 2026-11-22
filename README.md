@@ -15,6 +15,7 @@ Almost everything on the site is data. Change a YAML file, push, done.
 | Favourite anime, characters, voices     | `_data/anime.yml`        |
 | xPON numbers, firmware, timeline        | `_data/pon.yml`          |
 | Network skills, machines, partners      | `_data/network.yml`, `_data/partners.yml` |
+| IFME features, screenshots, timeline    | `_data/ifme.yml`         |
 | Communities and social links            | `_data/communities.yml`, `_data/links.yml` |
 | Blog posts shown on the home page       | `_data/writing.yml`      |
 | Top navigation                          | `_data/nav.yml`          |
@@ -22,8 +23,8 @@ Almost everything on the site is data. Change a YAML file, push, done.
 | Search and social preview settings      | `_config.yml` (`seo_title`, `social_image`, `person`) |
 | A page's search title and description   | `seo_title` and `description` in that page's front matter |
 
-Pages are `index.html`, `pon.html`, `projects.html`, `network.html`, `anime.html`
-and `404.html`. The back story on the network page is written in `network.html`.
+Pages are `index.html`, `pon.html`, `ifme.html`, `projects.html`, `network.html`,
+`anime.html` and `404.html`. The back story on the network page is written in `network.html`.
 Layouts are in `_layouts/`, shared fragments in `_includes/`, and the whole look
 is one stylesheet: `assets/css/main.css`.
 

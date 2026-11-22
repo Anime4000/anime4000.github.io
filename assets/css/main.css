@@ -650,6 +650,14 @@ a:hover { color: var(--tone-ink); }
 
 .partner-list a { justify-content: space-between; }
 
+/* ---- IFME page --------------------------------------------------------- */
+.gallery { margin-top: 2rem; }
+.gallery .shot img { aspect-ratio: 4 / 3; object-fit: contain; background: var(--sunken); }
+.gallery .shot a { display: block; border-radius: var(--radius); }
+.mono { font-family: var(--font-mono); font-size: .92em; }
+.donate-to { color: var(--muted); }
+.donate-to .mono { color: var(--ink); user-select: all; }
+
 /* ---- Anime page -------------------------------------------------------- */
 .people { margin-top: .5rem; }
 .person-jp { margin: .25rem 0 .2rem; font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; line-height: 1.25; }

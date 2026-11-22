@@ -1,0 +1,219 @@
+---
+layout: page
+title: IFME
+seo_title: IFME — Internet Friendly Media Encoder, since 2013
+description: >-
+  IFME, the Internet Friendly Media Encoder: Anime4000's oldest project still
+  maintained, from a VB.NET front end for FRAPS recordings in 2013 to IFME 9 on
+  a native C core. x265, AV1, remux, subtitles and fonts from another video.
+permalink: /ifme/
+image: /assets/img/ifme-social-card.png
+image_alt: >-
+  The IFME 8 splash screen: two anime girls in school uniforms leaping across a
+  blue sky under the words Internet Friendly Media Encoder.
+tone: blue
+eyebrow: IFME
+jp: 動画エンコーダー
+heading: Internet Friendly Media Encoder
+lede: >-
+  My oldest project that is still maintained, and my biggest after xPON. It
+  started in 2012 as a way to shrink game recordings while I was studying at
+  APU in Kuala Lumpur. Thirteen years later it encodes, remuxes and repackages
+  whole anime libraries.
+---
+<section class="section section-tight tone-blue" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="split">
+      <div class="prose">
+        <h2 id="why-title">Why it exists</h2>
+        <p>
+          Before OBS, game recording meant <strong>FRAPS</strong>. FRAPS saved nearly raw
+          video, so a few minutes of play filled gigabytes. I wanted to keep those recordings
+          for nostalgia and rewatch them years later, without buying a new hard disk every
+          month. So I wrote a small window in front of x264 to make them smaller.
+        </p>
+        <p>
+          The name comes from <a href="https://neptunia.fandom.com/wiki/IF" rel="noopener">IF</a>,
+          a character from <i>Hyperdimension Neptunia</i>. It was going to be
+          <em>IF Media Encoder</em>, but that artwork belongs to someone else. So IF became
+          <strong>Internet Friendly</strong> — which is what it does: compress media for
+          delivery over the internet.
+        </p>
+        <p>
+          It has outgrown that first job. IFME now remuxes, merges and repackages streams,
+          keeps subtitles and fonts, and batches whole collections.
+        </p>
+        <p class="actions">
+          <a class="button button-primary" href="https://sourceforge.net/projects/ifme/files/latest/download" rel="noopener">Download IFME <span aria-hidden="true">↗</span></a>
+          <a class="button" href="https://github.com/Anime4000/IFME" rel="noopener">Source on GitHub <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+      <figure class="shot">
+        <img src="{{ '/assets/img/ifme/splash-8.jpg' | relative_url }}" width="1280" height="720"
+             alt="The IFME 8 splash screen: two anime girls in school uniforms leaping across a blue sky under the words Internet Friendly Media Encoder">
+        <figcaption>The IFME 8 splash screen. Fumika and Ichika, drawn by Rep-en for the project.</figcaption>
+      </figure>
+    </div>
+    <dl class="stats">
+      <div class="stat"><dt>First release</dt><dd>2013</dd></div>
+      <div class="stat"><dt>Times the interface was rebuilt from scratch</dt><dd>8</dd></div>
+      <div class="stat"><dt>Commits on GitHub</dt><dd>1,152</dd></div>
+      <div class="stat"><dt>GitHub stars</dt><dd data-gh-stars="Anime4000/IFME">293</dd></div>
+    </dl>
+    <p class="fineprint">Figures as of {{ site.stats_as_of }}, from the IFME repository.</p>
+  </div>
+</section>
+
+<section class="section tone-blue" aria-labelledby="does-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>What it does now <span class="jp" lang="ja">／ できること</span></p>
+    <div class="split split-even">
+      <div>
+        <h2 id="does-title">More than compressing</h2>
+        <ul class="likes">
+          {% for item in site.data.ifme.features %}
+          <li><strong>{{ item.name }}</strong> — {{ item.desc }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <figure class="shot">
+        <a href="{{ '/assets/img/ifme/ifme-8-ui.png' | relative_url }}" aria-label="Open the screenshot at full size">
+          <img src="{{ '/assets/img/ifme/ifme-8-ui.png' | relative_url }}" width="1282" height="789" loading="lazy"
+               alt="The IFME 8.5 main window: a queue of three videos converting to MKV, with tabs for media info, video, audio, subtitles, attachments and advanced, and the H.265 rigaya NVENC encoder selected">
+        </a>
+        <figcaption>
+          IFME 8. The interface is plain Win32 on purpose: the RAM, cache and threads go to
+          the encoder, not the window.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-pink" aria-labelledby="back-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Back in time <span class="jp" lang="ja">／ 昔の画面</span></p>
+    <h2 id="back-title">Where it started</h2>
+    <p class="lede narrow">Screenshots from 2013 and 2014, when IFME was written in VB.NET on Windows 7.</p>
+    <div class="grid grid-3 gallery">
+      {% for shot in site.data.ifme.gallery %}
+      <figure class="shot">
+        <a href="{{ '/assets/img/ifme/' | append: shot.file | relative_url }}" aria-label="Open the screenshot at full size">
+          <img src="{{ '/assets/img/ifme/' | append: shot.file | relative_url }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy" alt="{{ shot.alt | strip_newlines | escape }}">
+        </a>
+        <figcaption>{{ shot.caption }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section tone-blue" aria-labelledby="timeline-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Timeline <span class="jp" lang="ja">／ これまで</span></p>
+    <h2 id="timeline-title">From 1.x to IFME 9</h2>
+    <p class="lede narrow">Every major version, from the changelog and the git history.</p>
+    <ol class="timeline">
+      {% for event in site.data.ifme.timeline %}
+      <li>
+        <p class="timeline-date">{{ event.date }}</p>
+        <div>
+          <h3>{{ event.title }}{% if event.now %} <span class="tag tag-mine">Latest</span>{% endif %}</h3>
+          <p>{{ event.desc }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section tone-russet" aria-labelledby="self-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Self-taught <span class="jp" lang="ja">／ 独学</span></p>
+    <h2 id="self-title">Learned by building it</h2>
+    <div class="story">
+      <p>
+        Nobody taught me any of this. IFME started in VB.NET, moved to C# for 4.0, and IFME 9
+        is C and C++ with Qt.
+      </p>
+      <p>Every language, every tool, learned because IFME needed it.</p>
+      <p>
+        Along the way: Makefiles, then CMake. Inno Setup installers. Mono, to run on Linux.
+        FFmpeg, x264 and x265 built from source. And plenty of mistakes — for years I read
+        FFmpeg's exit codes wrong, because I tried to work them out alone instead of asking.
+      </p>
+      <blockquote class="pullquote">
+        <p>I understand that I'm not a professional programmer, but I've done my best.</p>
+      </blockquote>
+      <p class="fineprint">From the release notes of IFME 8.0 beta 1, 2022.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-teal" id="support" aria-labelledby="support-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Supporters <span class="jp" lang="ja">／ 支えてくれた人</span></p>
+    <h2 id="support-title">Kept alive by kind people</h2>
+    <p class="lede narrow">IFME is free and always has been. These are the people who made it possible to keep going.</p>
+    <div class="grid grid-3 partners">
+      <article class="card place tone-teal">
+        <p class="project-role">Frequent donor</p>
+        <h3>Ron</h3>
+        <p class="project-desc">
+          Donates again and again, with a note that just says “IFME Projekt”. A big part of
+          why IFME is still maintained.
+        </p>
+      </article>
+      <article class="card place tone-blue">
+        <p class="project-role">Anonymous · USA</p>
+        <h3>A new workstation</h3>
+        <p class="project-desc">
+          Bought me a Ryzen 9 3950X, 64GB of RAM, a motherboard and an AIO cooler, retiring my
+          ancient AMD FX machine. Every encoder test since has run on it.
+        </p>
+      </article>
+      <article class="card place tone-pink">
+        <p class="project-role">Contributors</p>
+        <h3>Translators and testers</h3>
+        <p class="project-desc">
+          People who translated IFME into their own languages since 2014, reported bugs, and
+          rigaya, whose NVEnc and QSVEnc encoders IFME ships.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-pink" aria-labelledby="donate-title">
+  <div class="wrap">
+    <div class="notice">
+      <p class="eyebrow"><span class="eyebrow-mark"></span>Donate <span class="jp" lang="ja">／ 寄付</span></p>
+      <h2 id="donate-title">Help keep IFME going</h2>
+      <p>
+        If IFME saved you some disk space, or some hours, a donation helps pay for the
+        hardware and the time. Any amount is welcome.
+      </p>
+      <p class="actions">
+        <a class="button button-primary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=4CKYN7X3DGA7U" rel="noopener">Donate with PayPal <span aria-hidden="true">↗</span></a>
+      </p>
+      <p class="donate-to">PayPal: <span class="mono">hitoha4000@outlook.com</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-blue" aria-labelledby="get-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Get IFME <span class="jp" lang="ja">／ ダウンロード</span></p>
+    <h2 id="get-title">Where to find it</h2>
+    <ul class="posts posts-nodate">
+      {% for place in site.data.ifme.links %}
+      <li>
+        <a href="{{ place.url }}" rel="noopener">
+          <span class="post-title">{{ place.name }} <span class="post-desc">{{ place.desc }}</span></span>
+          <span class="post-topic" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,171 @@
+# IFME page. Dates come from changelog.txt, the git history and release tags
+# of github.com/Anime4000/IFME.
+
+# What IFME does today.
+features:
+  - name: Encode
+    desc: >-
+      x264, x265, SVT-AV1, VVC, VP9 and more, with Opus, FLAC, AAC and the rest
+      for audio. Every encoder is a JSON plugin you can update yourself.
+  - name: Remux
+    desc: >-
+      Repackage streams without re-encoding, like MKVToolNix. Smart stream copy
+      only encodes what the new container cannot hold.
+  - name: Borrow from another video
+    desc: >-
+      Take subtitles and fonts straight out of another file. Put a fansub's
+      styled subtitles onto a better raw without extracting anything first.
+  - name: Blu-ray to small
+    desc: >-
+      Keep the disc, and encode the copy you watch to x265 or AV1 with FLAC or
+      Opus for the smallest file that still looks right.
+  - name: Batch a whole library
+    desc: >-
+      Import a folder, set it once, walk away. Built for Jellyfin and Plex
+      collections, including the files they cannot play.
+  - name: GPU when you want it
+    desc: NVENC, Intel Quick Sync and AMD AMF, through rigaya's encoders or FFmpeg.
+
+# The 2013 screenshots.
+gallery:
+  - file: 2013-x264ui.png
+    width: 650
+    height: 490
+    alt: >-
+      x264ui, a small Windows dialog with the source set to a FRAPS recording of
+      Dead Island from June 2013, preset placebo and an OpenCL option
+    caption: >-
+      2013 · x264ui came first. The source is a FRAPS recording of Dead Island.
+  - file: 2013-vbnet.png
+    width: 922
+    height: 658
+    alt: >-
+      Visual Studio designing Form1.vb, the x265 Front-end Experimental window,
+      with the Windows Forms toolbox open on the left
+    caption: 2013 · Designing the x265 front end in Visual Studio. Form1.vb — this was VB.NET.
+  - file: 2013-about.png
+    width: 666
+    height: 513
+    alt: >-
+      The About IFME window for version 1.0.0.0, codename Mirai Hikari, with an
+      anime girl mascot on the left
+    caption: 2013 · IFME 1.0.0.0, codename Mirai Hikari. The mascot is by Aruuie Francoise.
+  - file: 2013-log.png
+    width: 650
+    height: 490
+    alt: >-
+      The IFME log tab listing ffmpeg, oggenc2, x265 and mkvmerge steps, ending
+      in a highlighted line: encoding canceled by user, wasted 13 hrs 42 min 42 sec
+    caption: 2013 · x265 was slow back then. The last line reads “wasted 13 hrs 42 min”.
+  - file: 2014-advanced.png
+    width: 650
+    height: 490
+    alt: >-
+      The IFME Advanced tab with x265 CPU instruction set checkboxes from MMX2 to
+      FMA4, frame rate, resolution and bit depth detection
+    caption: 2014 · The 3.x Advanced tab. Pick the CPU instructions x265 may use.
+  - file: early-website.jpg
+    width: 1280
+    height: 720
+    alt: >-
+      An early IFME web page titled Next Generation Video Encoding with Internet
+      Friendly Media Encoder, with a mascot lying beside a play button
+    caption: The early IFME website, before x265.github.io.
+
+# Milestones.
+timeline:
+  - date: "2012"
+    title: An idea at APU
+    desc: >-
+      A student at Asia Pacific University in Kuala Lumpur, with a hard disk full
+      of raw FRAPS game recordings.
+  - date: Apr 2013
+    title: x264ui
+    desc: >-
+      A small VB.NET window in front of x264 that made those recordings small
+      enough to keep.
+  - date: Oct 2013
+    title: IFME 1.0 “Mirai Hikari”
+    desc: >-
+      x264ui grows audio and an early x265, and gets a name. Version 2 adds
+      queue encoding, a debug console and automatic updates.
+  - date: Jan 2014
+    title: 3.0, the first installer
+    desc: >-
+      64-bit only on .NET 4.0. Subtitles and font attachments, 10-bit encoding,
+      multiple audio streams, and in 3.1 the first translations: Chinese,
+      Indonesian, Japanese, Malay and Norwegian.
+  - date: Jul 2014
+    title: 4.0, rewritten in C#
+    desc: >-
+      Totally new code, and the first version in Git. Add-ons, an updater for
+      each encoder, CPU affinity and priority, and translation files anyone can
+      edit.
+  - date: Sep 2015
+    title: 5.0 “IFME Go”
+    desc: >-
+      Rewritten again, better and faster. Native AviSynth, 12-bit encoding,
+      command-line encoding from a saved queue, and IFME running natively on
+      Linux for the first time.
+  - date: Jan 2016
+    title: 6.0 “Archangel Descending”
+    desc: >-
+      Plugins identified by GUID, audio file encoding, custom FFmpeg arguments
+      and TrueType collections embedded in the output.
+  - date: Jun 2017
+    title: 7.0 “Eridanus”
+    desc: >-
+      A complete rewrite on JSON instead of INI, with audio-only encoding. 7.3
+      learns to take fonts from another video.
+  - date: Apr 2020
+    title: 20.04, rebuilt from scratch
+    desc: >-
+      .NET 4.8 and the console moved inside the window. The 21.x alphas add
+      NVENC and taking subtitles from another video.
+  - date: Oct 2022
+    title: 8.0 beta
+    desc: >-
+      The eighth rebuild of the interface. Fast remux and folder import arrive
+      for Jellyfin and Plex libraries.
+  - date: Feb 2024
+    title: 8.1, out of beta
+    desc: >-
+      Styled subtitles burned in without fonts.conf — found by reading
+      Jellyfin's FFmpeg logs. rigaya's NVEnc, AVX2 builds of x264 and x265, and
+      automatic letterbox cropping came with the last betas.
+  - date: May 2025
+    title: 8.5 and 8.6, Linux again
+    desc: >-
+      An interface in Japanese and Chinese, CPU checks at start-up, and IFME 8
+      back on Linux under Mono.
+  - date: Aug 2026
+    title: 8.7 “Mezame no Uta”
+    desc: >-
+      The encoding engine no longer touches the interface: the groundwork for
+      headless and command-line use.
+  - date: Nov 2026
+    title: 8.7.1 and IFME 9 alpha
+    desc: >-
+      IFME 9 is a Qt 6 interface on a native C core with a command-line encoder,
+      ported from IFME 8 with the help of AI. No .NET, no Mono, same plugins.
+    now: true
+  - date: Next
+    title: IFME 9
+    desc: >-
+      IFME 9 takes over from IFME 8, on Windows and Linux, without a runtime to
+      install first.
+
+# Where to get it.
+links:
+  - name: SourceForge
+    desc: Always the newest build. The recommended download.
+    url: https://sourceforge.net/projects/ifme/files/latest/download
+  - name: GitHub
+    desc: Source code, releases, issues and the changelog.
+    url: https://github.com/Anime4000/IFME
+  - name: VideoHelp
+    desc: Third-party listing and mirror.
+    url: https://www.videohelp.com/software/Internet-Friendly-Media-Encoder
+  - name: x265.github.io
+    desc: The old IFME website. Kept for history.
+    url: https://x265.github.io/
