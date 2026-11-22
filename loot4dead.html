@@ -171,10 +171,9 @@ lede: >-
         </p>
         <p>
           The game mode is a few hundred lines of SourcePawn. My plugins do not give anyone
-          admin rights and do not connect anywhere. The only server command they send is
-          <code>changelevel</code>, to load the next campaign after a finale. Everything else on
-          the server is well-known public plugins from AlliedModders, such as Silvers'
-          left4dhooks.
+          admin rights and do not connect anywhere. The server commands they send only load the
+          next map or reset a player's points. Everything else on the server is well-known
+          public plugins from AlliedModders, such as Silvers' left4dhooks.
         </p>
       </div>
       <div class="prose">
@@ -189,6 +188,29 @@ lede: >-
           <a href="https://sb.hitoha.moe/" rel="noopener">SourceBans++ panel</a>.
         </p>
       </div>
+    </div>
+    <div class="notice" id="review">
+      <p class="eyebrow"><span class="eyebrow-mark"></span>Code review <span class="jp" lang="ja">／ コードレビュー</span></p>
+      <h3>Reviewed by Claude</h3>
+      <p>
+        In November 2026 I asked Claude, Anthropic's AI, to read the server's source code and
+        look for backdoors. It read all 43 plugin source files in the Noob4Dead repository,
+        about 35,000 lines of SourcePawn, and found none in my code:
+      </p>
+      <ul class="likes">
+        <li><strong>No hidden admins</strong> — nothing grants admin rights or checks for my Steam account.</li>
+        <li><strong>Nothing phones home</strong> — no sockets, no web requests, no data sent anywhere.</li>
+        <li><strong>Powerful commands are admin-only</strong> — spawning Infected, sending chat as another player and lifting the lobby reservation all need an admin flag.</li>
+        <li><strong>Server commands stay small</strong> — loading the next map, and resetting or giving a player's points.</li>
+      </ul>
+      <p>
+        One plugin written by someone else, Vote Blocker from 2014, protects its own author's
+        Steam account from kick votes. That is not my account, and it gives no admin rights.
+      </p>
+      <p class="fineprint">
+        The review covers source code only. It does not cover the two compiled extensions,
+        L4DToolZ and L4D2 Bug Fixes, and it cannot prove what runs on any one server.
+      </p>
     </div>
   </div>
 </section>
