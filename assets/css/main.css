@@ -754,6 +754,28 @@ a:hover { color: var(--tone-ink); }
 .donate-to { color: var(--muted); }
 .donate-to .mono { color: var(--ink); user-select: all; }
 
+/* ---- Sponsors (home page) ---------------------------------------------- */
+.sponsors {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 12px;
+  margin: 2rem 0 0; padding: 0; list-style: none;
+}
+.sponsor {
+  display: flex; flex-direction: column; align-items: center; gap: .15rem; height: 100%;
+  padding: 1.1rem .75rem 1rem; text-align: center; text-decoration: none; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.sponsor:hover { transform: translateY(-3px); border-color: var(--tone); box-shadow: var(--shadow); color: var(--ink); }
+.sponsor:focus-visible { outline: 3px solid var(--tone); outline-offset: 2px; }
+.sponsor img {
+  width: 64px; height: 64px; margin-bottom: .55rem; border-radius: 50%;
+  background: var(--sunken); box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--tone);
+}
+.sponsor img.is-org { border-radius: 14px; }
+.sponsor-name { max-width: 100%; font-weight: 650; font-size: .95rem; line-height: 1.3; overflow-wrap: anywhere; }
+.sponsor-login { max-width: 100%; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); overflow-wrap: anywhere; }
+.sponsors-empty { margin: 1.5rem 0 0; color: var(--muted); }
+
 /* ---- Anime page -------------------------------------------------------- */
 .people { margin-top: .5rem; }
 .person-jp { margin: .25rem 0 .2rem; font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; line-height: 1.25; }

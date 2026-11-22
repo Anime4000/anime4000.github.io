@@ -224,3 +224,34 @@ layout: default
     </ul>
   </div>
 </section>
+
+{% assign sponsors = site.data.sponsors %}
+<section class="section tone-pink" id="sponsors" aria-labelledby="sponsors-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>08 · Sponsors <span class="jp" lang="ja">／ スポンサー</span></p>
+    <h2 id="sponsors-title">Thank you, sponsors</h2>
+    <p class="lede narrow">
+      Everything here is free: IFME, the xPON research, ΕΛΠΙΣ DNS and the rest. GitHub Sponsors
+      helps pay for the hardware, the hosting and the time.
+    </p>
+    {% if sponsors and sponsors.size > 0 %}
+    <ul class="sponsors">
+      {% for s in sponsors %}
+      <li>
+        <a class="sponsor" href="{{ s.url }}" rel="noopener">
+          <img src="{{ s.avatar }}" alt="" width="64" height="64" loading="lazy" decoding="async"{% if s.type == "org" %} class="is-org"{% endif %}>
+          <span class="sponsor-name">{{ s.name }}</span>
+          {% if s.name != s.login %}<span class="sponsor-login">@{{ s.login }}</span>{% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="sponsors-empty">No public sponsors yet. You could be the first.</p>
+    {% endif %}
+    <p class="actions">
+      <a class="button button-primary" href="{{ site.sponsor_url }}" rel="noopener"><span aria-hidden="true">♥</span> Sponsor on GitHub <span aria-hidden="true">↗</span></a>
+    </p>
+    <p class="fineprint">Updated daily from GitHub Sponsors. Private sponsors are not listed, but they are thanked too.</p>
+  </div>
+</section>
