@@ -1,0 +1,113 @@
+# Loot 4 Dead page (/loot4dead/). Facts come from the Steam group pages, the
+# SourceBans++ panel at sb.hitoha.moe and the git history of the private
+# Noob4Dead repository (the server's plugins and configs).
+
+# How a round plays. Each line is something the server's own plugin does.
+rules:
+  - name: You are the Infected
+    desc: >-
+      Every human plays Special Infected for the whole campaign. Four A.I.
+      Survivors walk the map from safe room to rescue, and you stop them.
+  - name: The bots fight back
+    desc: >-
+      Survivor bots get ammo when they run low, a fresh first aid kit after
+      every heal, and extra health for a bigger team. They do not hurt each
+      other.
+  - name: Points for every hit
+    desc: >-
+      Hurting and pinning Survivors earns points. Spend them on a Tank, a
+      Witch or a horde from the buy menu. Survivors earn points too.
+  - name: Nobody waits
+    desc: >-
+      No camping in the safe room: the round starts by itself after a minute.
+      At the finale the server moves on to the next campaign on its own.
+
+# Chat commands players use most. Shown as typed in chat.
+commands:
+  - cmd: "!fap"
+    desc: Open the buy menu.
+  - cmd: "!rf"
+    desc: Buy the same thing again.
+  - cmd: "!god"
+    desc: Switch to the Survivor team. Your points reset.
+  - cmd: "!bot"
+    desc: Take over the next Survivor bot that is still alive.
+  - cmd: "!report"
+    desc: Report a cheater or an abusive player, through a menu.
+
+# People and places behind the servers.
+hosts:
+  - name: Perfect Network
+    place: Cyberjaya, Malaysia
+    role: Main sponsor
+    tone: yellow
+    url: https://perfect.my/
+    desc: >-
+      My own servers run on my machine in Perfect's data centre. The biggest
+      reason the Malaysian servers are still up.
+  - name: Sora-Iro Server
+    place: Osaka, Japan
+    role: Nemu's servers
+    tone: blue
+    url: https://sora-iro.nippombashi.net
+    desc: >-
+      Home of Nemu's servers. Nemu has been with the project since the first
+      Japan server in 2015.
+  - name: The Proxmox host
+    place: Singapore
+    role: Lent by a friend
+    tone: teal
+    url: https://neo.soonke.at/
+    desc: >-
+      Neo Soon Keat lends me a Proxmox server in Singapore. It has run a
+      modded Left 4 Dead 2 server since 2020.
+
+# From the Steam groups, the server banner and the git history.
+timeline:
+  - date: "2012"
+    title: The first version
+    desc: >-
+      I wrote an Infected co-op mode in SourcePawn: play a campaign as the
+      Special Infected against A.I. Survivors. A reverse campaign.
+  - date: 22 Jan 2015
+    title: Public servers and a Steam group
+    desc: >-
+      The mode goes public with servers in Malaysia, Japan and France, run by
+      me, Nemu and friends.
+  - date: Mar 2016
+    title: 25,597 members
+    desc: >-
+      Fourteen months in, the first group had over 25,000 members and nearly
+      2,000 of them in game at once.
+  - date: 25 Jul 2016
+    title: Lewd 4 Dead
+    desc: >-
+      The first group was deleted. I started again as Lewd 4 Dead, and the
+      players came back.
+  - date: "2020"
+    title: A server in Singapore
+    desc: >-
+      A friend's Proxmox host in Singapore takes on a modded server for the
+      region.
+  - date: Nov 2021
+    title: Into git
+    desc: >-
+      The server, plugins and configs move into one repository, code-named
+      Noob4Dead, on the latest left4dhooks.
+  - date: Dec 2022
+    title: SourceMod 1.11
+    desc: Ported to SourceMod 1.11.
+  - date: Nov 2024
+    title: SourceMod 1.12
+    desc: Ported to SourceMod 1.12. The game mode plugin is now version 8.2.
+  - date: May 2026
+    title: On YouTube
+    desc: >-
+      NasCoz opens a video on Steam group servers with Lewd 4 Dead 2. It has
+      over 50,000 views.
+  - date: "Today"
+    title: 76,070 members
+    now: true
+    desc: >-
+      Still standing, with more than 14,000 members in the group chat and
+      servers across Asia, the United States and the United Kingdom.

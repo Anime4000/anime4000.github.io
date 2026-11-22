@@ -1,0 +1,194 @@
+---
+layout: page
+title: Loot 4 Dead
+seo_title: Loot 4 Dead — Left 4 Dead 2 Infected co-op servers since 2015
+description: >-
+  Loot 4 Dead (Lewd 4 Dead on Steam): a modded Left 4 Dead 2 game mode where
+  every player is the Infected against A.I. Survivors. Written by Anime4000,
+  running since 2015, 76,000 Steam group members.
+permalink: /loot4dead/
+tone: pink
+eyebrow: Left 4 Dead 2
+jp: 感染者モード
+heading: Loot 4 Dead
+lede: >-
+  A Left 4 Dead 2 game mode where everyone plays the Infected and the A.I.
+  plays the Survivors. I wrote it in 2012, opened the servers in 2015, and I
+  still run them.
+---
+<section class="section section-tight tone-pink" aria-labelledby="what-title">
+  <div class="wrap">
+    <div class="split">
+      <div class="prose">
+        <h2 id="what-title">Infected co-op</h2>
+        <p>
+          In normal Versus you take turns: one round as Survivors, one as Infected. On these
+          servers you never have to be a Survivor. Four A.I. Survivors play the campaign from
+          safe room to rescue, and every human player is a Special Infected trying to stop
+          them. A reverse campaign.
+        </p>
+        <p>
+          The Steam group is called <strong>Lewd 4 Dead</strong>. I named it when I was
+          younger, and it stuck — too many players know it by that name to change it now.
+          <strong>Loot 4 Dead</strong> sounds the same, and it is what I call it here.
+          Inside the code it has always been <code>Noob4Dead</code>.
+        </p>
+        <p class="actions">
+          <a class="button button-primary" href="https://steamcommunity.com/groups/lewd4dead" rel="noopener">Join the Steam group <span aria-hidden="true">↗</span></a>
+          <a class="button" href="https://sb.hitoha.moe/" rel="noopener">Server list <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+      <div>
+        <h3 class="h-sub">How a round plays <span class="jp" lang="ja">／ ルール</span></h3>
+        <ul class="likes">
+          {% for rule in site.data.l4d.rules %}
+          <li><strong>{{ rule.name }}</strong> — {{ rule.desc }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <dl class="stats">
+      <div class="stat"><dt>Servers running since</dt><dd>2015</dd></div>
+      <div class="stat"><dt>Steam group members</dt><dd>76,070</dd></div>
+      <div class="stat"><dt>Members in the group chat</dt><dd>14,803</dd></div>
+      <div class="stat"><dt>Servers on the shared ban list</dt><dd>25</dd></div>
+    </dl>
+    <p class="fineprint">Figures as of {{ site.stats_as_of }}, from the Steam group and the SourceBans++ panel.</p>
+  </div>
+</section>
+
+<section class="section tone-yellow" id="history" aria-labelledby="history-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>History <span class="jp" lang="ja">／ 歴史</span></p>
+    <h2 id="history-title">Part of Left 4 Dead 2 history</h2>
+    <div class="story">
+      <p>
+        Left 4 Dead 2 came out in 2009. Most community servers from those years are gone.
+        This one is not.
+      </p>
+      <p>
+        I have run these servers since January 2015, through a deleted Steam group, a fork and
+        every SourceMod upgrade since.
+      </p>
+      <p>
+        In 2026 the YouTuber NasCoz reviewed the Steam group servers you find in Left 4 Dead 2,
+        and opened with ours.
+      </p>
+      <blockquote class="pullquote">
+        <p>…now ‘Loot 4 Dead’ has become an official part of Left 4 Dead 2 history.</p>
+      </blockquote>
+      <p class="fineprint">
+        NasCoz, <a href="https://www.youtube.com/watch?v=DqOZQCjYg10" rel="noopener">L4D2 Steam Group Servers are NONSENSE!</a>
+        on YouTube, May 2026.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-pink" aria-labelledby="timeline-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Timeline <span class="jp" lang="ja">／ これまで</span></p>
+    <h2 id="timeline-title">From 2012 to now</h2>
+    <p class="lede narrow">
+      From the Steam groups, the server banner and the git history. The first group is still
+      on the <a href="https://web.archive.org/web/20160321000000*/steamcommunity.com/groups/hentai-rape" rel="noopener">Wayback Machine</a>,
+      under the cruder name I gave it at the start.
+    </p>
+    <ol class="timeline">
+      {% for event in site.data.l4d.timeline %}
+      <li>
+        <p class="timeline-date">{{ event.date }}</p>
+        <div>
+          <h3>{{ event.title }}{% if event.now %} <span class="tag tag-mine">Now</span>{% endif %}</h3>
+          <p>{{ event.desc }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section tone-teal" id="servers" aria-labelledby="servers-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Servers <span class="jp" lang="ja">／ サーバー</span></p>
+    <h2 id="servers-title">Who keeps them running</h2>
+    <p class="lede narrow">
+      I wrote the game mode and run the Malaysian servers. Omamori Himari runs another in
+      Malaysia, Nemu runs servers in Japan and further afield, and Bolts runs one in Singapore.
+      Every server reports to one ban list.
+    </p>
+    <div class="grid grid-3 partners">
+      {% for host in site.data.l4d.hosts %}
+      <article class="card place tone-{{ host.tone }}">
+        <p class="project-role">{{ host.role }} · {{ host.place }}</p>
+        <h3><a class="card-link" href="{{ host.url }}" rel="noopener">{{ host.name }}</a></h3>
+        <p class="project-desc">{{ host.desc }}</p>
+        <span class="go" aria-hidden="true">↗</span>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section tone-blue" id="play" aria-labelledby="play-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Playing <span class="jp" lang="ja">／ 遊び方</span></p>
+    <div class="split split-even">
+      <div class="prose">
+        <h2 id="play-title">Finding a server</h2>
+        <p>
+          Join the Steam group, then open Left 4 Dead 2 and look under the group's servers. The
+          live list, with the map and player count of every server, is on the
+          <a href="https://sb.hitoha.moe/" rel="noopener">SourceBans++ panel</a>. It takes a few
+          seconds to ask each server.
+        </p>
+        <p>
+          For the full experience, add your own custom player model and the Dramatic Epic
+          Music addon.
+        </p>
+      </div>
+      <div>
+        <h3 class="h-sub">Chat commands <span class="jp" lang="ja">／ コマンド</span></h3>
+        <ul class="likes">
+          {% for c in site.data.l4d.commands %}
+          <li><strong><code>{{ c.cmd }}</code></strong> — {{ c.desc }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-russet" id="code" aria-labelledby="code-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>The rumours <span class="jp" lang="ja">／ うわさ</span></p>
+    <h2 id="code-title">No backdoor</h2>
+    <div class="split split-even">
+      <div class="prose">
+        <p>
+          A server this old collects drama. The claim I hear most is that my code has a
+          backdoor. It does not.
+        </p>
+        <p>
+          The game mode is a few hundred lines of SourcePawn. My plugins do not give anyone
+          admin rights and do not connect anywhere. The only server command they send is
+          <code>changelevel</code>, to load the next campaign after a finale. Everything else on
+          the server is well-known public plugins from AlliedModders, such as Silvers'
+          left4dhooks.
+        </p>
+      </div>
+      <div class="prose">
+        <p>
+          Some years ago another server owner and I went separate ways. Their servers still
+          run my old code under their own name; mine carry on as Lewd 4 Dead, with the original
+          settings and rules.
+        </p>
+        <p>
+          Cheaters get banned for good. Type <code>!report</code> in game, or bring a screenshot
+          or video to the Discord server. Appeals go through the
+          <a href="https://sb.hitoha.moe/" rel="noopener">SourceBans++ panel</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

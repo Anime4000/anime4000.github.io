@@ -158,12 +158,14 @@
   lang: Self-hosted
   url: https://www.hitoha.moe/free-rustdesk-relay-server/
 
-- name: Lewd 4 Dead 2
+- name: Loot 4 Dead
   category: games
-  role: Host
-  desc: Left 4 Dead 2 community servers, mods and the Steam group around them.
-  lang: Source engine
-  url: https://steamcommunity.com/groups/lewd4dead
+  role: Author · Host
+  desc: >-
+    Left 4 Dead 2 Infected co-op: every player is the Infected against A.I.
+    Survivors. My game mode and servers since 2015, Lewd 4 Dead on Steam.
+  lang: SourcePawn
+  url: /loot4dead/
 
 - name: SMF Converter
   category: games
