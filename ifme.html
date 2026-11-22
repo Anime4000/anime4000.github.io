@@ -1,16 +1,36 @@
 ---
 layout: page
 title: IFME
-seo_title: IFME — Internet Friendly Media Encoder, since 2013
+seo_title: IFME — free x265 and AV1 batch video encoder
 description: >-
-  IFME, the Internet Friendly Media Encoder: Anime4000's oldest project still
-  maintained, from a VB.NET front end for FRAPS recordings in 2013 to IFME 9 on
-  a native C core. x265, AV1, remux, subtitles and fonts from another video.
+  IFME, the Internet Friendly Media Encoder: a free, open source x265, AV1 and
+  x264 batch encoder with remux, subtitles and fonts from another video, and
+  plugin encoders. Set a whole queue once. Since 2013.
 permalink: /ifme/
 image: /assets/img/ifme-social-card.png
 image_alt: >-
-  The IFME 8 splash screen: two anime girls in school uniforms leaping across a
-  blue sky under the words Internet Friendly Media Encoder.
+  The IFME 8 splash screen: Ichika and Fumiko, two of the IFME mascots, leaping
+  across a blue sky under the words Internet Friendly Media Encoder.
+# Read by _includes/head.html to describe IFME to search engines.
+software:
+  name: Internet Friendly Media Encoder
+  alternate_name: IFME
+  category: MultimediaApplication
+  sub_category: Video encoder
+  os: Windows 10, Windows 11, Linux
+  version: 8.7.1
+  published: "2013"
+  license: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+  download: https://sourceforge.net/projects/ifme/files/latest/download
+  repo: https://github.com/Anime4000/IFME
+  screenshot: /assets/img/ifme/ifme-8-ui.png
+  features:
+    - Batch encoding with one set of settings for the whole queue
+    - x265, x264, SVT-AV1, VVC and VP9 video encoders as plugins
+    - Remux and smart stream copy
+    - Subtitles and fonts taken from another video
+    - SRT and VTT subtitles in MP4, or burned into the video
+    - NVENC, Intel Quick Sync and AMD AMF hardware encoding
 tone: blue
 eyebrow: IFME
 jp: 動画エンコーダー
@@ -51,12 +71,12 @@ lede: >-
       <figure class="shot">
         <img src="{{ '/assets/img/ifme/splash-8.jpg' | relative_url }}" width="1280" height="720"
              alt="The IFME 8 splash screen: two anime girls in school uniforms leaping across a blue sky under the words Internet Friendly Media Encoder">
-        <figcaption>The IFME 8 splash screen. Fumika and Ichika, drawn by Rep-en for the project.</figcaption>
+        <figcaption>The IFME 8 splash screen. Ichika and Fumiko, drawn by 53c for the project.</figcaption>
       </figure>
     </div>
     <dl class="stats">
       <div class="stat"><dt>First release</dt><dd>2013</dd></div>
-      <div class="stat"><dt>Times the interface was rebuilt from scratch</dt><dd>8</dd></div>
+      <div class="stat"><dt>Interface rebuilds until nobody needed a manual</dt><dd>8</dd></div>
       <div class="stat"><dt>Commits on GitHub</dt><dd>1,152</dd></div>
       <div class="stat"><dt>GitHub stars</dt><dd data-gh-stars="Anime4000/IFME">293</dd></div>
     </dl>
@@ -90,7 +110,103 @@ lede: >-
   </div>
 </section>
 
-<section class="section tone-pink" aria-labelledby="back-title">
+<section class="section tone-yellow" id="queue" aria-labelledby="queue-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Eight interfaces <span class="jp" lang="ja">／ 使いやすさ</span></p>
+    <h2 id="queue-title">Set the whole queue once</h2>
+    <div class="split split-even">
+      <div class="prose">
+        <p>
+          The early interfaces were odd. Every time people told me where they got lost, the
+          interface changed — eight times in all. Version 8 is the last one, because it finally
+          meets the aim: you know what to do without asking, and without opening the
+          documentation.
+        </p>
+        <p>
+          In HandBrake you apply settings to each item in the queue, one at a time. In IFME
+          you select them all and set them once.
+        </p>
+      </div>
+      <div class="prose">
+        <p>
+          Every sub-stream follows suit, so the whole batch comes out in harmony. It plays
+          anywhere, and Jellyfin can simply remux it instead of transcoding.
+        </p>
+        <p>
+          That is what people tell me they love about IFME: it is simple, and it is quick.
+        </p>
+      </div>
+    </div>
+    <ol class="principles">
+      {% for step in site.data.ifme.harmony %}
+      <li>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.desc }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section tone-blue" id="plugins" aria-labelledby="plugins-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Architecture <span class="jp" lang="ja">／ 仕組み</span></p>
+    <div class="split split-even">
+      <div class="prose">
+        <h2 id="plugins-title">Encoders are plugins</h2>
+        <p>
+          IFME does not build any encoder in. Each one is an outside program described by a
+          small JSON manifest in the <code>Plugins</code> folder, so you can update it, swap it
+          or add a new one without waiting for an IFME release.
+        </p>
+        <p>
+          That means you can compile an encoder for your own CPU with <code>-march</code> and
+          <code>-mtune</code> and get every bit of speed from it. Compiling FFmpeg takes a long
+          time; you do not need to. Compile x265, drop it in, and enjoy.
+        </p>
+      </div>
+      <div>
+        <h3 class="h-sub">x265 tuned for your own CPU <span class="jp" lang="ja">／ 自分専用</span></h3>
+        <pre class="code"><code>cd x265/build/linux
+cmake ../../source \
+  -DCMAKE_C_FLAGS="-march=native -mtune=native" \
+  -DCMAKE_CXX_FLAGS="-march=native -mtune=native"
+make -j"$(nproc)"
+# then copy the new x265 over the one in IFME's Plugins folder</code></pre>
+        <p class="fineprint">On Windows, build it the same way in an MSYS2 shell from <code>build/msys</code> with <code>-G "MSYS Makefiles"</code>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-pink" id="mascots" aria-labelledby="mascots-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Mascots <span class="jp" lang="ja">／ 看板娘</span></p>
+    <h2 id="mascots-title">The IFME sisters</h2>
+    <p class="lede narrow">
+      Four girls, one for each letter of the name. They greet you in the About window and
+      on the splash screen.
+    </p>
+    <ul class="grid mascots">
+      {% for girl in site.data.ifme.mascots %}
+      <li class="card mascot tone-{{ girl.tone }}">
+        <img src="{{ '/assets/img/ifme/mascot/' | append: girl.file | relative_url }}" width="300" height="450" loading="lazy" alt="{{ girl.alt }}">
+        <p class="mascot-letter" aria-hidden="true">{{ girl.letter }}</p>
+        <h3>{{ girl.name }}</h3>
+        <p class="project-role">{{ girl.letter }} for {{ girl.stands_for }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="fineprint">
+      Drawn by <a href="http://53c.deviantart.com/" rel="noopener">53c</a> (formerly known as
+      Ray-en), who has drawn for IFME since version 4.5 in 2014. The artwork belongs to the IFME
+      Project and is licensed under
+      <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener">CC BY-NC 4.0</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section tone-russet" aria-labelledby="back-title">
   <div class="wrap">
     <p class="eyebrow"><span class="eyebrow-mark"></span>Back in time <span class="jp" lang="ja">／ 昔の画面</span></p>
     <h2 id="back-title">Where it started</h2>

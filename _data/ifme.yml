@@ -23,8 +23,56 @@ features:
     desc: >-
       Import a folder, set it once, walk away. Built for Jellyfin and Plex
       collections, including the files they cannot play.
+  - name: MP4 that keeps its subtitles
+    desc: >-
+      Put SRT or VTT subtitles inside an MP4, or burn styled ones into the
+      picture for players that cannot show them.
   - name: GPU when you want it
     desc: NVENC, Intel Quick Sync and AMD AMF, through rigaya's encoders or FFmpeg.
+
+# Version 8's queue: set everything once, for every selected file.
+harmony:
+  - title: Select the whole queue
+    desc: Ten files or a full season. Every setting below applies to all of them.
+  - title: Pick the encoder
+    desc: x265 on the CPU, or rigaya's NVEnc and QSVEnc on the GPU.
+  - title: Auto resolution
+    desc: No upscaling, no downscaling. Each file keeps its own size.
+  - title: 8-bit
+    desc: Plays on every phone, TV and browser.
+  - title: 4:2:0 chroma
+    desc: The format every hardware decoder expects.
+  - title: CRF, tune and the rest — once
+    desc: Quality and speed set one time, not file by file.
+  - title: Audio codec, sample rate, compression level
+    desc: Every audio track in every file follows the same settings.
+
+# The four sisters. Their initials spell IFME.
+mascots:
+  - name: Ichika
+    letter: I
+    stands_for: Internet
+    file: ichika.webp
+    tone: yellow
+    alt: Ichika, a girl with long orange hair in a white sailor uniform with a red scarf, cheering with one fist raised
+  - name: Fumiko
+    letter: F
+    stands_for: Friendly
+    file: fumiko.webp
+    tone: teal
+    alt: Fumiko, a girl with long green twin tails in a navy blazer and red ribbon, making a peace sign
+  - name: Miho
+    letter: M
+    stands_for: Media
+    file: miho.webp
+    tone: pink
+    alt: Miho, a girl with long pale pink hair in a grey hoodie over a cardigan, pointing up with a cheerful smile
+  - name: Erika
+    letter: E
+    stands_for: Encoder
+    file: erika.webp
+    tone: blue
+    alt: Erika, a girl with short black hair in a black maid outfit with a white apron and headpiece
 
 # The 2013 screenshots.
 gallery:
@@ -125,8 +173,9 @@ timeline:
   - date: Oct 2022
     title: 8.0 beta
     desc: >-
-      The eighth rebuild of the interface. Fast remux and folder import arrive
-      for Jellyfin and Plex libraries.
+      The eighth and final rebuild of the interface: select the whole queue and
+      set it once. Fast remux and folder import arrive for Jellyfin and Plex
+      libraries.
   - date: Feb 2024
     title: 8.1, out of beta
     desc: >-

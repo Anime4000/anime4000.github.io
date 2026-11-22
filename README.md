@@ -17,7 +17,8 @@ Almost everything on the site is data. Change a YAML file, push, done.
 | NIJIKA history (eras, screenshots, credits) | `_data/nijika.yml`, `assets/img/nijika/` |
 | Regional PON suppliers (from openpon.org) | `_data/suppliers.yml`  |
 | Network skills, machines, partners      | `_data/network.yml`, `_data/partners.yml` |
-| IFME features, screenshots, timeline    | `_data/ifme.yml`         |
+| IFME features, queue steps, mascots, screenshots, timeline | `_data/ifme.yml`, `assets/img/ifme/` |
+| IFME search listing (version, download) | `software` in `ifme.html` front matter |
 | Communities and social links            | `_data/communities.yml`, `_data/links.yml` |
 | Blog posts shown on the home page       | `_data/writing.yml`      |
 | Top navigation                          | `_data/nav.yml`          |

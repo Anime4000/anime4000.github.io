@@ -90,8 +90,32 @@
         "isPartOf": { "@id": "{{ home_address }}#website" },
         "about": { "@id": "{{ home_address }}#person" },
         {% if page.url == '/' %}"mainEntity": { "@id": "{{ home_address }}#person" },{% endif %}
+        {% if page.software %}"mainEntity": { "@id": "{{ page_address }}#software" },{% endif %}
         "primaryImageOfPage": { "@type": "ImageObject", "url": "{{ page_image }}", "width": 1200, "height": 630 }
-      }{% if page.url != '/' and page.title %},
+      }{% if page.software %}{% assign sw = page.software %},
+      {
+        "@type": "SoftwareApplication",
+        "@id": "{{ page_address }}#software",
+        "name": {{ sw.name | jsonify }},
+        "alternateName": {{ sw.alternate_name | jsonify }},
+        "url": "{{ page_address }}",
+        "description": {{ page_desc | jsonify }},
+        "applicationCategory": {{ sw.category | jsonify }},
+        "applicationSubCategory": {{ sw.sub_category | jsonify }},
+        "operatingSystem": {{ sw.os | jsonify }},
+        "softwareVersion": {{ sw.version | jsonify }},
+        "datePublished": {{ sw.published | jsonify }},
+        "license": {{ sw.license | jsonify }},
+        "downloadUrl": {{ sw.download | jsonify }},
+        "installUrl": {{ sw.download | jsonify }},
+        "sameAs": [{{ sw.repo | jsonify }}],
+        "image": "{{ page_image }}",
+        "screenshot": "{{ sw.screenshot | absolute_url }}",
+        "featureList": {{ sw.features | jsonify }},
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@id": "{{ home_address }}#person" }
+      }{% endif %}{% if page.url != '/' and page.title %},
       {
         "@type": "BreadcrumbList",
         "itemListElement": [

@@ -730,6 +730,27 @@ a:hover { color: var(--tone-ink); }
 .gallery .shot img { aspect-ratio: 4 / 3; object-fit: contain; background: var(--sunken); }
 .gallery .shot a { display: block; border-radius: var(--radius); }
 .mono { font-family: var(--font-mono); font-size: .92em; }
+.prose code, .fineprint code { font-family: var(--font-mono); font-size: .88em; padding: .05em .35em; border-radius: 5px; background: var(--sunken); white-space: nowrap; }
+.code {
+  margin: 0; padding: 1rem 1.1rem; overflow-x: auto;
+  background: var(--sunken); border: 1px solid var(--line); border-left: 4px solid var(--tone); border-radius: 10px;
+  font-family: var(--font-mono); font-size: .84rem; line-height: 1.6; color: var(--ink);
+}
+
+.mascots { margin-top: 2rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 860px) { .mascots { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.mascot { padding-top: 1rem; overflow: hidden; }
+.mascot img {
+  width: 100%; aspect-ratio: 2 / 3; object-fit: contain; object-position: bottom;
+  margin-bottom: .9rem; border-radius: 10px;
+  background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--tone) 30%, var(--surface)), var(--sunken) 75%);
+}
+.mascot-letter {
+  position: absolute; right: .9rem; top: .4rem; margin: 0;
+  font-family: var(--font-display); font-weight: 850; font-size: 3.2rem; line-height: 1;
+  color: var(--tone); opacity: .9; text-shadow: 2px 2px 0 var(--surface);
+}
+.mascot .project-role { margin-bottom: 0; }
 .donate-to { color: var(--muted); }
 .donate-to .mono { color: var(--ink); user-select: all; }
 
