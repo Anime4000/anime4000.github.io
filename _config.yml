@@ -14,6 +14,9 @@ baseurl: ""
 # Facts that go stale. Update the numbers and the date together.
 stats_as_of: November 2026
 
+# GitHub Sponsors. Shown in the footer of every page and on the IFME page.
+sponsor_url: https://github.com/sponsors/Anime4000
+
 # Search and social previews ---------------------------------------------
 # `seo_title` is the home page's <title>. Other pages set their own
 # `seo_title` and `description` in front matter.

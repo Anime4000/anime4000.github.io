@@ -774,6 +774,7 @@ a:hover { color: var(--tone-ink); }
 .footer-links { display: flex; flex-wrap: wrap; gap: 6px 22px; align-content: start; font-size: .92rem; font-weight: 600; }
 .footer-links a { text-decoration: none; color: var(--muted); }
 .footer-links a:hover { color: var(--ink); text-decoration: underline; }
+.footer-links .footer-sponsor { color: var(--pink-ink); }
 .footer-note { grid-column: 1 / -1; margin: 0; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
 
 /* ---- NIJIKA page -------------------------------------------------------- */

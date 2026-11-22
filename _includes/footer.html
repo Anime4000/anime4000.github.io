@@ -10,6 +10,7 @@
       {% for link in site.data.links %}
       <li><a href="{{ link.url }}" rel="me noopener">{{ link.name }}</a></li>
       {% endfor %}
+      {% if site.sponsor_url %}<li><a class="footer-sponsor" href="{{ site.sponsor_url }}" rel="noopener"><span aria-hidden="true">♥</span> Sponsor</a></li>{% endif %}
     </ul>
     <p class="footer-note">
       Built with Jekyll, hosted on GitHub Pages. No trackers, no cookies, no web fonts.
