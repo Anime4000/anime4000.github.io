@@ -8,7 +8,7 @@ stats:
     label: NIJIKA PON sticks in the field
   - value: "19"
     label: countries with working deployments
-  - value: "14"
+  - value: "17"
     label: contributors credited by name
   - value: "7"
     label: open firmware projects
@@ -22,7 +22,7 @@ path:
     desc: One fibre, split passively between you and your neighbours.
   - name: ONT
     owner: Yours
-    desc: The box on your wall. Closed, locked, rented — this is the part we open.
+    desc: The box on your wall. Closed, locked and rented. This is the part we open.
     open: true
   - name: Router
     owner: Yours
@@ -50,45 +50,139 @@ principles:
       No vendor cloud and no silent telemetry. Where an operator mandates
       TR-069, the firmware emulates it and nothing personal leaves.
 
+# Same seven projects as data/firmware.json on openpon.org. `by` is the
+# author credit shown under the description.
 firmware:
-  - name: NIJIKA Firmware / NijikaWrt
+  - name: NIJIKA Firmware
     tech: GPON
-    chip: RTL960x
+    chip: RTL9601 · RTL9607DQ
     badge: my project
-    url: https://github.com/PururinCollective/dpn-fx3060v-a1-openwrt
+    url: https://github.com/Anime4000/RTL960x#nijika-firmware
+    by: Anime4000, rajkosto, stich86, O3, et al.
     desc: >-
-      NIJIKA for Realtek sticks: broad OLT compatibility, VEIP, 1GbE to 2.5GbE,
-      Prometheus and Grafana metrics. NijikaWrt takes it further with an
-      OpenWrt userland for RTL9607DQ gateways, starting with the D-Link
-      DPN-FX3060V (A1). Experimental.
+      NIJIKA for RTL9601CI and RTL9601D sticks: broad OLT compatibility, VEIP,
+      1GbE to 2.5GbE, Prometheus and Grafana metrics. NIJIKA-Luna moves it to
+      RTL9601 OSS and Linux 6.18 (in development). NijikaWrt runs OpenWrt on
+      RTL9607DQ gateways, starting with the D-Link DPN-FX3060V (A1)
+      (experimental).
+  - name: Peter-Pon
+    tech: GPON
+    chip: Lantiq Falcon
+    by: Pedro Teixeira, Штеуд, wackejohn
+    desc: >-
+      Firmware for Lantiq Falcon GPON sticks. The team reverse engineered the
+      Falcon Packet Engine for hardware PPPoE. PPPoE Half-Bridge is planned.
+  - name: CatOS
+    tech: GPON
+    chip: RTL9601
+    by: CATCrypt
+    desc: >-
+      Firmware for RTL9601 sticks, developed for operator networks in Belarus.
+      An alternative to NIJIKA.
+  - name: ZRV OS
+    tech: GPON
+    chip: RTL9602
+    by: Ánzelox Zeravlá
+    desc: An independent operating system for RTL9602 ONTs, from clean-room reverse engineering.
   - name: RemixWrt IIDX
     tech: GPON
     chip: Airoha EN7581
     badge: Pururin Collective
     url: https://github.com/PururinCollective/sk-g7220-openwrt
+    by: Pururin Collective
     desc: >-
-      OpenWrt and LuCI for MediaTek's Airoha PON SoCs, starting with the
-      Skyworth SK-G7220 gateway. Beta.
-  - name: CatOS
-    tech: GPON
-    chip: RTL9601CI · RTL9601D
-    desc: An alternative to NIJIKA for RTL9601CI and RTL9601D sticks.
-  - name: Peter-Pon
-    tech: GPON
-    chip: Lantiq
-    desc: Firmware for sticks built on Lantiq SoCs.
-  - name: ZRV OS
-    tech: GPON
-    chip: RTL9602
-    desc: An independent operating system born out of clean-room reverse engineering.
+      OpenWrt 25.12 and LuCI on Airoha EN7581 ONT gateways, starting with the
+      Skyworth SK-G7220. One firmware bank keeps the stock image for recovery.
+      Beta (r20).
   - name: "8311"
     tech: XGS-PON
     chip: PRX126
+    by: djGrrr, et al.
     desc: The reference open firmware for 10G subscriber deployments.
   - name: CA8271x
     tech: XGS-PON
     chip: CA8271x
+    by: YuukiJapanTech
     desc: XGS-PON firmware with a focus on Japanese operator interoperability.
+
+# The three development tracks, by PON SoC vendor. Same as data/platforms.json
+# on openpon.org. In `projects`, `tag: mine` marks active work and
+# `tag: quiet` marks planned work; no `tag` shows the status outlined.
+tracks:
+  - name: Lantiq Falcon
+    scope: SFP PON
+    summary: >-
+      GPON SFP sticks on the Lantiq FALC ON SoC. The Peter-Pon team reverse
+      engineered the Packet Engine, so PPPoE can run in hardware on the stick.
+    specs:
+      - label: Hardware
+        value: Huawei MA5671A, Nokia G-010S-P, Nokia G-010S-A
+      - label: Contributors
+        value: Pedro Teixeira, Штеуд, wackejohn
+    projects:
+      - name: Peter-Pon
+        note: SFP firmware
+        status: Active
+        tag: mine
+      - name: Hardware PPPoE
+        note: Packet Engine data path
+        status: Emulator
+        tag: mine
+      - name: PPPoE Half-Bridge
+        note: Public IPv4 to the router over DHCP
+        status: Planned
+        tag: quiet
+  - name: Realtek
+    scope: SFP PON and OpenWrt ONT
+    summary: >-
+      RTL9601 and RTL9602 SFP sticks, and RTL9607DQ ONT gateways. RTL9601 OSS
+      replaces the vendor userland with Linux 6.18 and open switch, GPON and
+      OMCI drivers on any RTL9601 stick.
+    specs:
+      - label: SFP hardware
+        value: ODI DFP-34X-2C2, VSOL V2801F, TWC TWCGPON657, Ubiquiti UF-Instant, D-Link DPN-100
+      - label: ONT hardware
+        value: D-Link DPN-FX3060V (A1)
+    projects:
+      - name: NIJIKA
+        note: SFP firmware, RTL9601CI and RTL9601D
+        status: Stable
+        url: https://github.com/Anime4000/RTL960x#nijika-firmware
+      - name: NIJIKA-Luna
+        note: SFP firmware on RTL9601 OSS
+        status: In development
+        tag: mine
+        url: https://github.com/PururinCollective/rtl9601-nijika-ui
+      - name: RTL9601 OSS
+        note: Open base OS for RTL9601 sticks, by Andre Ziviani
+        url: https://github.com/AndreZiviani/odi-oss
+      - name: CatOS
+        note: SFP firmware, RTL9601
+      - name: ZRV OS
+        note: SFP firmware, RTL9602
+      - name: NijikaWrt
+        note: OpenWrt ONT, RTL9607DQ
+        status: Experimental
+        tag: mine
+        url: https://github.com/PururinCollective/dpn-fx3060v-a1-openwrt
+  - name: MediaTek
+    scope: OpenWrt ONT, BPI-R4 + PON stick
+    summary: >-
+      OpenWrt on Airoha EN7581 ONT gateways, and the Banana Pi BPI-R4 as an
+      OpenWrt host for a GPON or XGS-PON stick in its SFP+ cage.
+    specs:
+      - label: ONT hardware
+        value: Skyworth SK-G7220 (Airoha EN7581, Wi-Fi 7)
+      - label: Host hardware
+        value: Banana Pi BPI-R4 (Filogic 880, 2x SFP+)
+    projects:
+      - name: RemixWrt IIDX
+        note: OpenWrt and LuCI, Airoha EN7581
+        status: Beta
+        tag: mine
+        url: https://github.com/PururinCollective/sk-g7220-openwrt
+      - name: BPI-R4 + PON stick
+        note: OpenWrt host, open firmware on the stick
 
 # The NIJIKA family tree, by silicon vendor. Shown on /pon/.
 # `next` is a firmware that grew out of its parent. `latest: true` marks
@@ -110,14 +204,14 @@ lineage:
           - name: RTL960x
             url: https://github.com/Anime4000/RTL960x#nijika-firmware
         next:
-          - name: NIJIKA Luna
+          - name: NIJIKA-Luna
             kind: ONT firmware, next generation
             device: RTL9601D
-            base: ODI OSS · Linux 6.18
+            base: RTL9601 OSS · Linux 6.18
             status: In development
             latest: true
             desc: >-
-              NIJIKA rebuilt on Andre Ziviani's ODI OSS, with open switch,
+              NIJIKA rebuilt on Andre Ziviani's RTL9601 OSS, with open switch,
               GPON and OMCI drivers in place of the vendor's. A nijika CLI
               rewritten in C, ONT identity presets with the Huawei HG8240H as
               the default, and Nijika UI: a LuCI-style page that draws the
@@ -191,8 +285,8 @@ timeline:
   - date: May 2026
     title: Pururin Collective opens
     desc: >-
-      A forum for the informal side — ISP-specific tweaks, experiments and
-      troubleshooting — so GitHub can stay vendor-neutral.
+      A forum for the informal side: ISP-specific tweaks, experiments and
+      troubleshooting. GitHub stays vendor-neutral.
   - date: September 2026
     title: Open PON Foundation
     desc: >-
@@ -201,10 +295,13 @@ timeline:
   - date: Late 2026
     title: Beyond the stick
     desc: >-
-      NIJIKA Luna moves NIJIKA onto ODI OSS and Linux 6.18.
+      NIJIKA-Luna moves NIJIKA onto RTL9601 OSS and Linux 6.18.
       NijikaWrt and RemixWrt IIDX bring an OpenWrt userland to whole
       gateways, on Realtek RTL9607DQ and MediaTek (Airoha) SoCs. CatOS and
-      Peter-Pon widen the choice of firmware for sticks.
+      Peter-Pon widen the choice of firmware for sticks, and the Peter-Pon
+      team opens up the Lantiq Falcon Packet Engine for hardware PPPoE.
+      Open PON development settles into three tracks: Lantiq Falcon,
+      Realtek and MediaTek.
 
 join:
   - name: RTL960x on GitHub
@@ -216,7 +313,7 @@ join:
   - name: Pururin Collective forum
     desc: Community experiments, ISP-specific tweaks and informal help.
     url: https://www.pururin.moe/viewtopic.php?t=7
-  - name: Lowyat.NET — Ditch ONU, use GPON SFP on Business Grade Router
+  - name: "Lowyat.NET: Ditch ONU, use GPON SFP on Business Grade Router"
     desc: My thread in Networks and Broadband, where the Malaysian side of the conversation happens.
     url: https://forum.lowyat.net/index.php?showtopic=4925452
   - name: hack-gpon.org
@@ -229,7 +326,7 @@ unifi:
     title: 2 Gbps before the plan existed
     desc: >-
       Nearly 2 Gbps through a single GPON stick, using four 800 Mbps PPPoE
-      accounts — before Unifi had released a 2 Gbps plan at all.
+      accounts, before Unifi had released a 2 Gbps plan at all.
     url: https://forum.lowyat.net/index.php?showtopic=4925452&st=500&p=105123186&#entry105123186
     link: The post on Lowyat.NET
   - when: Launch day
@@ -238,3 +335,40 @@ unifi:
       When Unifi released its 2 Gbps plan it was advertised as 1+1. I solved
       it on the first day, so a subscriber gets true 2 Gbps instead.
 resellers: CureComp, SUBTel and Perfect
+
+# Success stories, mirrored from the RTL960x README and shown on /pon/ and
+# openpon.org (data/achievements.json). `note` and `note_url` are optional.
+stories_source: https://github.com/Anime4000/RTL960x#success-story
+stories:
+  - title: "@stich86: 2.5GbE internet"
+    url: https://github.com/Anime4000/RTL960x/issues/17#issuecomment-1101435506
+    site: GitHub
+  - title: My journey connecting fiber internet to my router
+    url: https://www.reddit.com/r/HomeNetworking/comments/vd0qm2/my_journey_connecting_fiber_internet_to_my_router/
+    site: Reddit
+  - title: HiNet users in Taiwan
+    url: https://github.com/Anime4000/RTL960x/pull/44#issue-1281699738
+    site: GitHub
+  - title: "@izhamsatria: ~2.5 Gbps on TM Unifi"
+    url: https://forum.lowyat.net/index.php?showtopic=4925452&st=500&p=105123186&#entry105123186
+    site: Lowyat.NET
+    note: Before TIME announced its 2 Gbps plan in Malaysia
+    note_url: https://www.lowyat.net/2022/286244/time-internet-2gbps-price/
+  - title: Orange Fiber at 2 Gbps (MikroTik CCR2004, ONT SFP+)
+    url: https://lafibre.info/remplacer-livebox/guide-de-connexion-fibre-directement-sur-un-routeur-voire-meme-en-2gbps/
+    site: lafibre.info
+    note: In French
+  - title: MagtiCom fiber in Georgia
+    url: https://telegra.ph/Georgia-DFP-34X-2C2-and-MagtiCom-04-23
+    site: Telegraph
+  - title: "T-Mobile Netherlands: replacing the Huawei ONT"
+    url: https://providerforum.nl/topics/vervangen-t-mobile-huawei-gpon.95394/page-3#post-1348257
+    site: providerforum.nl
+    note: English translation
+    note_url: https://providerforum-nl.translate.goog/topics/vervangen-t-mobile-huawei-gpon.95394/page-3?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp#post-1348257
+  - title: SilkNet fiber in Georgia
+    url: https://telegra.ph/Georgia-DFP-34X-2C2-and-SilkNet-11-07
+    site: Telegraph
+  - title: "Bangladesh: Dot-Internet Dhaka"
+    url: https://github.com/Anime4000/RTL960x/issues/307
+    site: GitHub

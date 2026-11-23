@@ -95,7 +95,7 @@ eras:
     h: 720
     latest: true
     desc: >-
-      A new base. Luna runs on Andre Ziviani's ODI OSS and Linux 6.18, with
+      A new base. Luna runs on Andre Ziviani's RTL9601 OSS and Linux 6.18, with
       open switch, GPON and OMCI drivers in place of the vendor's. Nijika UI
       draws the line itself: PON state, light in and out against the limits,
       temperature, traffic and the VLANs, with the OLT's VEIP and PPTP ports
@@ -147,7 +147,7 @@ credits:
   - name: stich86, inyourgroove, rajkosto and O3
     what: scripts integrated into the classic firmware
   - name: Andre Ziviani
-    what: ODI OSS and odi-ui, the base of NIJIKA-Luna
+    what: RTL9601 OSS and odi-ui, the base of NIJIKA-Luna
     url: https://github.com/AndreZiviani/odi-oss
   - name: Pedro Teixeira (metal-stress)
     what: Peter-Pon, the UX inspiration for Nijika UI

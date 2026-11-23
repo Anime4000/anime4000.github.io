@@ -1,11 +1,11 @@
 ---
 layout: page
 title: xPON Freedom
-seo_title: xPON Freedom — RTL960x, NIJIKA and Open PON Foundation
+seo_title: "xPON Freedom: RTL960x, NIJIKA and Open PON Foundation"
 description: >-
   How Anime4000 leads the RTL960x xPON hacking effort: open GPON and XGS-PON
-  firmware, true 2 Gbps on TM Unifi, NIJIKA PON sticks and the Open PON
-  Foundation.
+  firmware across Lantiq Falcon, Realtek and MediaTek, true 2 Gbps on TM
+  Unifi, NIJIKA PON sticks and the Open PON Foundation.
 permalink: /pon/
 tone: yellow
 eyebrow: xPON Freedom
@@ -88,12 +88,48 @@ lede: >-
           <li>
             <p class="firmware-name"><strong>{% if fw.url %}<a href="{{ fw.url }}" rel="noopener">{{ fw.name }}</a>{% else %}{{ fw.name }}{% endif %}</strong> <span class="tag">{{ fw.tech }}</span> <span class="tag tag-quiet">{{ fw.chip }}</span>{% if fw.badge %} <span class="tag tag-mine">{{ fw.badge }}</span>{% endif %}</p>
             <p class="firmware-desc">{{ fw.desc }}</p>
+            {% if fw.by %}<p class="firmware-by">by {{ fw.by }}</p>{% endif %}
           </li>
           {% endfor %}
         </ul>
-        <p class="fineprint">This list is ahead of openpon.org, which so far lists four of them.</p>
+        <p class="fineprint">The same seven projects are listed on <a href="https://www.openpon.org/#firmware" rel="noopener">openpon.org</a>.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section tone-yellow" id="tracks" aria-labelledby="tracks-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Platforms <span class="jp" lang="ja">／ プラットフォーム</span></p>
+    <h2 id="tracks-title">Three major Open PON development tracks</h2>
+    <p class="lede narrow">
+      Open PON development is grouped by PON SoC vendor. Each track has its own firmware,
+      target hardware and contributors.
+    </p>
+    <div class="grid grid-3 tracks">
+      {% for track in site.data.pon.tracks %}
+      <article class="track">
+        <p class="project-role">{{ track.scope }}</p>
+        <h3>{{ track.name }}</h3>
+        <p class="track-summary">{{ track.summary }}</p>
+        <dl class="track-specs">
+          {% for spec in track.specs %}<div><dt>{{ spec.label }}</dt><dd>{{ spec.value }}</dd></div>{% endfor %}
+        </dl>
+        <ul class="track-projects">
+          {% for p in track.projects %}
+          <li>
+            <p class="track-project"><strong>{% if p.url %}<a href="{{ p.url }}" rel="noopener">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</strong> <span>{{ p.note }}</span></p>
+            {% if p.status %}<span class="tag{% if p.tag == 'mine' %} tag-mine{% elsif p.tag == 'quiet' %} tag-quiet{% endif %}">{{ p.status }}</span>{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="fineprint">
+      XGS-PON firmware (8311, CA8271x) sits outside the three tracks. The same tracks are on
+      <a href="https://www.openpon.org/#platforms" rel="noopener">openpon.org</a>.
+    </p>
   </div>
 </section>
 
@@ -128,9 +164,10 @@ lede: >-
       {% endfor %}
     </div>
     <p class="fineprint">
-      NIJIKA Luna builds on <a href="https://github.com/AndreZiviani/odi-oss" rel="noopener">ODI OSS</a>
+      NIJIKA-Luna builds on <a href="https://github.com/AndreZiviani/odi-oss" rel="noopener">RTL9601 OSS</a>
       and <a href="https://github.com/AndreZiviani/odi-ui" rel="noopener">odi-ui</a> by Andre Ziviani.
-      NijikaWrt and RemixWrt IIDX are Pururin Collective projects.
+      RTL9601 OSS runs on any RTL9601 stick, not only ODI: Ubiquiti UF-Instant and D-Link
+      DPN-100 included. NijikaWrt and RemixWrt IIDX are Pururin Collective projects.
     </p>
     <p class="actions">
       <a class="button" href="{{ '/nijika/' | relative_url }}">NIJIKA, from classic to Luna <span aria-hidden="true">→</span></a>
@@ -174,14 +211,36 @@ lede: >-
   </div>
 </section>
 
+<section class="section tone-yellow" id="stories" aria-labelledby="stories-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>Success stories <span class="jp" lang="ja">／ 成功例</span></p>
+    <h2 id="stories-title">Ditching the stock ONU</h2>
+    <p class="lede narrow">
+      Subscribers who replaced the operator's ONT with a GPON stick and wrote it up.
+    </p>
+    <ol class="wins">
+      {% for s in site.data.pon.stories %}
+      <li>
+        <p class="win-title"><a href="{{ s.url }}" rel="noopener">{{ s.title }}</a></p>
+        <p class="win-meta"><span class="tag tag-quiet">{{ s.site }}</span>{% if s.note %} {% if s.note_url %}<a href="{{ s.note_url }}" rel="noopener">{{ s.note }}</a>{% else %}{{ s.note }}{% endif %}{% endif %}</p>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="fineprint">
+      From <a href="{{ site.data.pon.stories_source }}" rel="noopener">RTL960x: Success Story</a>,
+      also listed on <a href="https://www.openpon.org/#achievements" rel="noopener">openpon.org</a>.
+    </p>
+  </div>
+</section>
+
 <section class="section tone-yellow" id="falcon" aria-labelledby="falcon-title">
   <div class="wrap">
     <p class="eyebrow"><span class="eyebrow-mark"></span>In progress · Lantiq Falcon <span class="jp" lang="ja">／ 開発中</span></p>
     <h2 id="falcon-title">PPPoE in the Falcon Packet Engine</h2>
     <p class="lede narrow">
-      A Peter-PON developer has reverse-engineered the Packet Engine in Lantiq's Falcon GPON
-      SoC. The stick can now run a PPPoE client with the data path in hardware, at close to
-      full speed.
+      The Peter-Pon team (Pedro Teixeira, Штеуд and wackejohn) reverse engineered the Packet
+      Engine in Lantiq's Falcon GPON SoC. The stick can now run a PPPoE client with the data
+      path in hardware, at close to full speed.
     </p>
     <div class="prose">
       <p>
@@ -293,8 +352,8 @@ lede: >-
       <h2 id="safety-title">Open networking requires responsibility</h2>
       <p>
         PON is a shared medium. One misbehaving ONU can disrupt upstream synchronisation for
-        every subscriber on the same fibre split, and operators watch for exactly that —
-        disconnection, blacklisting and penalties are real outcomes.
+        every subscriber on the same fibre split, and operators watch for exactly that.
+        Disconnection, blacklisting and penalties are real outcomes.
       </p>
       <p>
         This work promotes open knowledge and interoperability, not reckless deployment.

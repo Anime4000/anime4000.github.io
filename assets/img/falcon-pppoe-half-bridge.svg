@@ -222,5 +222,5 @@
   <text x="40" y="738" class="fhb-t13 fhb-muted">Upstream is the mirror image: the PE inserts the PPPoE session ID and the VLAN tag. MTU 1492 reaches the router in DHCP option 26.</text>
 
   <line x1="40" y1="760" x2="1160" y2="760" stroke="var(--f-line)" stroke-width="1"/>
-  <text x="40" y="786" class="fhb-t12 fhb-muted">Status, November 2026: hardware PPPoE runs on an OLT emulator; Half-Bridge mode is planned. Packet Engine reverse-engineered by the Peter-PON team.</text>
+  <text x="40" y="786" class="fhb-t12 fhb-muted">Status, November 2026: hardware PPPoE runs on an OLT emulator; Half-Bridge mode is planned. Packet Engine reverse engineered by the Peter-Pon team.</text>
 </svg>

@@ -7,19 +7,18 @@ tiers:
   msp:
     label: Managed IT · MSP
     desc: >-
-      Takes the deployment end to end — fibre, ONT, routing and access
-      points — with every piece procured in your own name.
+      Handles the full deployment: fibre, ONT, routing and access points.
+      All equipment is procured in the customer's name.
   trade:
     label: Trade supply
     desc: >-
-      A business you buy hardware from, deployment left to you or your own
-      integrator.
+      Business that sells hardware. Deployment is done by the buyer or the
+      buyer's integrator.
   community:
     label: Community supply
     desc: >-
-      An individual who supplies sticks and helps with firmware. Their time
-      is given voluntarily, so treat it as a favour rather than a support
-      contract.
+      Individual who supplies sticks and firmware help on a voluntary basis.
+      No support contract applies.
 
 # Each vendor has a `website` or a Telegram `telegram` handle (without @).
 countries:
