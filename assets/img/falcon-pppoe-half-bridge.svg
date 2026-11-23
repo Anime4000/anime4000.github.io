@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="fhb" viewBox="0 0 1200 810" role="img" aria-labelledby="fhb-title fhb-desc" font-family="'Segoe UI Variable Text','Segoe UI',system-ui,-apple-system,'Helvetica Neue',sans-serif">
+  <title id="fhb-title">Falcon GPON SFP in PPPoE Half-Bridge</title>
+  <desc id="fhb-desc">The OLT carries a PPPoE session over fibre to a Lantiq Falcon GPON SFP stick. The stick's CPU handles PLOAM, OMCI and PPPoE signalling, and hands the PPPoE public IPv4 address to a Ubiquiti UDM SE over DHCP. The Packet Engine strips and adds the VLAN and PPPoE headers in hardware, so the router sees plain IPoE.</desc>
+  <style>
+    /* Colours follow the host page's tokens when inlined (so the site's theme toggle works),
+       and fall back to the site palette when this file is opened on its own. */
+    .fhb {
+      --f-paper: var(--paper, #f7f0e6);
+      --f-surface: var(--surface, #fffaf3);
+      --f-sunken: var(--sunken, #efe6d8);
+      --f-ink: var(--ink, #27222d);
+      --f-muted: var(--muted, #655c69);
+      --f-line: var(--line, #e2d6c5);
+      --f-line-strong: var(--line-strong, #cdbfaa);
+      --f-pink: var(--pink, #e8518d);
+      --f-pink-ink: var(--pink-ink, #b3275c);
+      --f-blue: var(--blue, #2f86dc);
+      --f-blue-ink: var(--blue-ink, #1b60a8);
+      --f-yellow: var(--yellow, #f5b301);
+      --f-yellow-ink: var(--yellow-ink, #855600);
+      --f-teal: var(--teal, #17a5a0);
+      --f-teal-ink: var(--teal-ink, #0a716d);
+      --f-led: var(--led, #2fb866);
+    }
+    @media (prefers-color-scheme: dark) {
+      .fhb {
+        --f-paper: var(--paper, #16131a);
+        --f-surface: var(--surface, #1f1b25);
+        --f-sunken: var(--sunken, #110f14);
+        --f-ink: var(--ink, #f3ebe1);
+        --f-muted: var(--muted, #aba1ad);
+        --f-line: var(--line, #322c3a);
+        --f-line-strong: var(--line-strong, #463e50);
+        --f-pink: var(--pink, #ff7fb0);
+        --f-pink-ink: var(--pink-ink, #ff9cc3);
+        --f-blue: var(--blue, #62aefc);
+        --f-blue-ink: var(--blue-ink, #8cc4ff);
+        --f-yellow: var(--yellow, #f8c544);
+        --f-yellow-ink: var(--yellow-ink, #f8c544);
+        --f-teal: var(--teal, #45cfc6);
+        --f-teal-ink: var(--teal-ink, #6fddd5);
+        --f-led: var(--led, #4fe08a);
+      }
+    }
+    .fhb .fhb-bg { fill: var(--f-paper); }
+    .fhb .fhb-card { fill: var(--f-surface); stroke: var(--f-line-strong); stroke-width: 1.5; }
+    .fhb .fhb-card-falcon { fill: var(--f-surface); stroke: var(--f-yellow); stroke-width: 2.5; }
+    .fhb .fhb-chip { fill: var(--f-pink); fill-opacity: .09; stroke: var(--f-pink); stroke-opacity: .55; stroke-width: 1.25; }
+    .fhb .fhb-pe { fill: var(--f-teal); fill-opacity: .11; stroke: var(--f-teal); stroke-opacity: .6; stroke-width: 1.25; }
+    .fhb .fhb-ink { fill: var(--f-ink); }
+    .fhb .fhb-muted { fill: var(--f-muted); }
+    .fhb .fhb-pink { fill: var(--f-pink-ink); }
+    .fhb .fhb-teal { fill: var(--f-teal-ink); }
+    .fhb .fhb-blue { fill: var(--f-blue-ink); }
+    .fhb .fhb-yellow { fill: var(--f-yellow-ink); }
+    .fhb .fhb-h1 { font: 700 28px 'Segoe UI Variable Display','Segoe UI',system-ui,sans-serif; letter-spacing: -.01em; }
+    .fhb .fhb-h2 { font-size: 18px; font-weight: 700; }
+    .fhb .fhb-h3 { font-size: 17px; font-weight: 700; }
+    .fhb .fhb-b15 { font-size: 15px; font-weight: 700; }
+    .fhb .fhb-t15 { font-size: 15px; }
+    .fhb .fhb-t13 { font-size: 13px; }
+    .fhb .fhb-t12 { font-size: 12px; }
+    .fhb .fhb-b13 { font-size: 13px; font-weight: 700; }
+    .fhb .fhb-tag { font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+    .fhb .fhb-mono { font-family: 'Cascadia Code','Cascadia Mono',ui-monospace,Menlo,Consolas,monospace; }
+    .fhb .fhb-fibre { stroke: var(--f-yellow); stroke-width: 5; stroke-linecap: round; }
+    .fhb .fhb-eth { stroke: var(--f-blue); stroke-width: 5; stroke-linecap: round; }
+    .fhb .fhb-flow { stroke: var(--f-teal); stroke-width: 2; fill: none; }
+    .fhb .fhb-ctl { stroke: var(--f-pink); stroke-width: 1.75; stroke-dasharray: 5 4; fill: none; }
+    .fhb .fhb-lease { stroke: var(--f-blue); stroke-width: 1.75; stroke-dasharray: 5 4; fill: none; }
+    .fhb .fhb-dot-y { fill: var(--f-yellow); }
+    .fhb .fhb-dot-b { fill: var(--f-blue); }
+    .fhb .fhb-led { fill: var(--f-led); }
+    .fhb .fhb-ah-teal { fill: var(--f-teal); }
+    .fhb .fhb-ah-pink { fill: var(--f-pink); }
+    .fhb .fhb-ah-blue { fill: var(--f-blue); }
+    .fhb .fhb-seg { stroke: var(--f-line-strong); stroke-width: 1; }
+    .fhb .fhb-seg-eth { fill: var(--f-sunken); }
+    .fhb .fhb-seg-ovh { fill: var(--f-pink); fill-opacity: .14; }
+    .fhb .fhb-seg-ip { fill: var(--f-blue); fill-opacity: .14; }
+    .fhb .fhb-seg-pay { fill: var(--f-surface); }
+    .fhb .fhb-seg-gone { fill: none; stroke: var(--f-teal); stroke-width: 1.5; stroke-dasharray: 6 4; }
+  </style>
+  <defs>
+    <marker id="fhb-a-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="fhb-ah-teal"/></marker>
+    <marker id="fhb-a-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="fhb-ah-pink"/></marker>
+    <marker id="fhb-a-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="fhb-ah-blue"/></marker>
+  </defs>
+
+  <rect class="fhb-bg" width="1200" height="810" rx="18"/>
+
+  <!-- Heading -->
+  <text x="40" y="56" class="fhb-h1 fhb-ink">Falcon GPON SFP in PPPoE Half-Bridge</text>
+  <text x="40" y="84" class="fhb-t15 fhb-muted">The stick terminates PPPoE in its Packet Engine and hands the public IPv4 address to the router over DHCP.</text>
+
+  <!-- ===== OLT ===== -->
+  <text x="40" y="288" class="fhb-tag fhb-muted">OPERATOR</text>
+  <rect class="fhb-card" x="40" y="300" width="170" height="196" rx="14"/>
+  <text x="58" y="334" class="fhb-h2 fhb-ink">OLT</text>
+  <text x="58" y="360" class="fhb-t13 fhb-muted">GPON port</text>
+  <text x="58" y="380" class="fhb-t13 fhb-muted">2.5G ↓ · 1.25G ↑</text>
+  <text x="58" y="436" class="fhb-t13 fhb-muted">BRAS / BNG</text>
+  <text x="58" y="454" class="fhb-t13 fhb-muted">behind it ends</text>
+  <text x="58" y="472" class="fhb-t13 fhb-muted">the PPPoE session</text>
+
+  <!-- PPPoE signalling path: Falcon CPU to BRAS -->
+  <path class="fhb-ctl" d="M590 210 V194 H150 V294" marker-end="url(#fhb-a-pink)" marker-start="url(#fhb-a-pink)"/>
+  <text x="160" y="186" class="fhb-t12 fhb-pink">PPPoE session to BRAS</text>
+
+  <!-- Fibre link -->
+  <line class="fhb-fibre" x1="214" y1="398" x2="306" y2="398"/>
+  <circle class="fhb-dot-y" cx="214" cy="398" r="5"/>
+  <circle class="fhb-dot-y" cx="306" cy="398" r="5"/>
+  <text x="260" y="382" text-anchor="middle" class="fhb-b13 fhb-yellow">fibre</text>
+  <text x="260" y="424" text-anchor="middle" class="fhb-t12 fhb-muted">PPPoE in</text>
+  <text x="260" y="440" text-anchor="middle" class="fhb-t12 fhb-muted">VLAN + GEM</text>
+
+  <!-- ===== Falcon SFP ===== -->
+  <text x="310" y="108" class="fhb-tag fhb-yellow">SUBSCRIBER · OPEN FIRMWARE</text>
+  <rect class="fhb-card-falcon" x="310" y="120" width="560" height="380" rx="16"/>
+  <circle class="fhb-led" cx="846" cy="146" r="5"/>
+  <text x="334" y="154" class="fhb-h2 fhb-ink">Falcon GPON SFP ONU</text>
+  <text x="334" y="175" class="fhb-t13 fhb-muted">Lantiq FALC ON SoC</text>
+
+  <!-- Control plane -->
+  <rect class="fhb-chip" x="334" y="210" width="152" height="90" rx="10"/>
+  <text x="348" y="236" class="fhb-b15 fhb-ink">PLOAM + OMCI</text>
+  <text x="348" y="258" class="fhb-t13 fhb-muted">ranging, auth</text>
+  <text x="348" y="276" class="fhb-t13 fhb-muted">GEM ports to OLT</text>
+
+  <rect class="fhb-chip" x="514" y="210" width="152" height="90" rx="10"/>
+  <text x="528" y="236" class="fhb-b15 fhb-ink">PPPoE client</text>
+  <text x="528" y="258" class="fhb-t13 fhb-muted">PADI → PADS</text>
+  <text x="528" y="276" class="fhb-t13 fhb-muted">LCP · CHAP · IPCP</text>
+
+  <rect class="fhb-chip" x="694" y="210" width="152" height="90" rx="10"/>
+  <text x="708" y="236" class="fhb-b15 fhb-ink">DHCP server</text>
+  <text x="708" y="258" class="fhb-t13 fhb-muted">leases the IPCP IP</text>
+  <text x="708" y="276" class="fhb-t13 fhb-muted">+ MTU 1492</text>
+
+  <line class="fhb-flow" x1="668" y1="255" x2="690" y2="255" style="stroke:var(--f-pink)" marker-end="url(#fhb-a-pink)"/>
+  <text x="680" y="246" text-anchor="middle" class="fhb-t12 fhb-pink">IP</text>
+
+  <text x="334" y="322" class="fhb-tag fhb-pink">CONTROL PLANE · CPU</text>
+
+  <!-- Data plane -->
+  <rect class="fhb-pe" x="334" y="340" width="512" height="116" rx="10"/>
+  <text x="350" y="364" class="fhb-tag fhb-teal">DATA PLANE · PACKET ENGINE (GPE) · HARDWARE</text>
+  <text x="590" y="390" text-anchor="middle" class="fhb-t13 fhb-ink">downstream: strip VLAN + PPPoE, forward at line rate</text>
+  <line class="fhb-flow" x1="350" y1="402" x2="828" y2="402" marker-end="url(#fhb-a-teal)"/>
+  <text x="590" y="430" text-anchor="middle" class="fhb-t13 fhb-ink">upstream: add PPPoE session + VLAN, no CPU in the path</text>
+  <line class="fhb-flow" x1="828" y1="442" x2="352" y2="442" marker-end="url(#fhb-a-teal)"/>
+  <text x="334" y="484" class="fhb-t12 fhb-muted">PPPoE handled in hardware on the stick: the router never sees it.</text>
+
+  <!-- DHCP lease to the router -->
+  <path class="fhb-lease" d="M846 255 H1100 V294" marker-end="url(#fhb-a-blue)"/>
+  <text x="988" y="246" text-anchor="middle" class="fhb-t12 fhb-blue"><tspan class="fhb-mono">DHCP lease 203.0.113.45</tspan></text>
+
+  <!-- Ethernet link -->
+  <line class="fhb-eth" x1="874" y1="398" x2="961" y2="398"/>
+  <circle class="fhb-dot-b" cx="874" cy="398" r="5"/>
+  <circle class="fhb-dot-b" cx="961" cy="398" r="5"/>
+  <text x="918" y="382" text-anchor="middle" class="fhb-b13 fhb-blue">SFP port</text>
+  <text x="918" y="424" text-anchor="middle" class="fhb-t12 fhb-muted">plain IPoE</text>
+  <text x="918" y="440" text-anchor="middle" class="fhb-t12 fhb-muted">no VLAN</text>
+
+  <!-- ===== UDM SE ===== -->
+  <text x="965" y="288" class="fhb-tag fhb-muted">SUBSCRIBER</text>
+  <rect class="fhb-card" x="965" y="300" width="205" height="196" rx="14"/>
+  <text x="981" y="332" class="fhb-h3 fhb-ink">Ubiquiti UDM SE</text>
+  <text x="981" y="358" class="fhb-t13 fhb-ink">WAN: DHCP client</text>
+  <text x="981" y="377" class="fhb-t13 fhb-muted fhb-mono">203.0.113.45</text>
+  <text x="981" y="396" class="fhb-t13 fhb-muted">public IPv4, MTU 1492</text>
+  <text x="981" y="432" class="fhb-t13 fhb-ink">No PPPoE on its CPU:</text>
+  <text x="981" y="451" class="fhb-t13 fhb-muted">offload stays on,</text>
+  <text x="981" y="470" class="fhb-t13 fhb-muted">headroom for IPS, VPN</text>
+  <text x="965" y="520" class="fhb-t12 fhb-muted">or MikroTik, Sophos,</text>
+  <text x="965" y="536" class="fhb-t12 fhb-muted">any router with DHCP WAN</text>
+
+  <!-- ===== Frames ===== -->
+  <text x="40" y="576" class="fhb-h2 fhb-ink">What the Packet Engine does to every frame</text>
+
+  <text x="40" y="618" class="fhb-b13 fhb-ink">Fibre side</text>
+  <text x="40" y="636" class="fhb-t12 fhb-muted">OLT ↔ Falcon</text>
+  <g>
+    <rect class="fhb-seg fhb-seg-eth" x="230" y="600" width="110" height="44"/>
+    <rect class="fhb-seg fhb-seg-ovh" x="340" y="600" width="80" height="44"/>
+    <rect class="fhb-seg fhb-seg-ovh" x="420" y="600" width="90" height="44"/>
+    <rect class="fhb-seg fhb-seg-ovh" x="510" y="600" width="70" height="44"/>
+    <rect class="fhb-seg fhb-seg-ip" x="580" y="600" width="90" height="44"/>
+    <rect class="fhb-seg fhb-seg-pay" x="670" y="600" width="330" height="44"/>
+    <text x="285" y="619" text-anchor="middle" class="fhb-b13 fhb-ink">Ethernet</text>
+    <text x="285" y="635" text-anchor="middle" class="fhb-t12 fhb-muted">14 B</text>
+    <text x="380" y="619" text-anchor="middle" class="fhb-b13 fhb-pink">VLAN</text>
+    <text x="380" y="635" text-anchor="middle" class="fhb-t12 fhb-muted">4 B</text>
+    <text x="465" y="619" text-anchor="middle" class="fhb-b13 fhb-pink">PPPoE</text>
+    <text x="465" y="635" text-anchor="middle" class="fhb-t12 fhb-muted">6 B</text>
+    <text x="545" y="619" text-anchor="middle" class="fhb-b13 fhb-pink">PPP</text>
+    <text x="545" y="635" text-anchor="middle" class="fhb-t12 fhb-muted">2 B</text>
+    <text x="625" y="619" text-anchor="middle" class="fhb-b13 fhb-blue">IPv4</text>
+    <text x="625" y="635" text-anchor="middle" class="fhb-t12 fhb-muted">20 B</text>
+    <text x="835" y="619" text-anchor="middle" class="fhb-b13 fhb-ink">payload</text>
+    <text x="835" y="635" text-anchor="middle" class="fhb-t12 fhb-muted">up to 1472 B</text>
+  </g>
+
+  <text x="40" y="680" class="fhb-b13 fhb-ink">Router side</text>
+  <text x="40" y="698" class="fhb-t12 fhb-muted">Falcon ↔ UDM SE</text>
+  <g>
+    <rect class="fhb-seg fhb-seg-eth" x="230" y="662" width="110" height="44"/>
+    <rect class="fhb-seg-gone" x="342" y="664" width="236" height="40" rx="4"/>
+    <rect class="fhb-seg fhb-seg-ip" x="580" y="662" width="90" height="44"/>
+    <rect class="fhb-seg fhb-seg-pay" x="670" y="662" width="330" height="44"/>
+    <text x="285" y="681" text-anchor="middle" class="fhb-b13 fhb-ink">Ethernet</text>
+    <text x="285" y="697" text-anchor="middle" class="fhb-t12 fhb-muted">14 B</text>
+    <text x="460" y="689" text-anchor="middle" class="fhb-b13 fhb-teal">removed by the PE</text>
+    <text x="625" y="681" text-anchor="middle" class="fhb-b13 fhb-blue">IPv4</text>
+    <text x="625" y="697" text-anchor="middle" class="fhb-t12 fhb-muted">20 B</text>
+    <text x="835" y="681" text-anchor="middle" class="fhb-b13 fhb-ink">payload</text>
+    <text x="835" y="697" text-anchor="middle" class="fhb-t12 fhb-muted">up to 1472 B</text>
+  </g>
+
+  <text x="40" y="738" class="fhb-t13 fhb-muted">Upstream is the mirror image: the PE inserts the PPPoE session ID and the VLAN tag. MTU 1492 reaches the router in DHCP option 26.</text>
+
+  <line x1="40" y1="760" x2="1160" y2="760" stroke="var(--f-line)" stroke-width="1"/>
+  <text x="40" y="786" class="fhb-t12 fhb-muted">Status, November 2026: hardware PPPoE runs on an OLT emulator; Half-Bridge mode is planned. Packet Engine reverse-engineered by the Peter-PON team.</text>
+</svg>

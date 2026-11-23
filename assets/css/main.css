@@ -615,6 +615,12 @@ a:hover { color: var(--tone-ink); }
 .shot img { width: 100%; border-radius: var(--radius); border: 1px solid var(--line-strong); box-shadow: var(--shadow); background: #1b1b1b; }
 .shot figcaption { margin-top: .75rem; font-size: .86rem; color: var(--muted); }
 
+/* Wide inline SVG diagrams. Scroll sideways inside the frame on phones rather than shrink to unreadable. */
+.diagram { margin: 2rem 0 0; }
+.diagram-frame { overflow-x: auto; border: 1px solid var(--line-strong); border-radius: var(--radius); box-shadow: var(--shadow); background: var(--paper); }
+.diagram-frame svg { display: block; width: 100%; min-width: 760px; height: auto; }
+.diagram figcaption { margin-top: .75rem; font-size: .86rem; color: var(--muted); }
+
 /* The NIJIKA family tree. An indented tree on phones, a top-down chart on wide screens. */
 .lineage { display: grid; gap: 2.5rem 16px; margin-top: 2rem; }
 .lineage-root {

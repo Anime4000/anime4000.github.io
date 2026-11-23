@@ -174,6 +174,37 @@ lede: >-
   </div>
 </section>
 
+<section class="section tone-yellow" id="falcon" aria-labelledby="falcon-title">
+  <div class="wrap">
+    <p class="eyebrow"><span class="eyebrow-mark"></span>In progress · Lantiq Falcon <span class="jp" lang="ja">／ 開発中</span></p>
+    <h2 id="falcon-title">PPPoE in the Falcon Packet Engine</h2>
+    <p class="lede narrow">
+      A Peter-PON developer has reverse-engineered the Packet Engine in Lantiq's Falcon GPON
+      SoC. The stick can now run a PPPoE client with the data path in hardware, at close to
+      full speed.
+    </p>
+    <div class="prose">
+      <p>
+        On Realtek sticks, NAT runs through the CPU. On Falcon there was no way to do it at all
+        until the Packet Engine was opened up. The next step is PPPoE Half-Bridge: the stick
+        holds the PPPoE session and hands the public IPv4 address to your router over DHCP.
+        A UniFi, MikroTik or Sophos box then sees plain IPoE, keeps its hardware offload, and
+        spends its CPU on the firewall instead.
+      </p>
+    </div>
+    <figure class="diagram">
+      <div class="diagram-frame" tabindex="0" role="region" aria-label="PPPoE Half-Bridge diagram, scrolls sideways on small screens">
+        {% include_relative assets/img/falcon-pppoe-half-bridge.svg %}
+      </div>
+      <figcaption>
+        How a Falcon GPON SFP in PPPoE Half-Bridge would sit between the OLT and a UDM SE.
+        <a href="{{ '/assets/img/falcon-pppoe-half-bridge.svg' | relative_url }}">Open the SVG</a>
+      </figcaption>
+    </figure>
+    <p class="fineprint">So far this runs on an OLT emulator. Half-Bridge mode is planned, not released.</p>
+  </div>
+</section>
+
 <section class="section tone-teal" id="suppliers" aria-labelledby="suppliers-title">
   <div class="wrap">
     <p class="eyebrow"><span class="eyebrow-mark"></span>Regional suppliers <span class="jp" lang="ja">／ 販売店</span></p>
